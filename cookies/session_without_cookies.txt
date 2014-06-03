@@ -1,0 +1,8 @@
+you can set your session.use_only_cookies to "0" to force the appendage of a session ID to URLs within your php. This approach, however, has several draw backs. Mainly that of keeping the state within the URL, as opposed to the Cookie header. If a user were to copy and paste the URL of the page they were on, and someone else were to click on it, they would both be using the same session.
+
+<?php
+     ini_set("session.use_cookies",0);
+     ini_set("session.use_only_cookies",0);
+     ini_set("session.use_trans_sid",1); # Forgot this one!
+     session_start();
+?>

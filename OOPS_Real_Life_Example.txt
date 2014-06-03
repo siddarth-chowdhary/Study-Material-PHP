@@ -1,0 +1,80 @@
+OOPS Concept With Real Life Example
+------------------------------------
+
+
+Objects: 
+-------
+Object is the basic unit of object-oriented programming.Objects are identified by its unique name. An objectrepresents a particular instance of a class. There can be more than one instance of an object. Each instance of an object can hold its own relevant data.
+
+An Object is a collection of data members and associated member functions also known as methods.
+
+Classes:
+-------
+ Classes are data types based on which objects are created.Objects with similar properties and methods are grouped together to form a Class. Thus a Class represent a set of individual objects. Characteristics of an object are represented in a class as Properties. The actions that can be performed by objects becomes functions of the class and is referred to as Methods.
+
+Example #1:
+
+For example consider we have a Class of Cars under which Santro Xing, Alto and WaganR represents individual Objects.In this context each Car Object will have its own, Model,Year of Manufacture, Colour, Top Speed, Engine Power etc.,which form Properties of the Car class and the associated actions i.e., object functions like Start, Move, Stop form the Methods of Car Class.No memory is allocated when a class is created. Memory is
+allocated only when an object is created, i.e., when an instance of a class is created.
+
+Example #2:
+
+An architect will have the blueprints for a house....those blueprints will be plans that explain exactly what properties the house will have and how they are all layed out.  However it is just the blueprint, you can't live in it.  Builders will look at the blueprints and use those blueprints to make a physical house.  They can use the same blueprint to make as many houses as they want....each house will have the same layout and properties.  Each house can accommodate it's own families...so one house might have the Smiths live in it, one house might have the Jones live in it.
+
+The blueprint is the class...the house is the object.  The people living in the house are data stored in the object's properties.
+
+Abstraction: 
+-----------
+Abstraction means showing essential features and hiding non-essential features to the user.
+
+For Eg.  Yahoo Mail...
+
+When you provide the user name and password and click on submit button..It will show Compose,Inbox,Outbox,Sentmails...so and so when you click on compose it will open...but user doesn't
+know what are the actions performed internally....It just Opens....that is essential; User doesn't know internal actions ...that is non-essential things...
+
+For Eg. Tv Remote..
+Remote is a interface between user and tv..right. which has buttons like 0 to 10 ,on /of etc but we dont know circuits inside remote...User does not  need to know..Just he is using essential thing that is remote.
+ 
+
+Encapsulation:
+-------------
+ Encapsulation means which binds the data and code (or) writing operations and methods in single unit (class).
+ 
+For Example:
+A car is having multiple parts..like steering,wheels,engine...etc..which binds together to form a single object that is car. So, Here multiple parts of cars encapsulates itself together to form a single object that is Car.
+
+In real time we are using Encapsulation for security purpose...
+
+Encapsulation = Abstraction + Data Hiding.
+
+
+Inheritance: 
+-----------
+Deriving a new class from the existing class,is called Inheritance.
+Derived(sub class) class is getting all the features from Existing (super class\base class) class and also incorporating some new features to the sub class.
+
+In the above Example class LatestAddress getting all features from the Address class.
+In the LatestAddress class we have total 6 properties..3 are inherited from Address class and 3 properties are
+incorporated. So In the class Vishal we are declaring the object of class LatestAddress and then assign new variables using the properties of the previous base classes... So this is a nice example of inheritance..
+
+Polymorphism :
+-------------
+Polymorphism means ability to take more than one form that an operation can exhibit different behavior at different instance depend upon the data passed in the operation.
+
+1>We behave differently in front of elders, and friends. A single person is behaving differently at different time.
+
+2> A software engineer can perform different task at different instance of time depending on the task assigned  to him .He can done coding , testing , analysis and designing depending on the task assign and the requirement.
+
+3> Consider the stadium of common wealth games. Single stadium but it perform multiple task like swimming, lawn tennis etc.
+
+4> If a girl is married and mother of 2 children doing teaching job then  she is a women first ,, teacher in a school when she is in school,,wife of someone at home,, mother of her children,, and obvious daughter of someone & may be girl friend of someone (just kidding) means a woman plays diffent roles at different times dats the polymorphism (many forms).
+
+Summary:
+OOPs have following features:
+
+1. Object             - Instance of Class
+2. Class               - Blue print of Object 
+3. Encapsulation    - Protecting our Data
+4. Polymorphism   - Different behaviors at different instances
+5. Abstraction        - Hiding our irrelevant Data
+6. Inheritence        - One property of object is acquiring to another property of object

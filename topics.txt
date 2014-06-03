@@ -1,0 +1,19 @@
+oops - complete cons,desc,clone,magic fn,static,
++ real life ex
+mysql - conn
+json 
+jquery - modulation,has sign,
+cron job
+jquery current ver
+php current ver
+mysql current ver
+session
+cookies 
+without cookies session
+xss - cross site scriptiong
+sql injection
+ajax
+mvc
+$$ in php
+pass by value, pass by ref
+return type in ajax specific

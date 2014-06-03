@@ -1,0 +1,10 @@
+1. 	__construct() and nameOfClass() both can be used as contructors but __construct has higher priority.
+	__construct cam in php 5.5
+
+2. you cannot call a function declared as protected or private from a object directly gives a Fatal error.
+
+3. you cannot acces the private property directly from a object gives a Fatal error however you can access a protected member through an object.
+
+4. If you try to access non static members through self keyword gives a fatal error
+
+5. desctruct runs when object references finish or when script is over
