@@ -1,0 +1,37 @@
+<?php
+
+
+try {
+	$dbh = new PDO(	"mysql:host=localhost;dbname=test","root","root");
+	
+	
+	
+	$result = 	$dbh->query("Select * from emp");
+	print_r($result->fetch());
+	print_r($result->fetchAll());
+	print_r($result->fetchAll(PDO::FETCH_OBJ));
+	
+	//insert way 1
+	$result = 	$dbh->exec("Insert into emp(name,email) values('sidarth' , 'sid@g.com')");
+	echo ($result);
+	
+	//insert way 2
+	$query = 	$dbh->prepare("Insert into emp(name,email) values(:name ,:email)");
+	echo $query->execute(array(":name" => "Sid",":email" => "Sid@g.com"))
+	
+	//insert way 3
+	$query = 	$dbh->prepare("Insert into emp(name,email) values(? , ?)");
+	echo $query->execute(array("Sid","Sid@g.com"));
+	
+	//insert way 4
+	$query = 	$dbh->prepare("Insert into emp(name,email) values(? , ?)");
+	$query->bindParam(1,'Sid');
+	$query->bindParam(2,'Sid@g.com');
+	echo $query->execute();
+	
+	
+} catch (PDOException $e) {
+	$e->getMessage();
+}
+
+?>

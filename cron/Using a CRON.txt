@@ -1,0 +1,109 @@
+CRON - Meaning
+--------------
+Cron means we can schedule a task which can run at a certain time.
+	Methods  :
+	----------
+	1) either create a different file and add to cron tab (ex:1)
+	2) crontab -e and write to the file directly
+
+	Linux Crontab Format (Syntax) :
+	------------------------------
+	MIN HOUR DOM MON DOW CMD
+	
+	Here :
+
+	MIN		Minute field		0 to 59
+	HOUR	Hour field			0 to 23
+	DOM		Day of Month		1-31
+	MON		Month field			1-12
+	DOW		Day Of Week			0-6
+	CMD		Command	Any command to be executed.
+
+	Keyword	Equivalent
+	-------------------
+	@yearly		0 0 1 1 *
+	@daily		0 0 * * *
+	@hourly		0 * * * *
+	@reboot		Run at startup.
+
+	Basic Commands:
+	---------------
+	crontab -l  ->  to view the cron
+	crontab -e  ->  to edit the cron
+	crontab -r  ->  to remove the cron
+
+
+Using a CRON
+------------
+
+1) Install crontab.
+2) Check by command in terminal 
+	crontab -l 
+
+	1st time o/p
+	-------------
+	siddarth@administrator:~/Keys$ crontab -l
+	no crontab for siddarth
+
+Deleting a cron
+----------------
+crontab -r
+or
+crontab -e and edit the file , remove the particular cron
+
+ex 1 : "ls" to a file every 1 minute [LINUX RELATED]
+-----------------------------------------------------
+1) create a file cronTest.txt in /home/siddarth
+write in file:
+# output ls to file every minute
+* * * * * ls >> /home/siddarth/cronLog.log
+
+
+2) run command to add a cron to cron tab 
+crontab cronTest.txt 
+
+3) create a file /home/siddarth/cronLog.log
+
+4) check /home/siddarth/cronLog.log after 5 minutes.
+
+ex 2 : run php file every 1 minute to insert a value in database [PHP RELATED]
+------------------------------------------------------------------------------
+1) create a file cronTest.txt in /home/siddarth
+write in file:
+# run the php file to insert value in db
+* * * * * php /var/www/Dump/cronTest.php
+
+
+2) run command to add a cron to cron tab 
+crontab cronTest.txt 
+
+3) create a file /var/www/Dump/cronTest.php
+write code :
+			/*** mysql hostname ***/
+			$hostname = 'localhost';
+
+			/*** mysql username ***/
+			$username = 'root';
+
+			/*** mysql password ***/
+			$password = 'root';
+
+			try {
+			    $dbh = new PDO("mysql:host=$hostname;dbname=test", $username, $password);
+			    /*** echo a message saying we have connected ***/
+			    // echo 'Connected to database';
+			    /*** INSERT data ***/
+			    $count = $dbh->exec("INSERT INTO testing(name) VALUES ('test')");
+
+			    /*** echo the number of affected rows ***/
+			    // echo $count;
+
+			    /*** close the database connection ***/
+			    $dbh = null;
+			    }
+			catch(PDOException $e)
+			    {
+			    echo $e->getMessage();
+			    }
+
+4) check database , test database,testing table after 5 minutes.

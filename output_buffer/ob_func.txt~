@@ -1,0 +1,20 @@
+To create a new output buffer and start writing to it, call ob_start(). There are two ways to end a buffer, which are ob_end_flush() and ob_end_clean() - the former ends the buffer and sends all data to output, and the latter ends the buffer without sending it to output. Every piece of text outputted while an output buffer is open is placed into that buffer as opposed to being sent to output. Consider the following script:
+
+<?php
+    ob_start();
+    print "Hello First!\n";
+    ob_end_flush();
+
+    ob_start();
+    print "Hello Second!\n";
+    ob_end_clean();
+
+    ob_start();
+    print "Hello Third!\n";
+?>
+
+
+o/p
+
+Hello First
+Hello Third

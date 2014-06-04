@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <script>
+            function ajaxFileUpload(upload_field)
+            {   
+                var filename = upload_field.value;
+                upload_field.form.action = 'upload_file.php';
+                upload_field.form.target = 'upload_iframe';
+                upload_field.form.submit();     
+
+                return true;
+            }
+        </script>
+        <iframe name="upload_iframe" id="upload_iframe" style="width: 800px;height: 400px;"></iframe>
+
+        <form action="javascript:void(0)" method="post" enctype="multipart/form-data">
+            <label for="file">Filename:</label>
+
+            <input type="file" name="file" id="file" onchange="return ajaxFileUpload(this);">
+        </form>
+
+		<div id="container"></div>
+    </body>
+</html>

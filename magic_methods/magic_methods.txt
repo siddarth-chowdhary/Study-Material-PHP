@@ -1,0 +1,86 @@
+/*******************  Magic Methods  **********************/
+* The programmer must actually write the code that defines what the magic function will do. 
+* But, magic functions will never directly be called by the programmer – 
+* actually, PHP will call the function ‘behind the scenes’. 
+* This is why they are called ‘magic’ functions – because they are never directly called,
+* and they allow the programmer to do some pretty powerful things
+************************************************************/
+
+/*********************   List    *************************************************************************				
+			__construct()
+			__destruct()
+			__get()
+			__set()
+			__call()
+			__invoke()       -- try to run object as  a func
+			__toString() 	 -- try to run object as  a str
+			__clone()
+			__autoload()
+			
+**********************************************************************************************************/
+<?php
+class Test {
+	
+	/*
+	* @desc -  runs when we try to access a property that does not exist.
+	*/
+	function __get($param) {
+		echo "<br/>$param does not exists.";
+	}
+	
+	/*
+	* @desc -  runs when we try to set a property that does not exist.
+	*/
+	function __set($name,$value) {
+		echo "<br/>you tried to set $name->$value that does not exist";
+	}
+	
+	/*
+	* @desc -  runs when we try to call a function that does not exist.
+	*/
+	function __call($name,$value) {
+		echo "<br/>you tried to call $name($value) that does not exist";
+	}
+	
+	/*
+	* @desc -  runs when we create an  object of a class.
+	*/
+	function __construct($param) {
+		echo "Object Created!";
+	}
+	
+	/*
+	* @desc -  runs when we reference to the class is destroyed.
+	*/
+	function __destruct() {
+		echo "Object Destroyed!";
+	}
+	
+	/*
+	* @desc -  runs when we try to print an object which does not happens normally.
+	* @ex : echo $obj; where $obj is an Object of this class.
+	*/
+	function __toString() {
+		echo "Object Printed!";
+	}
+	
+	/*
+	* @desc -  runs when we create an clone of a object.
+	* ex: $obj1= $obj2; both are different through this
+	*/
+	function __clone() {
+		echo "Object Cloned!";
+	}
+	
+	/*
+	* @desc -  runs when try to run an object as a function.
+	*/
+	function __invoke() {
+		echo "Invoke Called!";
+	}
+	
+
+}
+
+
+?>
