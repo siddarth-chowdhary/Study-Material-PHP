@@ -1,0 +1,58 @@
+
+--------------------------------------------------------
+    functions used                                     |
+--------------------------------------------------------
+1. simplexml_load_string($str)                         |
+2. simplexml_load_file($fileName)                      |
+3. asXML()                                             |
+4. addChild()                                          |
+--------------------------------------------------------			
+
+<?php
+$xml = simplexml_load_file('test.xml');
+//simplexml_load_string($str)
+//echo "<pre>";print_r($xml); //shows xml as an obj
+
+//get age of siddarth from xml
+echo $xml->person[0]->age;
+
+//get permanent add see {} coz of - (hyphen)
+echo $xml->person[0]->{permanent-add};
+
+//get the attribute value
+echo $xml->person[0]->type;
+
+//view it as xml
+echo $xml->asXML();
+
+//add a child
+$xml->person[0]->addChild('height','6'); 
+
+
+//loop
+foreach ($xml->person[0] as $data) {
+	echo $data;
+}
+?>
+
+php code ends
+-------------
+
+xml file starts
+---------------
+<?xml version ='1.0'?>
+<people>
+	<person type="boy">
+		<name>Siddarth</name>
+		<age>24</age>
+		<permanent-add>Delhi</permanent-add>
+	</person>
+	
+	<person>
+		<name>John</name>
+		<age>25</age>
+		<permanent-add>Mumbai</permanent-add>
+	</person>
+</people>
+xml file ends
+--------------
