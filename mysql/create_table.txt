@@ -1,0 +1,21 @@
+CREATE TABLE Product (
+	ProdNum           INTEGER NOT NULL,
+	Name              CHAR(100) NOT NULL,
+	ProdVer           DECIMAL(4,2) NOT NULL,
+	UnitPrice         DECIMAL(6,2),
+	PRIMARY KEY(ProdNum),
+	UNIQUE(Name, ProdVer)
+);
+
+
+
+CREATE TABLE Order (
+	OrderNum	INTEGER,
+	OrderTime	TIMESTAMP,
+	ProdNum		INTEGER,
+	Quantity	INTEGER,
+	PRIMARY KEY (OrderNum),
+	FOREIGN KEY (ProdNum) references Product(ProdNum),
+    CHECK(Quantity >= 1 AND Quantity <= 1000)
+);
+

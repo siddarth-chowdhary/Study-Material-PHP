@@ -1,0 +1,31 @@
+/*
+* constants are defined in 2 ways in php
+
+define('','');
+const name = value;
+
+const could not be used in the global scope. You could only use this from within a class. This should be used when you want to set some kind of constant option or setting that pertains to that class. Or maybe you want to create some kind of enum.
+
+define can be used for the same purpose, but it can only be used in the global scope. It should only be used for global settings that affect the entire application.
+*/
+
+
+<?php
+
+// Valid constant names
+define("ONE",     "first thing");
+define("TWO",    "second thing");
+
+define("ONE",     "first thing again");
+echo ONE;
+
+class A {
+	const THREE = 123;
+
+	function test()
+	{
+		echo THREE;
+	}
+}
+$a = new A();
+$a->test();

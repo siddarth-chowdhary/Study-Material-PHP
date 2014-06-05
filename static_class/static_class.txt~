@@ -1,0 +1,14 @@
+<?php
+
+static class Talk {
+	
+	static $var="member";
+
+	static function Hi() {
+		echo "Hi";	
+	}
+
+	static function Bye() {
+		echo "Bye";	
+	}
+}

@@ -1,0 +1,27 @@
+SQL INJECTION
+-------------
+SQL Injection is the hacking technique which attempts to pass SQL commands (statements) through a web application for execution by the backend database.
+
+SQL Injection is one of the many web attack mechanisms used by hackers to steal data from organizations.
+
+SQL Injection is type of attack that can be done through user inputs (Inputs that filled by user and then used inside queries).
+
+The SQL Injection patterns are correct query syntax so we can call them ‘bad queries for bad reasons’.
+
+code :
+<?php
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$query = "SELECT userid FROM users WHERE username = '".$username."' AND password = '".$password."'";
+
+//providing john as username and password is provided as following: any' OR 'x' = 'x
+
+echo $query;
+?>
+
+Output:
+SELECT userid FROM users WHERE username = 'john' AND password = 'any' OR 'x'='x'
+
+This will allow the attacker to bypass the login form without actually knowing a valid username / password combination!
+

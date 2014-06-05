@@ -1,0 +1,8 @@
+php 5.5
+---------
+
+hashing api with crypt() to encrypt passwprds.
+supports list in foreach
+finally keyword in try catch
+classname resolution classname::class; - give complete class path with namespaces. 
+

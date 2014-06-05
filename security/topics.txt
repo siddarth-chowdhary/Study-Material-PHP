@@ -1,0 +1,3 @@
+csrf - http://www.wikihow.com/Prevent-Cross-Site-Request-Forgery-(CSRF)-Attacks-in-PHP
+xss  - http://phpsecurity.readthedocs.org/en/latest/Cross-Site-Scripting-(XSS).html
+sql injection

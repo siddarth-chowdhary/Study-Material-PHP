@@ -1,0 +1,25 @@
+<?php
+ini_set("display_errors","1");
+class Talk {
+	
+	static $var="member";
+
+	static function Hi() {
+		echo "Hi";	
+	}
+
+	static function Bye() {
+		echo "Bye";	
+	}
+
+	private function test() {
+		echo "test";
+	}
+}
+
+echo Talk::$var;
+Talk::Hi();
+Talk::Bye();
+
+$talk = new Talk();
+$talk->test();
