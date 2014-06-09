@@ -1,0 +1,111 @@
+------------------------------------------------------------------------------------
+								PROCEDURES
+------------------------------------------------------------------------------------
+mysql> DELIMITER //
+mysql> create procedure GetEmployeeName(IN id INT, OUT name VARCHAR(20))
+    -> begin
+    -> select emp_name into name from employee where emp_id = id;
+    -> end//
+Query OK, 0 rows affected (0.52 sec)
+
+mysql> DELIMITER ;
+
+mysql> call GetEmployeeName(103, @name);
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> select @name;
++-------+
+| @name |
++-------+
+| Jack  |
++-------+
+
+------------------------------------------------------------------------------------
+								FUNCTIONS
+------------------------------------------------------------------------------------
+
+DELIMITER $$
+CREATE FUNCTION calcProfit(cost FLOAT, price FLOAT) RETURNS DECIMAL(9,2)
+BEGIN
+  DECLARE profit DECIMAL(9,2);
+  SET profit = price-cost;
+  RETURN profit;
+END$$
+DELIMITER ;
+
+
+Call
+
+SELECT *, calcProfit(prod_cost,prod_price) AS profit FROM products;
+
+------------------------------------------------------------------------------------
+								VIEWS
+------------------------------------------------------------------------------------
+
+
+mysql> SELECT * FROM user;
++----------+-----------+--------+
+| userid   | password  | name   |
++----------+-----------+--------+
+| scott123 | 123@sco   | Scott  |
+| ferp6734 | dloeiu@&3 | Palash |
+| diana094 | ku$j@23   | Diana  |
++----------+-----------+--------+
+3 rows in set (0.04 sec)
+mysql> CREATE VIEW my_v2 AS SELECT * FROM user;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> SELECT * FROM my_v2;
++----------+-----------+--------+
+| userid   | password  | name   |
++----------+-----------+--------+
+| scott123 | 123@sco   | Scott  |
+| ferp6734 | dloeiu@&3 | Palash |
+| diana094 | ku$j@23   | Diana  |
++----------+-----------+--------+
+3 rows in set (0.05 sec)
+Now specify the columns name in the above view :
+
+mysql> CREATE VIEW my_v3 AS SELECT userid AS User_ID, password AS Password, name AS Name  FROM user;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SELECT * FROM my_v3;
++----------+-----------+--------+
+| User_ID  | Password  | Name   |
++----------+-----------+--------+
+| scott123 | 123@sco   | Scott  |
+| ferp6734 | dloeiu@&3 | Palash |
+| diana094 | ku$j@23   | Diana  |
++----------+-----------+--------+
+3 rows in set (0.04 sec)
+- See more at: http://www.w3resource.com/mysql/mysql-views.php#sthash.ZYLgov7u.dpuf
+------------------------------------------------------------------------------------
+								TRIGGERS
+------------------------------------------------------------------------------------
+
+mysql> delimiter //
+mysql> CREATE TRIGGER upd_check BEFORE UPDATE ON account
+    -> FOR EACH ROW
+    -> BEGIN
+    ->     IF NEW.amount < 0 THEN
+    ->         SET NEW.amount = 0;
+    ->     ELSEIF NEW.amount > 100 THEN
+    ->         SET NEW.amount = 100;
+    ->     END IF;
+    -> END;//
+mysql> delimiter ;
+
+
+delimiter |
+
+CREATE TRIGGER testref BEFORE INSERT ON test1
+  FOR EACH ROW
+  BEGIN
+    INSERT INTO test2 SET a2 = NEW.a1;
+    DELETE FROM test3 WHERE a3 = NEW.a1;
+    UPDATE test4 SET b4 = b4 + 1 WHERE a4 = NEW.a1;
+  END;
+|
+
+delimiter ;

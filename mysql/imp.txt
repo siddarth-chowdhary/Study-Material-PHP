@@ -1,0 +1,1 @@
+1. diff between unique and primary key is that unique key can have null values whereas primary keys cant have null values

@@ -1,0 +1,31 @@
+$$a = b; in PHP means "take the value of $a, and set the variable whose name is that value to equal b".
+
+In other words:
+
+$foo = "bar";
+$$foo = "baz";
+echo $bar; // outputs 'baz'
+But yeah, take a look at the PHP symbol reference.
+
+As for call by value/reference - the primary difference between the two is whether or not you're able to modify the original items that were used to call the function. See:
+
+function increment_value($y) {
+    $y++;
+    echo $y;
+}
+
+function increment_reference(&$y) {
+    $y++;
+    echo $y;
+}
+
+$x = 1;
+increment_value($x); // prints '2'
+echo $x; // prints '1'
+increment_reference($x); // prints '2'
+echo $x; // prints '2'
+Notice how the value of $x isn't changed by increment_value(), but is changed by increment_reference().
+
+As demonstrated here, whether call-by-value or call-by-reference is used depends on 
+the definition of the function being called; the default when declaring your own functions 
+is call-by-value (but you can specify call-by-reference via the & sigil).
