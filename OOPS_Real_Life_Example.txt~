@@ -72,9 +72,9 @@ Polymorphism means ability to take more than one form that an operation can exhi
 Summary:
 OOPs have following features:
 
-1. Object             	- Instance of Class
-2. Class               	- Blue print of Object 
-3. Encapsulation    	- Protecting our Data
-4. Polymorphism   		- Different behaviors at different instances
-5. Abstraction        	- Hiding our irrelevant Data
-6. Inheritence        	- One property of object is acquiring to another property of object
+1. Object             - Instance of Class
+2. Class               - Blue print of Object 
+3. Encapsulation    - Protecting our Data
+4. Polymorphism   - Different behaviors at different instances
+5. Abstraction        - Hiding our irrelevant Data
+6. Inheritence        - One property of object is acquiring to another property of object

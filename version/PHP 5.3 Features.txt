@@ -1,0 +1,17 @@
+PHP 5.3 Features
+================
+
+1) Namespaces for classes and functions
+2) MySQL Native Driver
+Being a native driver we should be able to get much faster execution times.
+3) phar – PHp ARchive
+group all the files into one simple file, we will be able to deliver and run an entire PHP application from a single file!
+4) Closures & Lambdas
+<?php
+$hellolambda = function () {
+echo "Hello world via Lambda";
+ 
+}
+$hellolambda(); // Outputs Hello world via Lambda
+?>
+5)Ternary operator
