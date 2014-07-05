@@ -6,32 +6,32 @@
 	<script type="text/javascript">
 	//ajax request
 	$.ajax({
-	type : "POST",
-	url	 : "destination.php",
-    data : {
-                        name       	: "name",
-                        email  		: "email",
-                        company 	: "company",
-                        phone       : "+91-9873252330",
-                        country 	: "country",
-                        state     	: "state",
-     },
-   	dataType : "json",
-	beforeSend : function(){
-	console.log(" :::: before_send ::::");
-	           	 },
-	timeout: 10000,
-	success :function(response){
-			console.log(" :::: success ::::");	
-			console.log(response);
-	},
-   	error: function(x, t, m) {
-       if(t==="timeout") {
-           alert("got timeout");
-       } else {
-           alert(t);
-       }
-   	}	
+		type : "POST",
+		url	 : "destination.php",
+		data : {
+		                    name       	: "name",
+		                    email  		: "email",
+		                    company 	: "company",
+		                    phone       : "+91-9873252330",
+		                    country 	: "country",
+		                    state     	: "state",
+		 },
+	   	dataType : "json",
+		beforeSend : function(){
+		console.log(" :::: before_send ::::");
+			       	 },
+		timeout: 10000,
+		success :function(response){
+				console.log(" :::: success ::::");	
+				console.log(response);
+		},
+	   	error: function(x, t, m) {
+		   if(t==="timeout") {
+		       alert("got timeout");
+		   } else {
+		       alert(t);
+		   }
+	   	}	
 	}); //ajax over
 	</script>
 </head>

@@ -17,6 +17,12 @@ function makeCocktail()
     } catch (Exception $e) {
         echo "We 're out of umbrellas, but the drink itself is fine";
     }
+
+	try {
+        $res = 10 / 0;
+    } catch (Exception $e) {
+        echo "Classical Example of try catch - divide b zero";
+    }
 }
 
 echo "start";
