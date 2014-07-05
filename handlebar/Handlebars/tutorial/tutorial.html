@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>handlebar</title>
+	<style type="text/css">
+		table { border-collapse:collapse; }
+		table, td, th{ border:1px solid black;}
+	</style>
+	<script type="text/javascript" src="../js/handlebars.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	//custom handlebar helper
+	Handlebars.registerHelper( "customHelper_1", function ( status ){ 
+		console.log(status);
+	});
+	</script>
+</head>
+<body>
+<div>
+	<div>
+		<label>Hi, </label>
+		<span>first name</span>
+	</div>
+	<ul>
+		<li><a href="javascript:void(0)">test_1</a></li>
+		<li><a href="javascript:void(0)">test_2</a></li>
+		<li><a href="javascript:void(0)">test_3</a></li>
+		<li><a href="javascript:void(0)">test_4</a></li>
+	</ul>
+	<table>
+		<tr><th>name</th><th>age</th><th>city</th><th>sex</th></tr>
+		<tr><td>sid</td><td>24</td><td>delhi</td><td>male</td></tr>
+		<tr><td>gaurav</td><td>24</td><td>u.p.</td><td>male</td></tr>
+	</table>
+</div>
+
+
+<hr/><p> using handlebar</p><hr/>
+
+	<div id="destination"></div>
+    <script id="source" type="text/x-handlebars-template">
+        <div>
+			<label>Hi, </label>
+			<span>{{information/name}}</span>
+		</div>
+        <ul>
+			{{#each information/links}}
+				<li><a href="{{link}}">{{name}}</a></li>
+			{{/each}}
+		</ul>
+		<table>
+			<tr><th>name</th><th>age</th><th>city</th><th>sex</th></tr>
+			{{#each information/personal_details}}
+				<tr><td>{{name}}</td><td>{{age}}</td><td>{{city}}</td><td>{{sex}}</td></tr>	
+			{{/each}}
+		</table>
+		{{#customHelper_1 information/personal_details}}
+		{{/customHelper_1}}
+				
+    </script>
+    <script type="text/javascript">
+    	// Grab the HTML source that needs to be compiled
+		var sourceHtml = $("#source").html();
+		// Compile the source
+		var compiledSourceHtml = Handlebars.compile( sourceHtml );
+		//Data that will replace the handlebars expressions in our template
+		var data = {
+						  "information": {
+						    "name": "b",
+						    "links": {    
+						        "0" : {
+						            "link" :"http://www.google.com",
+						            "name" : "google"
+						            },
+						        "1" : {
+						            "link" :"http://www.yahoo.com",
+						            "name" : "yahoo"
+						            }
+						    },
+						    "personal_details" : {
+						        "0" : {
+						            "name" : "siddarth",
+						            "age" : "24",
+						            "city" : "delhi",
+						            "sex" : "male"
+						        },
+						        "1" : {
+						            "name" : "gaurav",
+						            "age" : "24",
+						            "city" : "u.p.",
+						            "sex" : "male"
+						        }
+						        
+						    }
+						    }
+						};
+		// Process Template with Data
+		document.getElementById( 'destination' ).innerHTML = compiledSourceHtml( data );
+    </script>
+
+
+</body>
+</html>
