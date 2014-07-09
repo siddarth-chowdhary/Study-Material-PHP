@@ -1,0 +1,3 @@
+this parallel folder is used an example for a new google project.
+put the required folder in the correct path to access the project. 
+
