@@ -2,7 +2,7 @@
 
 // set up options array
 $options = array(
-        "location" => 'http://192.168.1.1/aeat/spm/crm/soap.php',
+        "location" => 'http://192.168.1.1/path/to/crm/soap.php',
         "uri" => 'http://www.sugarcrm.com/sugarcrm',
         "trace" => 1
         );

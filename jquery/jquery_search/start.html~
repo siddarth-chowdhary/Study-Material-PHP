@@ -1,0 +1,13 @@
+<input placeholder="Search..." id="s" type="text" /> 
+
+<ul class="countryList">
+    <li><a href="#1">India</a></li>
+    <li><a href="#2">United States</a></li>
+    <li><a href="#3">Pakistan</a></li>
+    <li><a href="#4">Sri Lanka</a></li>
+    <li><a href="#5">Bangladesh</a></li>
+    <li><a href="#6">Canada</a></li>
+    <li><a href="#7">United Kingdom</a></li>
+    <li><a href="#8">Australia</a></li>
+    <li><a href="#9">Argentina</a></li>
+</ul>
