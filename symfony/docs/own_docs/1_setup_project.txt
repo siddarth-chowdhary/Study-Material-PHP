@@ -1,0 +1,42 @@
+------------------------------------------------------------------------------------------------------------------------------
+1. download composer
+	curl -s https://getcomposer.org/installer | php
+					or
+	curl -s https://getcomposer.org/installer | /usr/local/zend/binphp
+------------------------------------------------------------------------------------------------------------------------------
+2. From Current Directory (Where you want to setup the project)
+in the below example "jobeet" is the name of the project
+
+php composer.phar create-project symfony/framework-standard-edition jobeet 2.3.3 --prefer-dist
+					or
+/usr/local/zend/bin/php composer.phar create-project symfony/framework-standard-edition jobeet 2.3.3 --prefer-dist
+------------------------------------------------------------------------------------------------------------------------------
+3. Create the virtual host
+
+a. in /etc/apache2/sites-available
+open file default.conf
+
+b. append the code
+<VirtualHost *:80>
+        ServerName jobeet.local
+        DocumentRoot /var/www/html/Code_Library/study_material/symfony/application/jobeet/web
+        SetEnv APPLICATION_ENV "development"
+        <Directory /var/www/html/Code_Library/study_material/symfony/application/jobeet/web>
+                DirectoryIndex app.php
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+</VirtualHost>
+
+c. siddarth@administrator:/etc/apache2/sites-available$ sudo a2ensite default.conf
+
+d. siddarth@administrator:/etc/apache2/sites-available$ sudo service apache2 restart
+
+e. entry to /etc/hosts
+
+f. entry to firefox
+
+now : bowser -> jobeet.local/app_dev.php
+------------------------------------------------------------------------------------------------------------------------------
+

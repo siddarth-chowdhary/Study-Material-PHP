@@ -2,6 +2,7 @@
     $script_start_time = microtime(true);
     ini_set("display_errors","1");
     ini_set('memory_limit', '-1');
+    ini_set('max_execution_time', 0);
     /*to solve the problem -Not a Valid Entry Point
     * Reason it's using the copy of nuSOAP found in Sugar 
     * (which has protections built in for entry points).
@@ -11,9 +12,9 @@
     require_once("nusoap.php");
 
     // soap client setup
-    $username = "siddarth";
-    $password = "siddarth";
-    $client = new nusoapclient('http://dev1sugargini.ossclients.com/crmprodev6/soap.php');
+    $username = "saurabh";
+    $password = "saurabh";
+    $client = new nusoapclient('http://dev1sugargini.ossclients.com/crmprodev6/soap.php?wsdl');
 
     //login to sugar crm
     $login_parameters = array(
@@ -32,17 +33,31 @@
     //set session id
     $session_id =  $login_result['id'];
 
-    //list of leads
-    $get_entry_list_result = $client->call('get_entry_list', 
-        fncReturnGetEntryListParametersArray($session_id,'Calls',4999));
+    $get_entry_list_result = array();
+    $get_entry_list_result['result_count'] = 1;
+    $get_entry_list_result['next_offset'] = 0;
+    $totalCRMRecords = array();
+    $flag = 0;
+    while ($get_entry_list_result['result_count'] != 0) {
+      $params = fncReturnGetEntryListParametersArray($session_id,'Calls',999,$get_entry_list_result['next_offset']);
+        $get_entry_list_result = $client->call('get_entry_list', $params);
+        if ($flag == 0) {
+          $totalCRMRecords = $get_entry_list_result;
+        } else {
+          $totalCRMRecords['entry_list'] = array_merge($totalCRMRecords['entry_list'],$get_entry_list_result['entry_list']);
+          
+        }
+        $flag = 1;
+    }
     
 
     /*for displaying the result*/
-    if ($get_entry_list_result === false) {
-        var_dump($get_entry_list_result);   
+    echo '<pre>';
+    if ($totalCRMRecords === false) {
+        var_dump($totalCRMRecords);   
     }else {
-        unset($get_entry_list_result['field_list']);
-        print_r($get_entry_list_result);   
+        // unset($get_entry_list_result['field_list']);
+        print_r($totalCRMRecords);   
     }
 
 
@@ -57,13 +72,13 @@
     * @desc This function returns the configuration array used in the get entry list method
     * @return The array configured for get entry list call
     */
-    function fncReturnGetEntryListParametersArray($session_id,$moduleName,$maxResults) {
+    function fncReturnGetEntryListParametersArray($session_id,$moduleName,$maxResults,$offset) {
         $get_entry_list_parameters   = array(
            'session'       => $session_id,
            'module_name'   => $moduleName,
            'query'         => '',
            'order_by'      => 'date_modified desc',
-           'offset'        => 0,
+           'offset'        => $offset,
            'select_fields' => array(
                   'id',
                   'first_name',
@@ -74,7 +89,12 @@
            'Favorites' => false
         );
         // @for debug 
-        echo '<pre><hr>PARAMETRS<hr>';print_r($get_entry_list_parameters);echo '<hr>';
+        // echo '<pre><hr>PARAMETRS<hr>';print_r($get_entry_list_parameters);echo '<hr>';
+        // echo '<hr/> INI SETTINGS<hr>';
+        // echo 'display_errors = ' . ini_get('display_errors') . "\n";
+        // echo 'memory_limit = ' . ini_get('memory_limit') . "\n";
+        // echo 'max_execution_time = ' . ini_get('max_execution_time') . "\n";
+        // echo '<hr/> ';
         return $get_entry_list_parameters;
     }
 ?>

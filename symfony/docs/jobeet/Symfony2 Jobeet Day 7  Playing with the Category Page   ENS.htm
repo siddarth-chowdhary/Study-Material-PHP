@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/ -->
+<html lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Symfony2 Jobeet Day 7: Playing with the Category Page | ENS</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/style.css">
+<link rel="pingback" href="http://www.ens.ro/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://www.ens.ro/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+	<link rel="stylesheet" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/dcssb.css" type="text/css" media="screen">
+	<!--Facebook OpenGraph Slick Social Share Buttons -->
+	<meta property="og:site_name" content="ENS">
+		<meta property="og:title" content="Symfony2 Jobeet Day 7: Playing with the Category Page">
+			<meta property="og:description" content="Today we will make the Category page like it is described in the second day’s requirements: The user sees a list of all the jobs from the category sorted by date and paginated with 20 jobs per page.">
+		
+		<meta property="og:url" content="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/">
+		
+		<meta property="og:image" content="">
+		<meta property="fb:admins" content="533936499">
+		<meta property="fb:app_id" content="">
+		<meta property="og:type" content="article"><!--End Facebook OpenGraph Settings -->
+		<link rel="alternate" type="application/rss+xml" title="ENS » Feed" href="http://www.ens.ro/feed/">
+<link rel="alternate" type="application/rss+xml" title="ENS » Comments Feed" href="http://www.ens.ro/comments/feed/">
+
+			<script src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/cb=gapi.loaded_1" async=""></script><script src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/ga.js"></script><script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29990339-1']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="ENS » Symfony2 Jobeet Day 7: Playing with the Category Page Comments Feed" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/feed/">
+<link rel="stylesheet" id="contact-form-7-css" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="NextGEN-css" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/nggallery.css" type="text/css" media="screen">
+<link rel="stylesheet" id="shutter-css" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shutter-reloaded.css" type="text/css" media="screen">
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/jquery.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/ga.social_tracking.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/jquery.social.slick.1.0.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shutter-reloaded.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/ngg.slideshow.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.ens.ro/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.ens.ro/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Titanic Super 3D" href="http://www.ens.ro/2012/04/09/titanic-super-3d/">
+<link rel="next" title="Symfony2 Jobeet Day 8: The Unit Tests" href="http://www.ens.ro/2012/04/18/symfony2-jobeet-day-8-the-unit-tests/">
+<meta name="generator" content="WordPress 3.5">
+<link rel="canonical" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/Symfony2 Jobeet Day 7  Playing with the Category Page   ENS.htm">
+<link rel="shortlink" href="http://www.ens.ro/?p=968">
+<!-- <meta name="NextGEN" version="1.9.10" /> -->
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f1f1f1; background-image: url('http://www.ens.ro/wp-content/uploads/2012/08/bgbody1.gif'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+<link rel="stylesheet" type="text/css" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shThemeDefault.css"><meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+
+<body class="single single-post postid-968 single-format-standard custom-background single-author singular two-column right-sidebar" data-twttr-rendered="true">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://www.ens.ro/" title="ENS" rel="home">ENS</a></span></h1>
+				<h2 id="site-description">Entertainment, News, Software</h2>
+			</hgroup>
+
+						<a href="http://www.ens.ro/">
+									<img src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/cropped-wallpaper-15057031.jpg" width="1000" height="288" alt="">
+							</a>
+			
+								<form method="get" id="searchform" action="http://www.ens.ro/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-my-menu-container"><ul id="menu-my-menu" class="menu"><li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-161"><a href="http://www.ens.ro/">Home</a></li>
+<li id="menu-item-160" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-160"><a href="http://www.ens.ro/category/web-development/">Web Development</a>
+<ul class="sub-menu">
+	<li id="menu-item-822" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-822"><a title="The Jobeet Tutorial with Symfony2" href="http://www.ens.ro/tag/symfony2-jobeet/">Symfony2 Jobeet</a></li>
+	<li id="menu-item-2050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2050"><a title="Symfony2 Tutorials" href="http://www.ens.ro/tag/symfony2/">Symfony2</a></li>
+	<li id="menu-item-2055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2055"><a title="Symfony 1.4 Tutorials" href="http://www.ens.ro/tag/symfony-1-4/">Symfony 1.4</a></li>
+	<li id="menu-item-2049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2049"><a title="Zend Framework Tutorials" href="http://www.ens.ro/tag/zend/">Zend</a></li>
+	<li id="menu-item-2063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2063"><a title="PHP Tutorials" href="http://www.ens.ro/tag/php-2/">PHP</a></li>
+	<li id="menu-item-2064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2064"><a title="MySQL Tutorials" href="http://www.ens.ro/tag/mysql/">MySQL</a></li>
+</ul>
+</li>
+<li id="menu-item-2073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2073"><a title="Entertainment" href="http://www.ens.ro/tag/entertainment/">Entertainment</a></li>
+<li id="menu-item-159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-159"><a href="http://www.ens.ro/about/">About ENS</a></li>
+<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267"><a href="http://www.ens.ro/contact/">Contact</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://www.ens.ro/2012/04/09/titanic-super-3d/" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+						<span class="nav-next"><a href="http://www.ens.ro/2012/04/18/symfony2-jobeet-day-8-the-unit-tests/" rel="next">Next <span class="meta-nav">→</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-968" class="post-968 post type-post status-publish format-standard hentry category-english category-php category-web-development tag-symfony2-jobeet">
+	<header class="entry-header">
+		<h1 class="entry-title">Symfony2 Jobeet Day 7: Playing with the Category Page</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/Symfony2 Jobeet Day 7  Playing with the Category Page   ENS.htm" title="7:08 pm" rel="bookmark"><time class="entry-date" datetime="2012-04-11T19:08:18+00:00">April 11, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://www.ens.ro/author/dragos/" title="View all posts by Dragos Holban" rel="author">Dragos Holban</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>Today we will make the Category page like it is described in the second day’s requirements: <em>“The user sees a list of all the jobs from the category sorted by date and paginated with 20 jobs per page</em>“.<span id="more-968"></span></p>
+<h2>The Category Route</h2>
+<p>First, we need to add a route to define a pretty URL for the category page. Add it at the beginning of the routing file:</p>
+<pre class="brush: plain; title: ; notranslate" title=""># src/Ens/JobeetBundle/Resources/config/routing.yml
+
+EnsJobeetBundle_category:
+    pattern:&nbsp; /category/{slug}
+    defaults: { _controller: EnsJobeetBundle:Category:show }
+</pre>
+<p>To get the slug of a category we need to add the <code>getSlug()</code> method to our category class:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Entity/Category.php
+// ...
+
+use Ens\JobeetBundle\Utils\Jobeet;
+
+class Category
+{
+  // ...
+
+  public function getSlug()
+  {
+    return Jobeet::slugify($this-&gt;getName());
+  }
+
+  // ...
+}
+</pre>
+<h2>The Category Link</h2>
+<p>Now, edit the <code>index.html.twig</code> template of the job controller to add the link to the category page:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- src/Ens/JobeetBundle/Resources/views/Job/index.html.twig --&gt;
+&lt;!-- some HTML code --&gt;
+
+            &lt;h1&gt;&lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug }) }}"&gt;{{ category.name }}&lt;/a&gt;&lt;/h1&gt;
+
+&lt;!-- some HTML code --&gt;
+
+          &lt;/table&gt;
+
+          {% if category.morejobs %}
+            &lt;div class="more_jobs"&gt;
+              and &lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug }) }}"&gt;{{ category.morejobs }}&lt;/a&gt;
+              more...
+            &lt;/div&gt;
+          {% endif %}
+        &lt;/div&gt;
+      {% endfor %}
+    &lt;/div&gt;
+{% endblock %}
+</pre>
+<p>In the template above we used <code>category.morejobs</code>, so let’s define it:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBunlde/Entity/Category.php
+// ...
+
+private $more_jobs;
+
+// ...
+
+public function setMoreJobs($jobs)
+{
+  $this-&gt;more_jobs = $jobs &gt;=&nbsp; 0 ? $jobs : 0;
+}
+
+public function getMoreJobs()
+{
+  return $this-&gt;more_jobs;
+}
+
+// ...
+
+</pre>
+<p>The <code>more_jobs</code> property will hold the number of active jobs for the category minus the number of jobs listed on the homepage. Now, in JobController, we need to set the <code>more_jobs</code> value for each category:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Controller/JobController.php
+// ...
+
+public function indexAction()
+{
+  $em = $this-&gt;getDoctrine()-&gt;getEntityManager();
+
+  $categories = $em-&gt;getRepository('EnsJobeetBundle:Category')-&gt;getWithJobs();
+
+  foreach($categories as $category)
+  {
+    $category-&gt;setActiveJobs($em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;getActiveJobs($category-&gt;getId(), $this-&gt;container-&gt;getParameter('max_jobs_on_homepage')));
+    $category-&gt;setMoreJobs($em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;countActiveJobs($category-&gt;getId()) - $this-&gt;container-&gt;getParameter('max_jobs_on_homepage'));
+  }
+
+  return $this-&gt;render('EnsJobeetBundle:Job:index.html.twig', array(
+    'categories' =&gt; $categories
+  ));
+}
+// ...
+</pre>
+<p>The <code>countActiveJobs</code> function has to be added to the <code>JobRepository</code>:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Repository/JobRepository.php
+// ...
+
+public function countActiveJobs($category_id = null)
+{
+  $qb = $this-&gt;createQueryBuilder('j')
+    -&gt;select('count(j.id)')
+    -&gt;where('j.expires_at &gt; :date')
+    -&gt;setParameter('date', date('Y-m-d H:i:s', time()));
+
+  if($category_id)
+  {
+    $qb-&gt;andWhere('j.category = :category_id')
+    -&gt;setParameter('category_id', $category_id);
+  }
+
+  $query = $qb-&gt;getQuery();
+
+  return $query-&gt;getSingleScalarResult();
+}
+
+// ...
+</pre>
+<p>Now you should see the result in your browser:</p>
+<p><a href="http://www.ens.ro/wp-content/uploads/2012/04/SC4OSY1.png"><img class="alignnone size-large wp-image-1006" title="Jobeet Category More" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/SC4OSY1-1024x742.png" alt="" width="584" height="423"></a></p>
+<h2>Job Category Controller Creation</h2>
+<p>It’s now time to create the <code>category</code> controller. Create a new <code>CategoryController.php</code> file in your <code>Controller</code> directory:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Controller/CategoryController
+
+namespace Ens\JobeetBundle\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Ens\JobeetBundle\Entity\Category;
+
+/**
+* Category controller.
+*
+*/
+class CategoryController extends Controller
+{
+
+}
+</pre>
+<p>We could use the <code>doctrine:generate:crud</code> command like we did for the job controller, but we won’t need 90% of the generated code, so we can just create a new controller from scratch.</p>
+<h2>Update the Database</h2>
+<p>We need to add a <code>slug</code> column for the <code>category</code> table and lifecycle callbacks for setting this column value:</p>
+<pre class="brush: plain; title: ; notranslate" title=""># src/Ens/JobeetBundle/Resources/config/doctrine/Category.orm.yml
+
+Ens\JobeetBundle\Entity\Category:
+  type: entity
+  repositoryClass: Ens\JobeetBundle\Repository\CategoryRepository
+  table: category
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+      unique: true
+    slug:
+      type: string
+      length: 255
+      unique: true
+  oneToMany:
+    jobs:
+      targetEntity: Job
+      mappedBy: category
+    category_affiliates:
+      targetEntity: CategoryAffiliate
+      mappedBy: category
+  lifecycleCallbacks:
+    prePersist: [ setSlugValue ]
+    preUpdate: [ setSlugValue ]
+</pre>
+<p>Remove from the Category entity (<code>src/Ens/JobeetBundle/Entity/Category.php</code>) the <code>getSlug</code> method we created earlier and run the doctrine command to update the Category entity class:</p>
+<pre class="brush: plain; title: ; notranslate" title="">php app/console doctrine:generate:entities EnsJobeetBundle
+</pre>
+<p>Now you should have the following added to Category.php:</p>
+<pre class="brush: php; title: ; notranslate" title="">// srr/Ens/JobeetBundle/Entity/Category.php
+// ...
+
+/**
+* @var string $slug
+*/
+private $slug;
+
+/**
+* Set slug
+*
+* @param string $slug
+*/
+public function setSlug($slug)
+{
+    $this-&gt;slug = $slug;
+}
+/**
+* Get slug
+*
+* @return string
+*/
+public function getSlug()
+{
+    return $this-&gt;slug;
+}
+/**
+* @ORM\prePersist
+*/
+public function setSlugValue()
+{
+    // Add your code here
+}
+</pre>
+<p>Change the <code>setSlugValue</code> function to the following:</p>
+<pre class="brush: php; title: ; notranslate" title="">public function setSlugValue()
+{
+    $this-&gt;slug = Jobeet::slugify($this-&gt;getName());
+}
+</pre>
+<p>Now we have to drop the database and create it again with the new Category column and load the fixtures:</p>
+<pre class="brush: plain; title: ; notranslate" title="">php app/console doctrine:database:drop --force
+php app/console doctrine:database:create
+php app/console doctrine:schema:update --force
+php app/console doctrine:fixtures:load
+</pre>
+<h2>Category Page</h2>
+<p>We have now everything in place to create the <code>showAction()</code> method. Add the following code to the <code>CategoryController.php</code> file:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Controller/CategoryController.php
+// ...
+
+public function showAction($slug)
+{
+    $em = $this-&gt;getDoctrine()-&gt;getEntityManager();
+
+    $category = $em-&gt;getRepository('EnsJobeetBundle:Category')-&gt;findOneBySlug($slug);
+
+    if (!$category) {
+        throw $this-&gt;createNotFoundException('Unable to find Category entity.');
+    }
+
+    $category-&gt;setActiveJobs($em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;getActiveJobs($category-&gt;getId()));
+
+    return $this-&gt;render('EnsJobeetBundle:Category:show.html.twig', array(
+        'category' =&gt; $category,
+    ));
+}
+
+// ...
+</pre>
+<p>The last step is to create the <code>show.html.twig</code> template:</p>
+<pre class="brush: xml; title: ; notranslate" title="">{% extends 'EnsJobeetBundle::layout.html.twig' %}
+
+{% block title %}
+  Jobs in the {{ category.name }} category
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  &lt;link rel="stylesheet" href="{{ asset('bundles/ensjobeet/css/jobs.css') }}" type="text/css" media="all" /&gt;
+{% endblock %}
+
+{% block content %}
+  &lt;div class="category"&gt;
+    &lt;div class="feed"&gt;
+      &lt;a href=""&gt;Feed&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;h1&gt;{{ category.name }}&lt;/h1&gt;
+  &lt;/div&gt;
+
+  &lt;table class="jobs"&gt;
+    {% for entity in category.activejobs %}
+      &lt;tr class="{{ cycle(['even', 'odd'], loop.index) }}"&gt;
+        &lt;td class="location"&gt;{{ entity.location }}&lt;/td&gt;
+        &lt;td class="position"&gt;
+          &lt;a href="{{ path('ens_job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}"&gt;
+            {{ entity.position }}
+          &lt;/a&gt;
+        &lt;/td&gt;
+        &lt;td class="company"&gt;{{ entity.company }}&lt;/td&gt;
+      &lt;/tr&gt;
+    {% endfor %}
+  &lt;/table&gt;
+{% endblock %}
+</pre>
+<h2>Including Other Twig Templates</h2>
+<p>Notice that we have copied and pasted the <code>&lt;table&gt;</code> tag that create a list of jobs from the job <code>index.html.twig</code> template. That’s bad. When you need to reuse some portion of a template, you need to create a new twig template with that code and include it where you need.</p>
+<p>Create the <code>list.html.twig</code> file:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- src/Ens/JobeetBundle/Resources/views/Job/list.html.twig --&gt;
+
+&lt;table class="jobs"&gt;
+  {% for entity in jobs %}
+    &lt;tr class="{{ cycle(['even', 'odd'], loop.index) }}"&gt;
+      &lt;td class="location"&gt;{{ entity.location }}&lt;/td&gt;
+      &lt;td class="position"&gt;
+        &lt;a href="{{ path('ens_job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}"&gt;
+          {{ entity.position }}
+        &lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td class="company"&gt;{{ entity.company }}&lt;/td&gt;
+    &lt;/tr&gt;
+  {% endfor %}
+&lt;/table&gt;
+</pre>
+<p>You can include a template by using the using the <code>{% include %}</code> tag. Replace the <code>&lt;table&gt;</code> HTML code from both templates with the <code>include</code> tag:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- in src/Ens/JobeetBundle/Resources/view/Job/index.html.twig --&gt;
+{% include 'EnsJobeetBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
+
+&lt;!-- in src/Ens/JobeetBundle/Resources/view/Category/show.html.twig --&gt;
+{% include 'EnsJobeetBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
+</pre>
+<h2>List Pagination</h2>
+<p>At the moment of writing this, Symfony2 doesn’t provide any good pagination tools out of the box so to solve this problem we will use the old classic method.</p>
+<p>First, let’s add a <code>page</code> parameter to the <code>EnsJobeetBundle_category</code> route. The <code>page</code> parameter will have a default value of 1, so it will not be required:</p>
+<pre class="brush: plain; title: ; notranslate" title=""># src/Ens/JobeetBundle/Resources/config/routing.yml
+
+EnsJobeetBundle_category:
+    pattern: /category/{slug}/{page}
+    defaults: { _controller: EnsJobeetBundle:Category:show, page: 1 }
+
+# ...
+</pre>
+<p>The number of jobs on each page will be defined as a custom parameter in the <code>app/config/config.yml</code> file:</p>
+<pre class="brush: plain; title: ; notranslate" title=""># app/config/config.yml
+# ...
+
+parameters:
+    max_jobs_on_homepage: 10
+    max_jobs_on_category: 20
+</pre>
+<p>Change the <code>JobRepository</code> <code>getActiveJobs</code> method to include an <code>$offset</code> parameter to be used by doctrine when retrieving jobs:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Repository/JobRepository.php
+// ...
+
+public function getActiveJobs($category_id = null, $max = null, $offset = null)
+{
+  $qb = $this-&gt;createQueryBuilder('j')
+    -&gt;where('j.expires_at &gt; :date')
+    -&gt;setParameter('date', date('Y-m-d H:i:s', time()))
+    -&gt;orderBy('j.expires_at', 'DESC');
+
+  if($max)
+  {
+    $qb-&gt;setMaxResults($max);
+  }
+
+  if($offset)
+  {
+    $qb-&gt;setFirstResult($offset);
+  }
+
+  if($category_id)
+  {
+    $qb-&gt;andWhere('j.category = :category_id')
+       -&gt;setParameter('category_id', $category_id);
+  }
+
+  $query = $qb-&gt;getQuery();
+
+  return $query-&gt;getResult();
+}
+
+// ...
+</pre>
+<p>Change the <code>CategoryController</code> <code>showAction</code> to the following:</p>
+<pre class="brush: php; title: ; notranslate" title="">// src/Ens/JobeetBundle/Controller/CategoryController.php
+// ...
+
+public function showAction($slug, $page)
+{
+  $em = $this-&gt;getDoctrine()-&gt;getEntityManager();
+
+  $category = $em-&gt;getRepository('EnsJobeetBundle:Category')-&gt;findOneBySlug($slug);
+
+  if (!$category) {
+    throw $this-&gt;createNotFoundException('Unable to find Category entity.');
+  }
+
+  $total_jobs = $em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;countActiveJobs($category-&gt;getId());
+  $jobs_per_page = $this-&gt;container-&gt;getParameter('max_jobs_on_category');
+  $last_page = ceil($total_jobs / $jobs_per_page);
+  $previous_page = $page &gt; 1 ? $page - 1 : 1;
+  $next_page = $page &lt; $last_page ? $page + 1 : $last_page;
+
+  $category-&gt;setActiveJobs($em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;getActiveJobs($category-&gt;getId(), $jobs_per_page, ($page - 1) * $jobs_per_page));
+
+  return $this-&gt;render('EnsJobeetBundle:Category:show.html.twig', array(
+    'category' =&gt; $category,
+    'last_page' =&gt; $last_page,
+    'previous_page' =&gt; $previous_page,
+    'current_page' =&gt; $page,
+    'next_page' =&gt; $next_page,
+    'total_jobs' =&gt; $total_jobs
+  ));
+}
+</pre>
+<p>Finally, let’s update the template:</p>
+<pre class="brush: xml; title: ; notranslate" title="">&lt;!-- src/Ens/JobeetBundle/Resources/views/Category/show.html.twig --&gt;
+
+{% extends 'EnsJobeetBundle::layout.html.twig' %}
+
+{% block title %}
+  Jobs in the {{ category.name }} category
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  &lt;link rel="stylesheet" href="{{ asset('bundles/ensjobeet/css/jobs.css') }}" type="text/css" media="all" /&gt;
+{% endblock %}
+
+{% block content %}
+  &lt;div class="category"&gt;
+    &lt;div class="feed"&gt;
+      &lt;a href=""&gt;Feed&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;h1&gt;{{ category.name }}&lt;/h1&gt;
+  &lt;/div&gt;
+
+  {% include 'EnsJobeetBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
+
+  {% if last_page &gt; 1 %}
+    &lt;div class="pagination"&gt;
+      &lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug, 'page': 1 }) }}"&gt;
+        &lt;img src="{{ asset('bundles/ensjobeet/images/first.png') }}" alt="First page" title="First page" /&gt;
+      &lt;/a&gt;
+
+      &lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug, 'page': previous_page }) }}"&gt;
+        &lt;img src="{{ asset('bundles/ensjobeet/images/previous.png') }}" alt="Previous page" title="Previous page" /&gt;
+      &lt;/a&gt;
+
+      {% for page in 1..last_page %}
+        {% if page == current_page %}
+          {{ page }}
+        {% else %}
+          &lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug, 'page': page }) }}"&gt;{{ page }}&lt;/a&gt;
+        {% endif %}
+      {% endfor %}
+
+      &lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug, 'page': next_page }) }}"&gt;
+        &lt;img src="{{ asset('bundles/ensjobeet/images/next.png') }}" alt="Next page" title="Next page" /&gt;
+      &lt;/a&gt;
+
+      &lt;a href="{{ path('EnsJobeetBundle_category', { 'slug': category.slug, 'page': last_page }) }}"&gt;
+        &lt;img src="{{ asset('bundles/ensjobeet/images/last.png') }}" alt="Last page" title="Last page" /&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  {% endif %}
+
+  &lt;div class="pagination_desc"&gt;
+    &lt;strong&gt;{{ total_jobs }}&lt;/strong&gt; jobs in this category
+
+    {% if last_page &gt; 1 %}
+      - page &lt;strong&gt;{{ current_page }}/{{ last_page }}&lt;/strong&gt;
+    {% endif %}
+  &lt;/div&gt;
+{% endblock %}
+</pre>
+<p>The result:</p>
+<p><a href="http://www.ens.ro/wp-content/uploads/2012/04/SX5P5ZT.png"><img class="alignnone size-large wp-image-1086" title="Jobeet Category Pagination" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/SX5P5ZT-1024x719.png" alt="" width="584" height="410"></a></p>
+<p style="float: right;"><a title="Symfony2 Jobeet Day 8: The Unit Tests" href="http://www.ens.ro/2012/04/18/symfony2-jobeet-day-8-the-unit-tests/">Symfony2 Jobeet Day 8: The Unit Tests</a></p>
+<p style="float: left;"><a title="Symfony2 Jobeet Day 6: More with the Model" href="http://www.ens.ro/2012/04/08/symfony2-jobeet-day-6-more-with-the-model/">Symfony2 Jobeet Day 6: More with the Model</a></p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://www.ens.ro/category/english/" title="View all posts in English" rel="category tag">English</a>, <a href="http://www.ens.ro/category/web-development/php/" title="View all posts in PHP" rel="category tag">PHP</a>, <a href="http://www.ens.ro/category/web-development/" title="View all posts in Web Development" rel="category tag">Web Development</a> and tagged <a href="http://www.ens.ro/tag/symfony2-jobeet/" rel="tag">symfony2 jobeet</a> by <a href="http://www.ens.ro/author/dragos/">Dragos Holban</a>. Bookmark the <a href="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/Symfony2 Jobeet Day 7  Playing with the Category Page   ENS.htm" title="Permalink to Symfony2 Jobeet Day 7: Playing with the Category Page" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-968 -->
+
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			6 thoughts on “<span>Symfony2 Jobeet Day 7: Playing with the Category Page</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-2127">
+		<article id="comment-2127" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/de119af0e077d7bf1c135bece8ae1d70" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://gohere.4japan.info/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://gohere.4japan.info&#39;]);" rel="external nofollow" class="url">Buskaiwa</a></span> on <a href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#comment-2127"><time datetime="2012-08-28T07:32:01+00:00">August 28, 2012 at 7:32 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Excellent post on how to configure Symfony2 for pagination. I had been looking for such an example for the longest time, but only came up with bundles that provide pagination functionality in Symfony2.</p>
+<p>Thank you for writing. Again, excellent!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/?replytocom=2127#respond" onclick="return addComment.moveForm(&quot;comment-2127&quot;, &quot;2127&quot;, &quot;respond&quot;, &quot;968&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2315">
+		<article id="comment-2315" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/6c87e89c4de889708344578b5999b475" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">musa</span> on <a href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#comment-2315"><time datetime="2012-09-08T19:08:12+00:00">September 8, 2012 at 7:08 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>In Category.orm.yml, we have:<br>
+preUpdate: [ setSlugValue ]</p>
+<p>which does not appear in Entity/Category.php</p>
+<p>We need to add it manually:<br>
+/**<br>
+ * @ORM\prePersist<br>
+ * @ORM\preUpdate<br>
+ */<br>
+public function setSlugValue()<br>
+{<br>
+}</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/?replytocom=2315#respond" onclick="return addComment.moveForm(&quot;comment-2315&quot;, &quot;2315&quot;, &quot;respond&quot;, &quot;968&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-2879">
+		<article id="comment-2879" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/7a74f7d2a941bd9eb1b79c329de9dbfe" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">gtrennert</span> on <a href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#comment-2879"><time datetime="2012-10-08T01:59:16+00:00">October 8, 2012 at 1:59 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Excellent Work – The first time I don’t get all of it is on pagination<br>
+I did all following the tutorial.<br>
+In the end, on …/category/programming I get ALL the jobs of the category programming in a list. Below I see : “32 products in this category – page 1/2″ and the corresponding pagination links<br>
+I wonder if there is not a part missing in the CategoryController.php – to get only the first 20 jobs !?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/?replytocom=2879#respond" onclick="return addComment.moveForm(&quot;comment-2879&quot;, &quot;2879&quot;, &quot;respond&quot;, &quot;968&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-14118">
+		<article id="comment-14118" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/848641d357557f039723d85debeeb1f0" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://www.kamiladryjanek.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.kamiladryjanek.com&#39;]);" rel="external nofollow" class="url">Kamil Adryjanek</a></span> on <a href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#comment-14118"><time datetime="2013-01-06T21:15:01+00:00">January 6, 2013 at 9:15 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I don’t like the idea of executing query in category loop :/<br>
+<code><br>
+foreach($categories as $category)<br>
+  {<br>
+    $category-&gt;setActiveJobs($em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;getActiveJobs($category-&gt;getId(), $this-&gt;container-&gt;getParameter('max_jobs_on_homepage')));<br>
+    $category-&gt;setMoreJobs($em-&gt;getRepository('EnsJobeetBundle:Job')-&gt;countActiveJobs($category-&gt;getId()) - $this-&gt;container-&gt;getParameter('max_jobs_on_homepage'));<br>
+  }<br>
+</code></p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/?replytocom=14118#respond" onclick="return addComment.moveForm(&quot;comment-14118&quot;, &quot;14118&quot;, &quot;respond&quot;, &quot;968&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-21238">
+		<article id="comment-21238" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/49b563b8b453b88ff6f91a058ed11a1a" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://www.freelancephp.nl/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.freelancephp.nl&#39;]);" rel="external nofollow" class="url">Karin</a></span> on <a href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#comment-21238"><time datetime="2013-02-06T16:54:21+00:00">February 6, 2013 at 4:54 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>This tutorial is great. </p>
+<p>I tried to see if there’s any good pagination modules available now. I’ve been trying to get Pagerfanta working within this tutorial, but can’t quite get it right. </p>
+<p>I’ve adjusted the route:</p>
+<p>FreePHPJobeetBundle_category:<br>
+    pattern:  /category/{slug}/{page}<br>
+    defaults: { _controller: FreePHPJobeetBundle:Category:show, page: 1}</p>
+<p>And adjusted CategoryController.php:</p>
+<p>use Pagerfanta\Pagerfanta;<br>
+use Pagerfanta\Adapter\DoctrineORMAdapter;<br>
+use Pagerfanta\Exception\NotValidCurrentPageException;</p>
+<p>……</p>
+<p>    $jobsQuery = $em-&gt;getRepository(‘FreePHPJobeetBundle:Job’)-&gt;getActiveJobsQuery($category-&gt;getId());<br>
+	  $pagerfanta = new Pagerfanta(new DoctrineORMAdapter($jobsQuery));<br>
+    $pagerfanta-&gt;setMaxPerPage($this-&gt;container-&gt;getParameter(‘max_jobs_on_category’));</p>
+<p>  	try {<br>
+      $pagerfanta-&gt;setCurrentPage($page);<br>
+    } catch(NotValidCurrentPageException $e) {<br>
+      throw new NotFoundHttpException();<br>
+    }</p>
+<p>    $category-&gt;setActiveJobs($pagerfanta);</p>
+<p>This works in the sense that the first page shows 20 jobs and category/programming/2 shows the rest, what I can’t figure out is how to get the pager on the page (i.e. where you click page 1, 2). The examples for pagerfanta are a bit vague on this…. So if anyone has an idea how to get this working in this context I’d love to hear it. </p>
+<p>(p.s. getActiveJobsQuery is an adjustment to JobRepository, getActiveJobs is now</p>
+<p>	public function getActiveJobs($category_id = null, $max = null)<br>
+	{<br>
+		$query = $this-&gt;getActiveJobsQuery($category_id, $max);</p>
+<p>		return $query-&gt;getResult();<br>
+	}<br>
+where getActiveJobsQuery returns the $query object, needed for pagerfanta)</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/?replytocom=21238#respond" onclick="return addComment.moveForm(&quot;comment-21238&quot;, &quot;21238&quot;, &quot;respond&quot;, &quot;968&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-48387">
+		<article id="comment-48387" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/25c22011b4b718074248a983b18af19f" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Leandro Ferrigno</span> on <a href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#comment-48387"><time datetime="2013-05-13T01:09:35+00:00">May 13, 2013 at 1:09 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi, I’m running this tutorial, and I found some information about List Pagination that migth be usefull.<br>
+I tried to add the KnpPaginatorBundle to the Category page and it worked. (<a href="http://www.symfony.es/bundles/knplabs/knppaginatorbundle/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-comment&#39;,&#39;http://www.symfony.es&#39;]);" rel="nofollow">http://www.symfony.es/bundles/knplabs/knppaginatorbundle/</a>)</p>
+<p>I made the bundle instalation as it’s explaind in the web page, and then y modified some files.</p>
+<p>On the JobRepository y divided the code, so that y can simply get the query</p>
+<p>========================<br>
+public function getActiveJobs($category_id = null, $max = null)<br>
+	{<br>
+		$query =$this-&gt;getActiveJobsQuery($category_id, $max);</p>
+<p>		return $query-&gt;getResult();<br>
+	}</p>
+<p>	public function getActiveJobsQuery($category_id = null, $max = null)<br>
+	{<br>
+		$qb = $this-&gt;createQueryBuilder(‘j’)<br>
+		-&gt;where(‘j.expires_at &gt; :date’)<br>
+		-&gt;setParameter(‘date’, date(‘Y-m-d H:i:s’, time()))<br>
+		-&gt;orderBy(‘j.expires_at’, ‘DESC’);</p>
+<p>		if($max)<br>
+		{<br>
+			$qb-&gt;setMaxResults($max);<br>
+		}</p>
+<p>		if($category_id)<br>
+		{<br>
+			$qb-&gt;andWhere(‘j.category = :category_id’)<br>
+			-&gt;setParameter(‘category_id’, $category_id);<br>
+		}</p>
+<p>		$query = $qb-&gt;getQuery();</p>
+<p>		return $query;<br>
+	}<br>
+==================<br>
+Then, in the CategoryController the showAction looked like<br>
+=========================<br>
+public function showAction($slug)<br>
+	{<br>
+		$em = $this-&gt;getDoctrine()-&gt;getEntityManager();</p>
+<p>		$category = $em-&gt;getRepository(‘EnsJobeetBundle:Category’)-&gt;findOneBySlug($slug);</p>
+<p>		if (!$category) {<br>
+			throw $this-&gt;createNotFoundException(‘Unable to find Category entity.’);<br>
+		}</p>
+<p>		$category-&gt;setActiveJobs($em-&gt;getRepository(‘EnsJobeetBundle:Job’)-&gt;getActiveJobs($category-&gt;getId()));</p>
+<p>		$jobsQuery = $em-&gt;getRepository(‘EnsJobeetBundle:Job’)-&gt;getActiveJobsQuery($category-&gt;getId());</p>
+<p>		$jobsPaginator = $this-&gt;get(‘knp_paginator’);<br>
+		$pagination = $jobsPaginator-&gt;paginate(<br>
+				$jobsQuery,<br>
+				$this-&gt;getRequest()-&gt;query-&gt;get(‘page’, 1),<br>
+				10<br>
+		);</p>
+<p>		return $this-&gt;render(‘EnsJobeetBundle:Category:show.html.twig’, array(<br>
+				‘category’ =&gt; $category,’pagination’ =&gt;$pagination<br>
+		));<br>
+	}<br>
+===============================<br>
+And finally in the view, i modified the twig as follows</p>
+<p>===============================<br>
+{% extends ‘EnsJobeetBundle::layout.html.twig’ %}</p>
+<p>{% block title %}<br>
+  Jobs in the {{ category.name }} category<br>
+{% endblock %}</p>
+<p>{% block stylesheets %}<br>
+  {{ parent() }}</p>
+<p>{% endblock %}</p>
+<p>{% block content %}</p>
+<p>      <a href="" rel="nofollow">Feed</a></p>
+<p>    {{ category.name }}</p>
+<p>    {% include ‘EnsJobeetBundle:Job:list.html.twig’ with {‘jobs’: pagination} %}</p>
+<p>     {{ knp_pagination_render(pagination) }}</p>
+<p>{% endblock %}<br>
+===============================</p>
+<p>Hope this can be usefull.<br>
+Thanks for the tutorial</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/?replytocom=48387#respond" onclick="return addComment.moveForm(&quot;comment-48387&quot;, &quot;48387&quot;, &quot;respond&quot;, &quot;968&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+		</ol>
+
+		
+		
+	
+									<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.ens.ro/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="968" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="ba82141b8b"></p>					</form>
+							</div><!-- #respond -->
+				<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#commentform').submit(function () {
+				_gaq.push(
+					['_setAccount', 'UA-29990339-1'],
+					['_trackEvent', 'comment', 'submit']
+				);
+			});
+		});
+	</script>
+				
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div id="dc-dcssb">
+		<ul id="nav-dcssb" class=""><li id="dcssb-twitter" class="size-box"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/tweet_button.1386967771.htm" class="twitter-share-button twitter-tweet-button twitter-count-vertical" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 59px; height: 62px;"></iframe></li>
+			<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/widgets.js"></script>
+			<div id="fb-root" class=" fb_reset"><script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/all.js" async=""></script><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/xd_arbiter.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/xd_arbiter(1).htm" style="border: none;"></iframe></div></div></div>
+			<script>
+	window.fbAsyncInit = function() {
+	FB.init({appId: "", status: true, cookie: true, xfbml: true});};
+	(function() {
+		var e = document.createElement("script");
+		e.type = "text/javascript";
+		e.src = document.location.protocol + "//connect.facebook.net/en_US/all.js";
+		e.async = true;
+	document.getElementById("fb-root").appendChild(e);
+	}());
+</script>
+<li id="dcssb-facebook" class="size-box"><fb:like href="http%3A%2F%2Fwww.ens.ro%2F2012%2F04%2F11%2Fsymfony2-jobeet-day-7-playing-with-the-category-page%2F" send="false" layout="box_count" show_faces="false" font="" fb-xfbml-state="rendered" class=" fb_edge_widget_with_comment fb_iframe_widget"><span style="height: 65px; width: 55px;"><iframe id="f3e286732" name="f33895ce2c" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/like.htm" style="border: none; overflow: hidden; height: 65px; width: 55px;"></iframe></span></fb:like></li>
+			<li id="dcssb-plusone" class="size-box"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1387031745682" name="I0_1387031745682" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></li>
+			<script type="text/javascript">
+				(function() {
+					var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+					po.src = "https://apis.google.com/js/plusone.js";
+					var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+				})();
+				</script>
+				</ul>
+		<div class="clear"></div>
+		<div class="dc-corner"><span></span></div>
+		</div>			<script type="text/javascript">_ga.trackFacebook();</script>
+			<script type="text/javascript">
+				jQuery(window).load(function() {
+
+								
+					var config = {
+						idWrapper : 'dcssb-slick',
+						location: 'right',
+						align: 'top',
+						offset: '50px',
+						speed: 600,
+						tabText: '<img src="http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/css/images/tab_right_vertical.png" alt="Share" />',
+						autoClose: true,
+						loadOpen: false,
+						classWrapper: 'dc-social-slick vertical',
+						classOpen: 'dcssb-open',
+						classClose: 'dcssb-close',
+						classToggle: 'dcssb-link'					
+					};
+					if(!jQuery().dcSocialSlick) {
+						jQuery.getScript('http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/js/jquery.social.slick.1.0.js', function(){
+							jQuery('#dc-dcssb').dcSocialSlick(config);
+						}); 
+					} else {
+						jQuery('#dc-dcssb').dcSocialSlick(config);
+					}
+
+								});
+			</script>
+		
+			<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shCore.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shBrushPlain.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shBrushPhp.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/shBrushXml.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.ens.ro/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.ens.ro/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['tab-size'] = 2;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/jquery.form.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.ens.ro\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/scripts.js"></script>
+
+
+<iframe name="oauth2relay861749602" id="oauth2relay861749602" src="./Symfony2 Jobeet Day 7  Playing with the Category Page   ENS_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

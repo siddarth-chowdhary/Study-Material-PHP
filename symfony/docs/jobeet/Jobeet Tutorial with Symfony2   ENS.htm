@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/ -->
+<html lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Jobeet Tutorial with Symfony2   ENS_files/plusone.js" gapi_processed="true"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Jobeet Tutorial with Symfony2 | ENS</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Jobeet Tutorial with Symfony2   ENS_files/style.css">
+<link rel="pingback" href="http://www.ens.ro/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://www.ens.ro/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+	<link rel="stylesheet" href="./Jobeet Tutorial with Symfony2   ENS_files/dcssb.css" type="text/css" media="screen">
+	<!--Facebook OpenGraph Slick Social Share Buttons -->
+	<meta property="og:site_name" content="ENS">
+		<meta property="og:title" content="Jobeet Tutorial with Symfony2">
+			<meta property="og:description" content="Jobeet is a great tutorial wrote by the Symfony team to help you learn how to use the framework by building a fully functional job board website. It was wrote for Symfony 1.x version and now it&#39;s time">
+		
+		<meta property="og:url" content="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/">
+		
+		<meta property="og:image" content="">
+		<meta property="fb:admins" content="533936499">
+		<meta property="fb:app_id" content="">
+		<meta property="og:type" content="article"><!--End Facebook OpenGraph Settings -->
+		<link rel="alternate" type="application/rss+xml" title="ENS » Feed" href="http://www.ens.ro/feed/">
+<link rel="alternate" type="application/rss+xml" title="ENS » Comments Feed" href="http://www.ens.ro/comments/feed/">
+
+			<script src="./Jobeet Tutorial with Symfony2   ENS_files/cb=gapi.loaded_1" async=""></script><script src="./Jobeet Tutorial with Symfony2   ENS_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Jobeet Tutorial with Symfony2   ENS_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" async="" src="./Jobeet Tutorial with Symfony2   ENS_files/ga.js"></script><script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29990339-1']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="ENS » Jobeet Tutorial with Symfony2 Comments Feed" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/feed/">
+<link rel="stylesheet" id="contact-form-7-css" href="./Jobeet Tutorial with Symfony2   ENS_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="NextGEN-css" href="./Jobeet Tutorial with Symfony2   ENS_files/nggallery.css" type="text/css" media="screen">
+<link rel="stylesheet" id="shutter-css" href="./Jobeet Tutorial with Symfony2   ENS_files/shutter-reloaded.css" type="text/css" media="screen">
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/jquery.js"></script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/ga.social_tracking.js"></script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/jquery.social.slick.1.0.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/shutter-reloaded.js"></script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/ngg.slideshow.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.ens.ro/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.ens.ro/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Zend Authentication and Authorization Tutorial with Zend_Auth and Zend_Acl" href="http://www.ens.ro/2012/03/20/zend-authentication-and-authorization-tutorial-with-zend_auth-and-zend_acl/">
+<link rel="next" title="Symfony2 Jobeet Day 1: Starting up the Project" href="http://www.ens.ro/2012/03/22/symfony2-jobeet-day-1-starting-up-the-project/">
+<meta name="generator" content="WordPress 3.5">
+<link rel="canonical" href="./Jobeet Tutorial with Symfony2   ENS_files/Jobeet Tutorial with Symfony2   ENS.htm">
+<link rel="shortlink" href="http://www.ens.ro/?p=325">
+<!-- <meta name="NextGEN" version="1.9.10" /> -->
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f1f1f1; background-image: url('http://www.ens.ro/wp-content/uploads/2012/08/bgbody1.gif'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+
+<body class="single single-post postid-325 single-format-standard custom-background single-author singular two-column right-sidebar" data-twttr-rendered="true">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://www.ens.ro/" title="ENS" rel="home">ENS</a></span></h1>
+				<h2 id="site-description">Entertainment, News, Software</h2>
+			</hgroup>
+
+						<a href="http://www.ens.ro/">
+									<img src="./Jobeet Tutorial with Symfony2   ENS_files/cropped-wallpaper-15057031.jpg" width="1000" height="288" alt="">
+							</a>
+			
+								<form method="get" id="searchform" action="http://www.ens.ro/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-my-menu-container"><ul id="menu-my-menu" class="menu"><li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-161"><a href="http://www.ens.ro/">Home</a></li>
+<li id="menu-item-160" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-160"><a href="http://www.ens.ro/category/web-development/">Web Development</a>
+<ul class="sub-menu">
+	<li id="menu-item-822" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-822"><a title="The Jobeet Tutorial with Symfony2" href="http://www.ens.ro/tag/symfony2-jobeet/">Symfony2 Jobeet</a></li>
+	<li id="menu-item-2050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2050"><a title="Symfony2 Tutorials" href="http://www.ens.ro/tag/symfony2/">Symfony2</a></li>
+	<li id="menu-item-2055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2055"><a title="Symfony 1.4 Tutorials" href="http://www.ens.ro/tag/symfony-1-4/">Symfony 1.4</a></li>
+	<li id="menu-item-2049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2049"><a title="Zend Framework Tutorials" href="http://www.ens.ro/tag/zend/">Zend</a></li>
+	<li id="menu-item-2063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2063"><a title="PHP Tutorials" href="http://www.ens.ro/tag/php-2/">PHP</a></li>
+	<li id="menu-item-2064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2064"><a title="MySQL Tutorials" href="http://www.ens.ro/tag/mysql/">MySQL</a></li>
+</ul>
+</li>
+<li id="menu-item-2073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2073"><a title="Entertainment" href="http://www.ens.ro/tag/entertainment/">Entertainment</a></li>
+<li id="menu-item-159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-159"><a href="http://www.ens.ro/about/">About ENS</a></li>
+<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267"><a href="http://www.ens.ro/contact/">Contact</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://www.ens.ro/2012/03/20/zend-authentication-and-authorization-tutorial-with-zend_auth-and-zend_acl/" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+						<span class="nav-next"><a href="http://www.ens.ro/2012/03/22/symfony2-jobeet-day-1-starting-up-the-project/" rel="next">Next <span class="meta-nav">→</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-325" class="post-325 post type-post status-publish format-standard hentry category-english category-php category-web-development tag-symfony2-jobeet">
+	<header class="entry-header">
+		<h1 class="entry-title">Jobeet Tutorial with Symfony2</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="./Jobeet Tutorial with Symfony2   ENS_files/Jobeet Tutorial with Symfony2   ENS.htm" title="8:33 am" rel="bookmark"><time class="entry-date" datetime="2012-03-21T08:33:11+00:00">March 21, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://www.ens.ro/author/dragos/" title="View all posts by Dragos Holban" rel="author">Dragos Holban</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a title="Jobeet" href="http://www.jobeet.org/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://www.jobeet.org&#39;]);" target="_blank">Jobeet</a> is a great tutorial wrote by the Symfony team to help you learn how to use the framework by building a fully functional job board website. It was wrote for Symfony 1.x version and now it’s time for a remake using the new <a title="Symfony2" href="http://symfony.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://symfony.com&#39;]);" target="_blank">Symfony2 framework</a>.<span id="more-325"></span></p>
+<p>In the following weeks I will begin to post the parts of making the Jobeet website using Symfony2, so it will help beginners to learn and understand how the framework works. I will try to follow the <a title="Jobeet Tutorial" href="http://www.symfony-project.org/jobeet/1_4/Doctrine/en/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://www.symfony-project.org&#39;]);" target="_blank">original Jobeet tutorial</a>, but I will also make some changes from time to time to reflect my personal developing style.</p>
+<p>Please be free to make any observations and improvements you consider important by commenting on the posts that will follow.</p>
+<p><a title="Symfony2 Jobeet Day 1: Starting up the project" href="http://www.ens.ro/2012/03/22/symfony2-jobeet-day-1-starting-up-the-project/" target="_blank">Symfony2 Jobeet Day 1: Starting up the project</a></p>
+<p><a title="Symfony2 Jobeet Day 2: The Project" href="http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/" target="_blank">Symfony2 Jobeet Day 2: The Project</a></p>
+<p><a title="Symfony2 Jobeet Day 3: The Data Model" href="http://www.ens.ro/2012/03/27/symfony2-jobeet-day-3-the-data-model/" target="_blank">Symfony2 Jobeet Day 3: The Data Model</a></p>
+<p><a title="Symfony2 Jobeet Day 4: The Controller and the View" href="http://www.ens.ro/2012/03/31/symfony2-jobeet-day-4-the-controller-and-the-view/" target="_blank">Symfony2 Jobeet Day 4: The Controller and the View</a></p>
+<p><a title="Symfony2 Jobeet Day 5: The Routing" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/" target="_blank">Symfony2 Jobeet Day 5: The Routing</a></p>
+<p><a title="Symfony2 Jobeet Day 6: More with the Model" href="http://www.ens.ro/2012/04/08/symfony2-jobeet-day-6-more-with-the-model/" target="_blank">Symfony2 Jobeet Day 6: More with the Model</a></p>
+<p><a title="Symfony2 Jobeet Day 7: Playing with the Category Page" href="http://www.ens.ro/2012/04/11/symfony2-jobeet-day-7-playing-with-the-category-page/" target="_blank">Symfony2 Jobeet Day 7: Playing with the Category Page</a></p>
+<p><a title="Symfony2 Jobeet Day 8: The Unit Tests" href="http://www.ens.ro/2012/04/18/symfony2-jobeet-day-8-the-unit-tests/" target="_blank">Symfony2 Jobeet Day 8: The Unit Tests</a></p>
+<p><a title="Symfony2 Jobeet Day 9: The Functional Tests" href="http://www.ens.ro/2012/04/25/symfony2-jobeet-day-9-the-functional-tests/" target="_blank">Symfony2 Jobeet Day 9: The Functional Tests</a></p>
+<p><a title="Symfony2 Jobeet Day 10: The Forms" href="http://www.ens.ro/2012/05/17/symfony2-jobeet-day-10-the-forms/" target="_blank">Symfony2 Jobeet Day 10: The Forms</a></p>
+<p><a title="Symfony2 Jobeet Day 11: Testing your Forms" href="http://www.ens.ro/2012/06/22/symfony2-jobeet-day-11-testing-your-forms/" target="_blank">Symfony2 Jobeet Day 11: Testing your Forms</a></p>
+<p><a title="Symfony2 Jobeet Day 12: The Admin Bundle" href="http://www.ens.ro/2012/07/13/symfony2-jobeet-day-12-the-admin-bundle/" target="_blank">Symfony2 Jobeet Day 12: The Admin Bundle</a></p>
+<p><a title="Symfony2 Jobeet Day 13: Security" href="http://www.ens.ro/2012/08/09/symfony2-jobeet-day-13-security/" target="_blank">Symfony2 Jobeet Day 13: Security</a></p>
+<p><a title="Symfony2 Jobeet Day 14: Feeds" href="http://www.ens.ro/2012/08/17/symfony2-jobeet-day-14-feeds/" target="_blank">Symfony2 Jobeet Day 14: Feeds</a></p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://www.ens.ro/category/english/" title="View all posts in English" rel="category tag">English</a>, <a href="http://www.ens.ro/category/web-development/php/" title="View all posts in PHP" rel="category tag">PHP</a>, <a href="http://www.ens.ro/category/web-development/" title="View all posts in Web Development" rel="category tag">Web Development</a> and tagged <a href="http://www.ens.ro/tag/symfony2-jobeet/" rel="tag">symfony2 jobeet</a> by <a href="http://www.ens.ro/author/dragos/">Dragos Holban</a>. Bookmark the <a href="./Jobeet Tutorial with Symfony2   ENS_files/Jobeet Tutorial with Symfony2   ENS.htm" title="Permalink to Jobeet Tutorial with Symfony2" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-325 -->
+
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			20 thoughts on “<span>Jobeet Tutorial with Symfony2</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-164">
+		<article id="comment-164" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/99b820ce613eaceab7054d56e05500d1" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Mike</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-164"><time datetime="2012-04-26T09:20:56+00:00">April 26, 2012 at 9:20 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>A phenomenal Symfony2 tutorial. Every time I finish one article I anxiously await the publishing of the next. They are very concise but yet detailed and break down the task at hand clearly.</p>
+<p>Thank You!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=164#respond" onclick="return addComment.moveForm(&quot;comment-164&quot;, &quot;164&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-dragos bypostauthor odd alt depth-2" id="li-comment-167">
+		<article id="comment-167" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-167"><time datetime="2012-04-26T10:55:27+00:00">April 26, 2012 at 10:55 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks Mike!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=167#respond" onclick="return addComment.moveForm(&quot;comment-167&quot;, &quot;167&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-3" id="li-comment-855">
+		<article id="comment-855" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/3731e14ab5fd47a1063f919e197144ba" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">keerthi priyankara</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-855"><time datetime="2012-06-23T20:14:13+00:00">June 23, 2012 at 8:14 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>thanks for help!!!!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=855#respond" onclick="return addComment.moveForm(&quot;comment-855&quot;, &quot;855&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+</ul>
+</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-194">
+		<article id="comment-194" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/7a6c97f1331b8ee210b2e1226ada0190" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Chandima</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-194"><time datetime="2012-05-01T07:40:49+00:00">May 1, 2012 at 7:40 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>When learning Symfony 1.4, jobeet tutorial looked marvelous to understand Symfony framework in detail though it had full documentation of classes, functions etc. separately. So hope that converting the tutorial into Symfony 2.0 will be of great help for beginners and also for Symfony 1.4 developers to grasp the framework easily.</p>
+<p>Well done Dragos!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=194#respond" onclick="return addComment.moveForm(&quot;comment-194&quot;, &quot;194&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment byuser comment-author-dragos bypostauthor even thread-even depth-1" id="li-comment-195">
+		<article id="comment-195" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b(1)" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-195"><time datetime="2012-05-01T07:50:03+00:00">May 1, 2012 at 7:50 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thank you Chandima!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=195#respond" onclick="return addComment.moveForm(&quot;comment-195&quot;, &quot;195&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-541">
+		<article id="comment-541" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/847a257985cdb6ca44269ecace21cfd5" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Kel</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-541"><time datetime="2012-06-04T23:52:51+00:00">June 4, 2012 at 11:52 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thank you so much, awsome  tut!!!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=541#respond" onclick="return addComment.moveForm(&quot;comment-541&quot;, &quot;541&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-786">
+		<article id="comment-786" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/94b2bd2f768c4aa01c73226443d2243e" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Mithun</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-786"><time datetime="2012-06-19T09:41:03+00:00">June 19, 2012 at 9:41 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Great tutorial . Are you planning to cover topics such as ” how to setup multiple domains with single copy of symfony ?</p>
+<p>Appreciate your time .</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=786#respond" onclick="return addComment.moveForm(&quot;comment-786&quot;, &quot;786&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1002">
+		<article id="comment-1002" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/c9b09af5c83e1a9150ad53012f7fe2e1" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Michaël</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-1002"><time datetime="2012-07-04T18:24:49+00:00">July 4, 2012 at 6:24 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thank you very much for your tutorial. It’s really interesting to see how to use Symfony2 for the Jobeet project.</p>
+<p>I’m looking forward to seeing how you will deal with admin generation!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=1002#respond" onclick="return addComment.moveForm(&quot;comment-1002&quot;, &quot;1002&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-1187">
+		<article id="comment-1187" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/d6524862e66eda3a9bc094075ebddfec" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Miguel</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-1187"><time datetime="2012-07-16T15:35:47+00:00">July 16, 2012 at 3:35 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Ca de obicei… ajutor de calitate din Romania <img src="./Jobeet Tutorial with Symfony2   ENS_files/icon_wink.gif" alt=";)" class="wp-smiley"> </p>
+<p>Salutari din Spania si multumesc din suflet</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=1187#respond" onclick="return addComment.moveForm(&quot;comment-1187&quot;, &quot;1187&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1391">
+		<article id="comment-1391" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/a725869c280c73707ee0ca2c8b6ce8fa" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">dev</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-1391"><time datetime="2012-07-25T10:45:33+00:00">July 25, 2012 at 10:45 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Is there any tutorial on localization for symfony2 ?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=1391#respond" onclick="return addComment.moveForm(&quot;comment-1391&quot;, &quot;1391&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-1601">
+		<article id="comment-1601" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/760d1e7391badf0bc9562563ff2e00b2" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">mohamed sahli</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-1601"><time datetime="2012-08-05T17:13:59+00:00">August 5, 2012 at 5:13 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>thank you very much !! this tuto is so helpful <img src="./Jobeet Tutorial with Symfony2   ENS_files/icon_biggrin.gif" alt=":D" class="wp-smiley"> </p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=1601#respond" onclick="return addComment.moveForm(&quot;comment-1601&quot;, &quot;1601&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1678">
+		<article id="comment-1678" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/b6dbc66cdc9b9ae7d3b7e64a4c400902" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://hire.chrisjlee.net/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://hire.chrisjlee.net&#39;]);" rel="external nofollow" class="url">Chris from Dallas</a></span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-1678"><time datetime="2012-08-08T19:14:49+00:00">August 8, 2012 at 7:14 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>On day 3, where is your Deps file usually located as you were referring to the, “Initial data” and where you had to add the dependancies?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=1678#respond" onclick="return addComment.moveForm(&quot;comment-1678&quot;, &quot;1678&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-dragos bypostauthor even depth-2" id="li-comment-1688">
+		<article id="comment-1688" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-1688"><time datetime="2012-08-09T08:05:49+00:00">August 9, 2012 at 8:05 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>The deps file is located in the project root folder.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=1688#respond" onclick="return addComment.moveForm(&quot;comment-1688&quot;, &quot;1688&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment odd alt thread-even depth-1" id="li-comment-2236">
+		<article id="comment-2236" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/c0759bb0e7ed1294aabedf10d1909b5a" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://www.3ktec.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.3ktec.com&#39;]);" rel="external nofollow" class="url">Jordi</a></span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-2236"><time datetime="2012-09-03T11:44:53+00:00">September 3, 2012 at 11:44 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thank you very much for this help!<br>
+Are you working with the “Day 17: Search”?<br>
+I want to make a search box, for posts and files, can you give me some directions to start with this?</p>
+<p>Thank you for your time!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=2236#respond" onclick="return addComment.moveForm(&quot;comment-2236&quot;, &quot;2236&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-2412">
+		<article id="comment-2412" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/2e013494a68b7ab0ae5921978e26f288" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Esteban</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-2412"><time datetime="2012-09-14T15:34:57+00:00">September 14, 2012 at 3:34 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Is there a github repository with the whole project ?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=2412#respond" onclick="return addComment.moveForm(&quot;comment-2412&quot;, &quot;2412&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-dragos bypostauthor odd alt depth-2" id="li-comment-2426">
+		<article id="comment-2426" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-2426"><time datetime="2012-09-15T12:08:44+00:00">September 15, 2012 at 12:08 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>No, there isn’t one but if you follow the tutorial, you should be able to build it on your own. I guess you will also learn more this way.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=2426#respond" onclick="return addComment.moveForm(&quot;comment-2426&quot;, &quot;2426&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-even depth-1" id="li-comment-2494">
+		<article id="comment-2494" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/c97099c3bd75644d93c65ad5198c7ab4" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Leandro</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-2494"><time datetime="2012-09-19T19:16:40+00:00">September 19, 2012 at 7:16 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I’m anxiously waiting for the next days of this tutorial. I don’t know why people from Symfony project didn’t port the tutorial for version 2, they should do this. Good job!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=2494#respond" onclick="return addComment.moveForm(&quot;comment-2494&quot;, &quot;2494&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3334">
+		<article id="comment-3334" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/1370e426d8e797c5336e9cd67488ca1f" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Pushparaj</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-3334"><time datetime="2012-10-22T07:35:21+00:00">October 22, 2012 at 7:35 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Great wrok ! Pratical example same as in symfony 1.4. is  nw for symfony 2.0.<br>
+It wolud save more  time  for learning and understanding concepts.</p>
+<p>Thanks Dude.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=3334#respond" onclick="return addComment.moveForm(&quot;comment-3334&quot;, &quot;3334&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-11233">
+		<article id="comment-11233" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/38b39ace3d19dadf3e300edaa29b239a" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Frank</span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-11233"><time datetime="2012-12-20T12:42:01+00:00">December 20, 2012 at 12:42 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Great work! That realy helps a lot….</p>
+<p>TX and merry christmas and a happy new Year</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=11233#respond" onclick="return addComment.moveForm(&quot;comment-11233&quot;, &quot;11233&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-21997">
+		<article id="comment-21997" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Jobeet Tutorial with Symfony2   ENS_files/3d455b463c9637af899ee4341da0a91d" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://www.zahouri.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.zahouri.com&#39;]);" rel="external nofollow" class="url">Anosi</a></span> on <a href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#comment-21997"><time datetime="2013-02-11T20:11:36+00:00">February 11, 2013 at 8:11 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi,<br>
+Great work! It helped me alot. thank you.<br>
+I’m wondering if i can translate this tutorial to french in my blog. ^_^</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/?replytocom=21997#respond" onclick="return addComment.moveForm(&quot;comment-21997&quot;, &quot;21997&quot;, &quot;respond&quot;, &quot;325&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+		</ol>
+
+		
+		
+	
+									<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.ens.ro/2012/03/21/jobeet-tutorial-with-symfony2/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.ens.ro/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="325" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d8dc9d01c0"></p>					</form>
+							</div><!-- #respond -->
+				<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#commentform').submit(function () {
+				_gaq.push(
+					['_setAccount', 'UA-29990339-1'],
+					['_trackEvent', 'comment', 'submit']
+				);
+			});
+		});
+	</script>
+				
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div id="dcssb-slick" class="dc-social-slick vertical right align-top" style="float: none; position: fixed; z-index: 10000; margin-right: -100px; top: 50px;"><div class="tab" style="position: absolute; margin-left: -46px;"><span><img src="./Jobeet Tutorial with Symfony2   ENS_files/tab_right_vertical.png" alt="Share"></span></div><div id="dc-dcssb" class="dc-social-slick-content" style="height: 210px;">
+		<ul id="nav-dcssb" class=""><li id="dcssb-twitter" class="size-box"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Jobeet Tutorial with Symfony2   ENS_files/tweet_button.1386967771.htm" class="twitter-share-button twitter-tweet-button twitter-count-vertical" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 59px; height: 62px;"></iframe></li>
+			
+			<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Jobeet Tutorial with Symfony2   ENS_files/xd_arbiter.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Jobeet Tutorial with Symfony2   ENS_files/xd_arbiter(1).htm" style="border: none;"></iframe></div></div><script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/all.js" async=""></script><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+			
+<li id="dcssb-facebook" class="size-box"><fb:like href="http%3A%2F%2Fwww.ens.ro%2F2012%2F03%2F21%2Fjobeet-tutorial-with-symfony2%2F" send="false" layout="box_count" show_faces="false" font="" fb-xfbml-state="rendered" class=" fb_edge_widget_with_comment fb_iframe_widget"><span style="height: 65px; width: 55px;"><iframe id="f1488a484c" name="f130711018" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="./Jobeet Tutorial with Symfony2   ENS_files/like.htm" style="border: none; overflow: hidden; height: 65px; width: 55px;"></iframe></span></fb:like></li>
+			<li id="dcssb-plusone" class="size-box"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1387031552005" name="I0_1387031552005" src="./Jobeet Tutorial with Symfony2   ENS_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></li>
+			
+				</ul>
+		<div class="clear"></div>
+		<div class="dc-corner"><span></span></div>
+		</div></div>			<script type="text/javascript">_ga.trackFacebook();</script>
+			<script type="text/javascript">
+				jQuery(window).load(function() {
+
+								
+					var config = {
+						idWrapper : 'dcssb-slick',
+						location: 'right',
+						align: 'top',
+						offset: '50px',
+						speed: 600,
+						tabText: '<img src="http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/css/images/tab_right_vertical.png" alt="Share" />',
+						autoClose: true,
+						loadOpen: false,
+						classWrapper: 'dc-social-slick vertical',
+						classOpen: 'dcssb-open',
+						classClose: 'dcssb-close',
+						classToggle: 'dcssb-link'					
+					};
+					if(!jQuery().dcSocialSlick) {
+						jQuery.getScript('http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/js/jquery.social.slick.1.0.js', function(){
+							jQuery('#dc-dcssb').dcSocialSlick(config);
+						}); 
+					} else {
+						jQuery('#dc-dcssb').dcSocialSlick(config);
+					}
+
+								});
+			</script>
+		
+			<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/jquery.form.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.ens.ro\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Jobeet Tutorial with Symfony2   ENS_files/scripts.js"></script>
+
+
+<iframe name="oauth2relay424694524" id="oauth2relay424694524" src="./Jobeet Tutorial with Symfony2   ENS_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

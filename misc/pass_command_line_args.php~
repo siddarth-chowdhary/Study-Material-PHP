@@ -1,0 +1,19 @@
+<?php
+
+if (defined('STDIN')) {
+    	$one = $argv[1];
+    	$two = $argv[2];
+    	$three = $argv[3];
+    	$four = $argv[4];
+} else {
+//normal $_REQUEST
+
+}
+
+
+
+
+echo  $one;
+echo  $two;
+echo  $three;
+echo  $four;

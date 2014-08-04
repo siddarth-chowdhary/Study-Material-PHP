@@ -1,0 +1,161 @@
+					--------------------------------------
+					 Symfony 2 Installation Documentation
+					--------------------------------------
+						@author - siddarth
+						@date - 15 december 2013
+						@last mod - 15 december 2013
+					--------------------------------------
+
+composer setup
+---------------
+open "getcomposer.com" in browser
+jump to "download the composer globally (getting started section)"
+
+commands (from /var/www)
+
+a)curl -sS https://getcomposer.org/installer | php
+b)sudo mv composer.phar /usr/local/bin/composer
+
+installing sympfony (using composer)
+-------------------------------------
+go to http://symfony.com/doc/master/book/installation.html
+or sympfony.com->documentation->installation and config->master version
+
+commands (from /var/www)
+
+a)composer create-project symfony/framework-standard-edition /var/www/learnsymfony 2.3.3 --prefer-dist
+explaination: 	this command will create a project named "learnsymfony" in /var/www 
+				2.3.3 is the version of symfony and --prefer-dist is to download the vendor files faster.
+				
+				after some of the packages/bundles have been installed it will ask for some of the options like
+				database driver,password,etc majorly choose default(press enter) except the password of the database.
+				
+				note: if u want to see/change them later , they are in the parameters.yml file in the app/config folder
+				we can change them from here also
+				
+setting up the virtual host
+-----------------------------
+1)
+sudo gedit /etc/apache2/sites-available/default
+
+add in the end
+
+<VirtualHost *:80>
+	ServerAdmin abc.com
+	DocumentRoot /var/www/learnsymfony/web
+	ServerName learnsymfony.local
+	
+	<Directory /var/www/learnsymfony/web>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog /var/www/test_scheduler.com
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+
+</VirtualHost>
+
+2)sudo gedit /etc/hosts
+127.0.0.1	learnsymfony.local
+
+in the start of the /etc/hosts
+
+3) open firefox and type
+http://learnsymfony.local/app_dev.php
+
+(app_dev.php is in the projectroot/web)
+
+
+setting up the permission
+---------------------------
+basically this is giving a particular user permission to the app/cache directory.
+
+go to -> http://symfony.com/doc/master/book/installation.html
+
+jump to -> 2. Using ACL on a system that does not support chmod +a
+
+
+run these 3 commands from the project root (/var/www/learnsymfony)
+
+$ APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd' | grep -v root | head -1 | cut -d\  -f1`
+$ sudo setfacl -R -m u:$APACHEUSER:rwX -m u:`whoami`:rwX app/cache app/logs
+$ sudo setfacl -dR -m u:$APACHEUSER:rwX -m u:`whoami`:rwX app/cache app/logs
+
+now refresh the browser at learnsymfony.local
+
+
+clearing the cache
+------------------
+go to project root
+/var/www/learnsymfony $ php app/console cache:clear
+
+general info
+-------------
+look at the directory structure
+
+we will primarily work in the src folder and create our own bundles
+by default we get a demo bundle and the vendor is "acme"
+
+
+change in config/config.yml
+-----------------------------
+below this section
+
+        # Swiftmailer Configuration
+        swiftmailer:
+            transport: %mailer_transport%
+            host:      %mailer_host%
+            username:  %mailer_user%
+            password:  %mailer_password%
+            spool:     { type: memory }
+
+add this code
+
+
+        # added by me on for debugging twig 
+        services:
+            debug.twig.extension:
+                class: Twig_Extensions_Extension_Debug
+                tags: [{ name: 'twig.extension' }]
+
+
+it just allows us to do debugging inside twig
+
+
+now go to the browser
+----------------------
+click "run the demo" section
+
+in the address/url of browser instead of "world" type "siddarth"
+and see the code.
+
+
+general info
+-------------
+on seeing the code in controller we see how the route is given 
+this is just the one way to give the route
+we will cover another way to do routing later
+
+to delete the acme bundle   (default bundle that comes with symfony 2)
+--------------------------------------------------------------------
+1) delete the "acme" folder from the src folder
+
+2) open the AppKernel.php present in the app folder
+remove the line shown as the comment. 
+
+    if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+                $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();          //remove this line to remove the acme bundle
+                $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
+                $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+                $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            }
+
+3) open the app/config/routin_dev.yml and remove the following code completely
+
+        # AcmeDemoBundle routes (to be removed)
+        _acme_demo:
+            resource: "@AcmeDemoBundle/Resources/config/routing.yml"

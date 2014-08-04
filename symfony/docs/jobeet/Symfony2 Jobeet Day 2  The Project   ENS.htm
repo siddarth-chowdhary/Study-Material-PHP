@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/ -->
+<html lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/plusone.js" gapi_processed="true"></script><script async="" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/all.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Symfony2 Jobeet Day 2: The Project | ENS</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Symfony2 Jobeet Day 2  The Project   ENS_files/style.css">
+<link rel="pingback" href="http://www.ens.ro/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://www.ens.ro/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+	<link rel="stylesheet" href="./Symfony2 Jobeet Day 2  The Project   ENS_files/dcssb.css" type="text/css" media="screen">
+	<!--Facebook OpenGraph Slick Social Share Buttons -->
+	<meta property="og:site_name" content="ENS">
+		<meta property="og:title" content="Symfony2 Jobeet Day 2: The Project">
+			<meta property="og:description" content="This day is about the project specifications. They are the same as in the original Jobeet tutorial so you can see a more detailed description and a mockup design there.
+Jobeet is Open-Source job boar">
+		
+		<meta property="og:url" content="http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/">
+		
+		<meta property="og:image" content="">
+		<meta property="fb:admins" content="533936499">
+		<meta property="fb:app_id" content="">
+		<meta property="og:type" content="article"><!--End Facebook OpenGraph Settings -->
+		<link rel="alternate" type="application/rss+xml" title="ENS » Feed" href="http://www.ens.ro/feed/">
+<link rel="alternate" type="application/rss+xml" title="ENS » Comments Feed" href="http://www.ens.ro/comments/feed/">
+
+			<script src="./Symfony2 Jobeet Day 2  The Project   ENS_files/cb=gapi.loaded_1" async=""></script><script src="./Symfony2 Jobeet Day 2  The Project   ENS_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/ga.js"></script><script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29990339-1']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="ENS » Symfony2 Jobeet Day 2: The Project Comments Feed" href="http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/feed/">
+<link rel="stylesheet" id="contact-form-7-css" href="./Symfony2 Jobeet Day 2  The Project   ENS_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="NextGEN-css" href="./Symfony2 Jobeet Day 2  The Project   ENS_files/nggallery.css" type="text/css" media="screen">
+<link rel="stylesheet" id="shutter-css" href="./Symfony2 Jobeet Day 2  The Project   ENS_files/shutter-reloaded.css" type="text/css" media="screen">
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/jquery.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/ga.social_tracking.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/jquery.social.slick.1.0.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/shutter-reloaded.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/ngg.slideshow.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.ens.ro/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.ens.ro/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Symfony2 Jobeet Day 1: Starting up the Project" href="http://www.ens.ro/2012/03/22/symfony2-jobeet-day-1-starting-up-the-project/">
+<link rel="next" title="Symfony2 Jobeet Day 3: The Data Model" href="http://www.ens.ro/2012/03/27/symfony2-jobeet-day-3-the-data-model/">
+<meta name="generator" content="WordPress 3.5">
+<link rel="canonical" href="./Symfony2 Jobeet Day 2  The Project   ENS_files/Symfony2 Jobeet Day 2  The Project   ENS.htm">
+<link rel="shortlink" href="http://www.ens.ro/?p=372">
+<!-- <meta name="NextGEN" version="1.9.10" /> -->
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f1f1f1; background-image: url('http://www.ens.ro/wp-content/uploads/2012/08/bgbody1.gif'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+
+<body class="single single-post postid-372 single-format-standard custom-background single-author singular two-column right-sidebar" data-twttr-rendered="true">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://www.ens.ro/" title="ENS" rel="home">ENS</a></span></h1>
+				<h2 id="site-description">Entertainment, News, Software</h2>
+			</hgroup>
+
+						<a href="http://www.ens.ro/">
+									<img src="./Symfony2 Jobeet Day 2  The Project   ENS_files/cropped-wallpaper-15057031.jpg" width="1000" height="288" alt="">
+							</a>
+			
+								<form method="get" id="searchform" action="http://www.ens.ro/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-my-menu-container"><ul id="menu-my-menu" class="menu"><li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-161"><a href="http://www.ens.ro/">Home</a></li>
+<li id="menu-item-160" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-160"><a href="http://www.ens.ro/category/web-development/">Web Development</a>
+<ul class="sub-menu">
+	<li id="menu-item-822" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-822"><a title="The Jobeet Tutorial with Symfony2" href="http://www.ens.ro/tag/symfony2-jobeet/">Symfony2 Jobeet</a></li>
+	<li id="menu-item-2050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2050"><a title="Symfony2 Tutorials" href="http://www.ens.ro/tag/symfony2/">Symfony2</a></li>
+	<li id="menu-item-2055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2055"><a title="Symfony 1.4 Tutorials" href="http://www.ens.ro/tag/symfony-1-4/">Symfony 1.4</a></li>
+	<li id="menu-item-2049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2049"><a title="Zend Framework Tutorials" href="http://www.ens.ro/tag/zend/">Zend</a></li>
+	<li id="menu-item-2063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2063"><a title="PHP Tutorials" href="http://www.ens.ro/tag/php-2/">PHP</a></li>
+	<li id="menu-item-2064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2064"><a title="MySQL Tutorials" href="http://www.ens.ro/tag/mysql/">MySQL</a></li>
+</ul>
+</li>
+<li id="menu-item-2073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2073"><a title="Entertainment" href="http://www.ens.ro/tag/entertainment/">Entertainment</a></li>
+<li id="menu-item-159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-159"><a href="http://www.ens.ro/about/">About ENS</a></li>
+<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267"><a href="http://www.ens.ro/contact/">Contact</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://www.ens.ro/2012/03/22/symfony2-jobeet-day-1-starting-up-the-project/" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+						<span class="nav-next"><a href="http://www.ens.ro/2012/03/27/symfony2-jobeet-day-3-the-data-model/" rel="next">Next <span class="meta-nav">→</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-372" class="post-372 post type-post status-publish format-standard hentry category-english category-php category-web-development tag-symfony2-jobeet">
+	<header class="entry-header">
+		<h1 class="entry-title">Symfony2 Jobeet Day 2: The Project</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="./Symfony2 Jobeet Day 2  The Project   ENS_files/Symfony2 Jobeet Day 2  The Project   ENS.htm" title="12:27 pm" rel="bookmark"><time class="entry-date" datetime="2012-03-24T12:27:05+00:00">March 24, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://www.ens.ro/author/dragos/" title="View all posts by Dragos Holban" rel="author">Dragos Holban</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>This day is about the project specifications. They are the same as in the original <a href="http://www.symfony-project.org/jobeet/1_4/Doctrine/en/02" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://www.symfony-project.org&#39;]);" target="_blank">Jobeet tutorial</a> so you can see a more detailed description and a mockup design there.<span id="more-372"></span></p>
+<blockquote><p><strong>Jobeet is Open-Source job board software</strong> that only does one thing, but does it well. It is easy to use, customize, extend, and embed into your website. It supports multiple languages out of the box, and of course uses the latest Web 2.0 technologies to enhance user experience. It also provides feeds and an API to interact with it programatically.</p></blockquote>
+<h2>The User Stories</h2>
+<p>We will have four type of users: <strong>admin</strong> (owns and administers the website), <strong>user</strong> (visits the website looking for a job), <strong>poster</strong> (visits the website to post jobs) and <strong>affiliate</strong> (re-publishes jobs on his website).</p>
+<p>In the original tutorial we had to make two applications, the <strong>frontend</strong>, where the users interact with the website, and the <strong>backend</strong>, where admins manage the website. <a href="http://symfony.com/doc/current/cookbook/symfony1.html#applications" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://symfony.com&#39;]);" target="_blank">Using Symfony2 we would not do that anymore.</a> We will have only one application and, in it, a separate secured section for admins.</p>
+<h2>Story F1: On the homepage, the user sees the latest active jobs</h2>
+<p>On the Jobeet homepage a user sees a list of 10 recent active jobs grouped by category. Only the location, the position, and the company are displayed for each job. For each category there are links that allow to list all the jobs. The user can also search for jobs or post a new job.</p>
+<h2>Story F2: A user can ask for all the jobs in a given category</h2>
+<p>The user sees a list of all the jobs from the category sorted by date and paginated with 20 jobs per page.</p>
+<h2>Story F3: A user refines the list with some keywords</h2>
+<p>The user can enter some keywords to refine his search. Keywords can be words found in the location, the position, the category, or the company fields.</p>
+<h2>Story F4: A user clicks on a job to see more detailed information</h2>
+<p>The user can select a job from the list to see more detailed information.</p>
+<h2>Story F5: A user posts a job</h2>
+<p>A user can post a job. A job is made of several pieces of information:</p>
+<ul>
+<li>Company</li>
+<li>Type (full-time, part-time, or freelance)</li>
+<li>Logo (optional)</li>
+<li>URL (optional)</li>
+<li>Position</li>
+<li>Location</li>
+<li>Category (the user chooses in a list of possible categories)</li>
+<li>Job description (URLs and emails are automatically linked)</li>
+<li>How to apply (URLs and emails are automatically linked)</li>
+<li>Public (whether the job can also be published on affiliate websites)</li>
+<li>Email (email of the poster)</li>
+</ul>
+<p>The process has only two steps: first, the user fills in the form with all the needed information to describe the job, then he validates the information by previewing the final job page.</p>
+<p>There is no need to create an account to post a job. A job can be modified afterwards thanks to a specific URL (protected by a token given to the user when the job is created).</p>
+<p>Each job post is online for 30 days (this is configurable by the admin<em></em>). A user can come back to re-activate or extend the validity of the job for an extra 30 days but only when the job expires in less than 5 days.</p>
+<h2>Story F6: A user applies to become an affiliate</h2>
+<p>A user needs to apply to become an affiliate and be authorized to use the Jobeet API. He can also choose to get jobs from a sub-set of the available categories. To apply, the user must give the following information:</p>
+<ul>
+<li>Name</li>
+<li>Email</li>
+<li>Website URL</li>
+</ul>
+<p>The affiliate account must be activated by the admin. Once activated, the affiliate receives a token to use with the API via email.</p>
+<h2>Story F7: An affiliate retrieves the current active job list</h2>
+<p>An affiliate will retrieve the current job list by calling the API with his affiliate token. The list can be returned in the XML, JSON or YAML format. The affiliate can limit the number of jobs to be returned, and refine his query by specifying a category.</p>
+<h2>Story B1: An admin configures the website</h2>
+<p>An admin can edit the categories available on the website.</p>
+<h2>Story B2: An admin manages the jobs</h2>
+<p>An admin can edit and remove any posted job.</p>
+<h2>Story B3: An admin manages the affiliates</h2>
+<p>The admin can create or edit affiliates. He is responsible for activating an affiliate and can also disable one. When the admin activates a new affiliate, the system creates a unique token to be used by the affiliate.</p>
+<p style="float: right;"><a title="Symfony2 Jobeet Day 3: The Data Model" href="http://www.ens.ro/2012/03/27/symfony2-jobeet-day-3-the-data-model/">Symfony2 Jobeet Day 3: The Data Model</a></p>
+<p style="float: left;"><a title="Symfony2 Jobeet Day 1: Starting up the Project" href="http://www.ens.ro/2012/03/22/symfony2-jobeet-day-1-starting-up-the-project/">Symfony2 Jobeet Day 1: Starting up the Project</a></p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://www.ens.ro/category/english/" title="View all posts in English" rel="category tag">English</a>, <a href="http://www.ens.ro/category/web-development/php/" title="View all posts in PHP" rel="category tag">PHP</a>, <a href="http://www.ens.ro/category/web-development/" title="View all posts in Web Development" rel="category tag">Web Development</a> and tagged <a href="http://www.ens.ro/tag/symfony2-jobeet/" rel="tag">symfony2 jobeet</a> by <a href="http://www.ens.ro/author/dragos/">Dragos Holban</a>. Bookmark the <a href="./Symfony2 Jobeet Day 2  The Project   ENS_files/Symfony2 Jobeet Day 2  The Project   ENS.htm" title="Permalink to Symfony2 Jobeet Day 2: The Project" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-372 -->
+
+						<div id="comments">
+	
+	
+	
+									<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.ens.ro/2012/03/24/symfony2-jobeet-day-2-the-project/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.ens.ro/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="372" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="a22dc4ba9e"></p>					</form>
+							</div><!-- #respond -->
+				<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#commentform').submit(function () {
+				_gaq.push(
+					['_setAccount', 'UA-29990339-1'],
+					['_trackEvent', 'comment', 'submit']
+				);
+			});
+		});
+	</script>
+				
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div id="dcssb-slick" class="dc-social-slick vertical right align-top" style="float: none; position: fixed; z-index: 10000; margin-right: -100px; top: 50px;"><div class="tab" style="position: absolute; margin-left: -46px;"><span><img src="./Symfony2 Jobeet Day 2  The Project   ENS_files/tab_right_vertical.png" alt="Share"></span></div><div id="dc-dcssb" class="dc-social-slick-content" style="height: 210px;">
+		<ul id="nav-dcssb" class=""><li id="dcssb-twitter" class="size-box"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/tweet_button.1386967771.htm" class="twitter-share-button twitter-tweet-button twitter-count-vertical" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 59px; height: 62px;"></iframe></li>
+			
+			<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/xd_arbiter.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/xd_arbiter(1).htm" style="border: none;"></iframe></div></div><script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/all(1).js" async=""></script></div>
+			
+<li id="dcssb-facebook" class="size-box"><fb:like href="http%3A%2F%2Fwww.ens.ro%2F2012%2F03%2F24%2Fsymfony2-jobeet-day-2-the-project%2F" send="false" layout="box_count" show_faces="false" font="" fb-xfbml-state="rendered" class=" fb_edge_widget_with_comment fb_iframe_widget"><span style="height: 65px; width: 55px;"><iframe id="f13877a624" name="f109064b1c" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/like.htm" style="border: none; overflow: hidden; height: 65px; width: 55px;"></iframe></span></fb:like></li>
+			<li id="dcssb-plusone" class="size-box"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1387031601610" name="I0_1387031601610" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></li>
+			
+				</ul>
+		<div class="clear"></div>
+		<div class="dc-corner"><span></span></div>
+		</div></div>			<script type="text/javascript">_ga.trackFacebook();</script>
+			<script type="text/javascript">
+				jQuery(window).load(function() {
+
+								
+					var config = {
+						idWrapper : 'dcssb-slick',
+						location: 'right',
+						align: 'top',
+						offset: '50px',
+						speed: 600,
+						tabText: '<img src="http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/css/images/tab_right_vertical.png" alt="Share" />',
+						autoClose: true,
+						loadOpen: false,
+						classWrapper: 'dc-social-slick vertical',
+						classOpen: 'dcssb-open',
+						classClose: 'dcssb-close',
+						classToggle: 'dcssb-link'					
+					};
+					if(!jQuery().dcSocialSlick) {
+						jQuery.getScript('http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/js/jquery.social.slick.1.0.js', function(){
+							jQuery('#dc-dcssb').dcSocialSlick(config);
+						}); 
+					} else {
+						jQuery('#dc-dcssb').dcSocialSlick(config);
+					}
+
+								});
+			</script><iframe name="oauth2relay305385128" id="oauth2relay305385128" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
+		
+			<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/jquery.form.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.ens.ro\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 2  The Project   ENS_files/scripts.js"></script>
+
+
+</body></html>

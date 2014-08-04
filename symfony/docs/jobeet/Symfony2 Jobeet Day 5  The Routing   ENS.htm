@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/ -->
+<html lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/plusone.js" gapi_processed="true"></script><script async="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/all.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Symfony2 Jobeet Day 5: The Routing | ENS</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/style.css">
+<link rel="pingback" href="http://www.ens.ro/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://www.ens.ro/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+	<link rel="stylesheet" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/dcssb.css" type="text/css" media="screen">
+	<!--Facebook OpenGraph Slick Social Share Buttons -->
+	<meta property="og:site_name" content="ENS">
+		<meta property="og:title" content="Symfony2 Jobeet Day 5: The Routing">
+			<meta property="og:description" content="URLs
+If you click on a job on the Jobeet homepage, the URL looks like this: /job/1/show. If you have already developed PHP websites, you are probably more accustomed to URLs like /job.php?id=1. How d">
+		
+		<meta property="og:url" content="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/">
+		
+		<meta property="og:image" content="">
+		<meta property="fb:admins" content="533936499">
+		<meta property="fb:app_id" content="">
+		<meta property="og:type" content="article"><!--End Facebook OpenGraph Settings -->
+		<link rel="alternate" type="application/rss+xml" title="ENS » Feed" href="http://www.ens.ro/feed/">
+<link rel="alternate" type="application/rss+xml" title="ENS » Comments Feed" href="http://www.ens.ro/comments/feed/">
+
+			<script src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/cb=gapi.loaded_1" async=""></script><script src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" async="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/ga.js"></script><script type="text/javascript">//<![CDATA[
+			// Google Analytics for WordPress by Yoast v4.2.8 | http://yoast.com/wordpress/google-analytics/
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-29990339-1']);
+							_gaq.push(['_trackPageview']);
+			(function () {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+			//]]></script>
+			<link rel="alternate" type="application/rss+xml" title="ENS » Symfony2 Jobeet Day 5: The Routing Comments Feed" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/feed/">
+<link rel="stylesheet" id="contact-form-7-css" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="NextGEN-css" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/nggallery.css" type="text/css" media="screen">
+<link rel="stylesheet" id="shutter-css" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shutter-reloaded.css" type="text/css" media="screen">
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/jquery.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/ga.social_tracking.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/jquery.social.slick.1.0.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var shutterSettings = {"msgLoading":"L O A D I N G","msgClose":"Click to Close","imageCount":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shutter-reloaded.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/ngg.slideshow.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.ens.ro/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.ens.ro/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Symfony2 Jobeet Day 4: The Controller and the View" href="http://www.ens.ro/2012/03/31/symfony2-jobeet-day-4-the-controller-and-the-view/">
+<link rel="next" title="PHP Recursive Read Directory" href="http://www.ens.ro/2012/04/05/php-recursive-read-directory/">
+<meta name="generator" content="WordPress 3.5">
+<link rel="canonical" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/Symfony2 Jobeet Day 5  The Routing   ENS.htm">
+<link rel="shortlink" href="http://www.ens.ro/?p=680">
+<!-- <meta name="NextGEN" version="1.9.10" /> -->
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f1f1f1; background-image: url('http://www.ens.ro/wp-content/uploads/2012/08/bgbody1.gif'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+<link rel="stylesheet" type="text/css" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shThemeDefault.css"><meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+
+<body class="single single-post postid-680 single-format-standard custom-background single-author singular two-column right-sidebar" data-twttr-rendered="true">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://www.ens.ro/" title="ENS" rel="home">ENS</a></span></h1>
+				<h2 id="site-description">Entertainment, News, Software</h2>
+			</hgroup>
+
+						<a href="http://www.ens.ro/">
+									<img src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/cropped-wallpaper-15057031.jpg" width="1000" height="288" alt="">
+							</a>
+			
+								<form method="get" id="searchform" action="http://www.ens.ro/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-my-menu-container"><ul id="menu-my-menu" class="menu"><li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-161"><a href="http://www.ens.ro/">Home</a></li>
+<li id="menu-item-160" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-160"><a href="http://www.ens.ro/category/web-development/">Web Development</a>
+<ul class="sub-menu">
+	<li id="menu-item-822" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-822"><a title="The Jobeet Tutorial with Symfony2" href="http://www.ens.ro/tag/symfony2-jobeet/">Symfony2 Jobeet</a></li>
+	<li id="menu-item-2050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2050"><a title="Symfony2 Tutorials" href="http://www.ens.ro/tag/symfony2/">Symfony2</a></li>
+	<li id="menu-item-2055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2055"><a title="Symfony 1.4 Tutorials" href="http://www.ens.ro/tag/symfony-1-4/">Symfony 1.4</a></li>
+	<li id="menu-item-2049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2049"><a title="Zend Framework Tutorials" href="http://www.ens.ro/tag/zend/">Zend</a></li>
+	<li id="menu-item-2063" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2063"><a title="PHP Tutorials" href="http://www.ens.ro/tag/php-2/">PHP</a></li>
+	<li id="menu-item-2064" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2064"><a title="MySQL Tutorials" href="http://www.ens.ro/tag/mysql/">MySQL</a></li>
+</ul>
+</li>
+<li id="menu-item-2073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2073"><a title="Entertainment" href="http://www.ens.ro/tag/entertainment/">Entertainment</a></li>
+<li id="menu-item-159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-159"><a href="http://www.ens.ro/about/">About ENS</a></li>
+<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267"><a href="http://www.ens.ro/contact/">Contact</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://www.ens.ro/2012/03/31/symfony2-jobeet-day-4-the-controller-and-the-view/" rel="prev"><span class="meta-nav">←</span> Previous</a></span>
+						<span class="nav-next"><a href="http://www.ens.ro/2012/04/05/php-recursive-read-directory/" rel="next">Next <span class="meta-nav">→</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-680" class="post-680 post type-post status-publish format-standard hentry category-english category-php category-web-development tag-symfony2-jobeet">
+	<header class="entry-header">
+		<h1 class="entry-title">Symfony2 Jobeet Day 5: The Routing</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/Symfony2 Jobeet Day 5  The Routing   ENS.htm" title="12:31 pm" rel="bookmark"><time class="entry-date" datetime="2012-04-03T12:31:55+00:00">April 3, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://www.ens.ro/author/dragos/" title="View all posts by Dragos Holban" rel="author">Dragos Holban</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<h2>URLs</h2>
+<p>If you click on a job on the Jobeet homepage, the URL looks like this: /job/1/show. If you have already developed PHP websites, you are probably more accustomed to URLs like /job.php?id=1. How does Symfony make it work? How does Symfony determine the action to call based on this URL? Why is the id of the job retrieved with the $id parameter in the action? Here, we will answer all these questions.<span id="more-680"></span></p>
+<p>You have already seen the following code in the <code>src/Ens/JobeetBundle/Resources/views/Job/index.html.twig</code> template:</p>
+<div><div id="highlighter_520416" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">{{ path('ens_job_show', { 'id': entity.id }) }}</code></div></div></td></tr></tbody></table></div></div>
+<p>This uses the <code>path</code> template helper function to generate the url for the job which has the id 1. The ens_job_show is the name of the route used, defined in the configuration as you will see below.</p>
+<h2>Routing Configuration</h2>
+<p>In Symfony2, routing configuration is usually done in the <code>app/config/routing.yml.</code> This imports specific bundle routing configuration. In our case, the <code>src/Ens/JobeetBundle/Resources/config/routing.yml</code> file is imported:</p>
+<div><div id="highlighter_274067" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># app/config/routing.yml</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="plain plain">EnsJobeetBundle:</code></div><div class="line number4 index3 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: "@EnsJobeetBundle/Resources/config/routing.yml"</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">prefix:&nbsp;&nbsp; /</code></div></div></td></tr></tbody></table></div></div>
+<p>Now, if you look in the JobeetBundle routing.yml you will see that it imports another routing file, the one for the Job controller and defines a route called EnsJobeetBundle_homepage for the /hello/{name} URL pattern:</p>
+<div><div id="highlighter_13861" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># src/Ens/JobeetBundle/Resources/config/routing.yml</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="plain plain">EnsJobeetBundle_job:</code></div><div class="line number4 index3 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: "@EnsJobeetBundle/Resources/config/routing/job.yml"</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">prefix: /job</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="plain plain">EnsJobeetBundle_homepage:</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /hello/{name}</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: EnsJobeetBundle:Default:index }</code></div></div></td></tr></tbody></table></div></div>
+<p>&nbsp;</p>
+<div><div id="highlighter_830243" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># src/Ens/JobeetBundle/Resources/config/routing/job.yml</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="plain plain">ens_job:</code></div><div class="line number4 index3 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:index" }</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="plain plain">ens_job_show:</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /{id}/show</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:show" }</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="plain plain">ens_job_new:</code></div><div class="line number12 index11 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /new</code></div><div class="line number13 index12 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:new" }</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="plain plain">ens_job_create:</code></div><div class="line number16 index15 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /create</code></div><div class="line number17 index16 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:create" }</code></div><div class="line number18 index17 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">requirements: { _method: post }</code></div><div class="line number19 index18 alt2">&nbsp;</div><div class="line number20 index19 alt1"><code class="plain plain">ens_job_edit:</code></div><div class="line number21 index20 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /{id}/edit</code></div><div class="line number22 index21 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:edit" }</code></div><div class="line number23 index22 alt2">&nbsp;</div><div class="line number24 index23 alt1"><code class="plain plain">ens_job_update:</code></div><div class="line number25 index24 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /{id}/update</code></div><div class="line number26 index25 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:update" }</code></div><div class="line number27 index26 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">requirements: { _method: post }</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="plain plain">ens_job_delete:</code></div><div class="line number30 index29 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /{id}/delete</code></div><div class="line number31 index30 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:delete" }</code></div><div class="line number32 index31 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">requirements: { _method: post }</code></div></div></td></tr></tbody></table></div></div>
+<p>Let’s have a closer look to the&nbsp;ens_job_show route. The pattern defined by the&nbsp;ens_job_show route acts like <tt>/*</tt>/show where the wildcard is given the name id. For the URL <tt>/1/show</tt>, the id variable gets a value of <tt>1</tt>, which is available for you to use in your controller. The <tt>_controller</tt> parameter is a special key that tells Symfony which controller/action should be executed when a URL matches this route, in our case it should execute the showAction from the JobController in the EnsJobeetBundle.</p>
+<p>The route parameters (e.g. <tt>{id}</tt>) are especially important because each is made available as an argument to the controller method:</p>
+<div><div id="highlighter_990014" class="syntaxhighlighter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php keyword">public</code> <code class="php keyword">function</code> <code class="php plain">showAction(</code><code class="php variable">$id</code><code class="php plain">)</code></div><div class="line number2 index1 alt1"><code class="php plain">{</code></div><div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// ...</code></div><div class="line number4 index3 alt1"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+<h2>Routing Configuration in Dev Environment</h2>
+<p>The dev environment loads the <code>app/config/routing_dev.yml</code> file that contains the routes used by the <strong>Web Debug Toolbar</strong>, among others. This file loads, at the end, the main <code>routing.yml</code> configuration file.</p>
+<p>If you go to http://jobeet.local/app_dev.php in your browser you will see the default Symfony page. Let’s change that so the dev environment will show the same pages as the the production in the future. Open your <code>app/config/routing_dev.yml</code> file and remove the first 3 routes that are about the Symfony demo bundle included. Now the <code>routing_dev.yml</code> file should look like this:</p>
+<div><div id="highlighter_945704" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># app/config/routing_dev.yml</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="plain plain">_assetic:</code></div><div class="line number4 index3 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: .</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">type:&nbsp;&nbsp;&nbsp;&nbsp; assetic</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="plain plain">_wdt:</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">prefix:&nbsp;&nbsp; /_wdt</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="plain plain">_profiler:</code></div><div class="line number12 index11 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"</code></div><div class="line number13 index12 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">prefix:&nbsp;&nbsp; /_profiler</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="plain plain">_configurator:</code></div><div class="line number16 index15 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"</code></div><div class="line number17 index16 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">prefix:&nbsp;&nbsp; /_configurator</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="plain plain">_main:</code></div><div class="line number20 index19 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">resource: routing.yml</code></div></div></td></tr></tbody></table></div></div>
+<p>Don’t forget to clear your cache after this modification.</p>
+<h2>Route Customizations</h2>
+<p>For now, when you request the <code>/</code> URL in a browser, you will get a 404 Not Found error. That’s because this URL does not match any routes defined. We have a&nbsp;&nbsp;<code>EnsJobeetBundle_homepage</code> route that matches the /hello/jobeet URL and sends us to the DefaultController, index action. Let’s change it to match the / URL and to call the index action from the JobController. To make the change, modify it to the following:</p>
+<div><div id="highlighter_773728" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># src/Ens/JobeetBundle/Resources/config/routing.yml</code></div><div class="line number2 index1 alt1"><code class="plain plain"># ...</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="plain plain">EnsJobeetBundle_homepage:</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: EnsJobeetBundle:Job:index }</code></div></div></td></tr></tbody></table></div></div>
+<p>Now, if you clear the cache and go to http://jobeet.local from your browser, you will see the Job homepage. We can now change the link of the Jobeet logo in the layout to use the <code>EnsJobeetBundle_homepage</code> route:</p>
+<div><div id="highlighter_68065" class="syntaxhighlighter  xml"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="xml comments">&lt;!-- src/Ens/JobeetBundle/Resources/views/layout.html.twig --&gt;</code></div><div class="line number2 index1 alt1"><code class="xml comments">&lt;!-- ... --&gt;</code></div><div class="line number3 index2 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">h1</code><code class="xml plain">&gt;&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"{{ path('EnsJobeetBundle_homepage') }}"</code><code class="xml plain">&gt;</code></div><div class="line number4 index3 alt1"><code class="xml spaces">&nbsp;&nbsp;</code><code class="xml plain">&lt;</code><code class="xml keyword">img</code> <code class="xml color1">src</code><code class="xml plain">=</code><code class="xml string">"{{ asset('bundles/ensjobeet/images/logo.jpg') }}"</code> <code class="xml color1">alt</code><code class="xml plain">=</code><code class="xml string">"Jobeet Job Board"</code> <code class="xml plain">/&gt;</code></div><div class="line number5 index4 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;&lt;/</code><code class="xml keyword">h1</code><code class="xml plain">&gt;</code></div><div class="line number6 index5 alt1"><code class="xml comments">&lt;!-- ... --&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>For something a bit more involved, let’s change the job page URL to something more meaningful:</p>
+<div><div id="highlighter_654852" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">/job/sensio-labs/paris-france/1/web-developer</code></div></div></td></tr></tbody></table></div></div>
+<p>Without knowing anything about Jobeet, and without looking at the page, you can understand from the URL that Sensio Labs is looking for a Web developer to work in Paris, France.</p>
+<p>The following pattern matches such a URL:</p>
+<div><div id="highlighter_896088" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">/job/{company}/{location}/{id}/{position}</code></div></div></td></tr></tbody></table></div></div>
+<p>Edit the ens_job_show route from the job.yml file:</p>
+<div><div id="highlighter_14833" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># src/Ens/JobeetBundle/Resources/config/routing/job.yml</code></div><div class="line number2 index1 alt1"><code class="plain plain"># ...</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="plain plain">ens_job_show:</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /{company}/{location}/{id}/{position}</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:show" }</code></div></div></td></tr></tbody></table></div></div>
+<p>Now, we need to pass all the parameters for the changed route for it to work:</p>
+<div><div id="highlighter_221051" class="syntaxhighlighter  xml"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="xml comments">&lt;!-- src/Ens/JobeetBundle/Resources/views/Job/index.html.twig --&gt;</code></div><div class="line number2 index1 alt1"><code class="xml comments">&lt;!-- ... --&gt;</code></div><div class="line number3 index2 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"{{ path('ens_job_show', { 'id': entity.id, 'company': entity.company, 'location': entity.location, 'position': entity.position }) }}"</code><code class="xml plain">&gt;</code></div><div class="line number4 index3 alt1"><code class="xml spaces">&nbsp;&nbsp;</code><code class="xml plain">{{ entity.position }}</code></div><div class="line number5 index4 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;</code></div><div class="line number6 index5 alt1"><code class="xml comments">&lt;!-- ... --&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>If you have a look at generated URLs, they are not quite yet as we want them to be:</p>
+<div><div id="highlighter_46508" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"><a href="http://jobeet.local/job/Sensio">http://jobeet.local/job/Sensio</a> Labs/Paris, France/1/Web Developer</code></div></div></td></tr></tbody></table></div></div>
+<p>We need to “slugify” the column values by replacing all non ASCII characters by a -. Open the Job.php file and add the following methods to the class:</p>
+<div><div id="highlighter_801484" class="syntaxhighlighter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php comments">// src/Ens/JobeetBundle/Entity/Job.php</code></div><div class="line number2 index1 alt1"><code class="php comments">// ...</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="php keyword">use</code> <code class="php plain">Ens\JobeetBundle\Utils\Jobeet </code><code class="php keyword">as</code> <code class="php plain">Jobeet;</code></div><div class="line number5 index4 alt2"><code class="php keyword">class</code> <code class="php plain">Job</code></div><div class="line number6 index5 alt1"><code class="php plain">{</code></div><div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// ...</code></div><div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">public</code> <code class="php keyword">function</code> <code class="php plain">getCompanySlug()</code></div><div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></div><div class="line number10 index9 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">Jobeet::slugify(</code><code class="php variable">$this</code><code class="php plain">-&gt;getCompany());</code></div><div class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">public</code> <code class="php keyword">function</code> <code class="php plain">getPositionSlug()</code></div><div class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></div><div class="line number15 index14 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">Jobeet::slugify(</code><code class="php variable">$this</code><code class="php plain">-&gt;getPosition());</code></div><div class="line number16 index15 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">public</code> <code class="php keyword">function</code> <code class="php plain">getLocationSlug()</code></div><div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></div><div class="line number20 index19 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">Jobeet::slugify(</code><code class="php variable">$this</code><code class="php plain">-&gt;getLocation());</code></div><div class="line number21 index20 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div><div class="line number22 index21 alt1"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>Then, create the src/Ens/JobeetBundle/Utils/Jobeet.php file and add the slugify method in it:</p>
+<div><div id="highlighter_928181" class="syntaxhighlighter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php comments">// src/Ens/JobeetBundle/Utils/Jobeet.php</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="php keyword">namespace</code> <code class="php plain">Ens\JobeetBundle\Utils;</code></div><div class="line number4 index3 alt1"><code class="php keyword">class</code> <code class="php plain">Jobeet</code></div><div class="line number5 index4 alt2"><code class="php plain">{</code></div><div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">static</code> <code class="php keyword">public</code> <code class="php keyword">function</code> <code class="php plain">slugify(</code><code class="php variable">$text</code><code class="php plain">)</code></div><div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">{</code></div><div class="line number8 index7 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// replace all non letters or digits by -</code></div><div class="line number9 index8 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$text</code> <code class="php plain">= preg_replace(</code><code class="php string">'/\W+/'</code><code class="php plain">, </code><code class="php string">'-'</code><code class="php plain">, </code><code class="php variable">$text</code><code class="php plain">);</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php comments">// trim and lowercase</code></div><div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$text</code> <code class="php plain">= </code><code class="php functions">strtolower</code><code class="php plain">(trim(</code><code class="php variable">$text</code><code class="php plain">, </code><code class="php string">'-'</code><code class="php plain">));</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php variable">$text</code><code class="php plain">;</code></div><div class="line number15 index14 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div><div class="line number16 index15 alt1"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>We have defined three new “virtual” accessors: getCompanySlug(), getPositionSlug(), and getLocationSlug(). They return their corresponding column value after applying it the slugify() method. Now, you can replace the real column names by these virtual ones in the template:</p>
+<div><div id="highlighter_491979" class="syntaxhighlighter  xml"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="xml comments">&lt;!-- src/Ens/JobeetBundle/Resources/views/Job/index.html.twig --&gt;</code></div><div class="line number2 index1 alt1"><code class="xml comments">&lt;!-- ... --&gt;</code></div><div class="line number3 index2 alt2"><code class="xml plain">&lt;</code><code class="xml keyword">a</code> <code class="xml color1">href</code><code class="xml plain">=</code><code class="xml string">"{{ path('ens_job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug}) }}"</code><code class="xml plain">&gt;</code></div><div class="line number4 index3 alt1"><code class="xml spaces">&nbsp;&nbsp;</code><code class="xml plain">{{ entity.position }}</code></div><div class="line number5 index4 alt2"><code class="xml plain">&lt;/</code><code class="xml keyword">a</code><code class="xml plain">&gt;</code></div><div class="line number6 index5 alt1"><code class="xml comments">&lt;!-- ... --&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>You will now have the expected URLs:</p>
+<div><div id="highlighter_941314" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"><a href="http://jobeet.local/app_dev.php/job/sensio-labs/paris-france/1/web-developer">http://jobeet.local/app_dev.php/job/sensio-labs/paris-france/1/web-developer</a></code></div></div></td></tr></tbody></table></div></div>
+<h2>Route Requirements</h2>
+<p>The routing system has a built-in validation feature. Each pattern variable can be validated by a regular expression defined using the <code>requirements</code> entry of a route definition:</p>
+<div><div id="highlighter_54756" class="syntaxhighlighter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain"># src/Ens/JobeetBundle/Resources/config/routing/job.yml</code></div><div class="line number2 index1 alt1"><code class="plain plain"># ...</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="plain plain">ens_job_show:</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">pattern:&nbsp; /{company}/{location}/{id}/{position}</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">defaults: { _controller: "EnsJobeetBundle:Job:show" }</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">requirements:</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">id:&nbsp; \d+</code></div></div></td></tr></tbody></table></div></div>
+<p>The above <code>requirements</code> entry forces the <code>id</code> to be a numeric value. If not, the route won’t match.</p>
+<h2>Route Debugging</h2>
+<p>While adding and customizing routes, it’s helpful to be able to visualize and get detailed information about your routes. A great way to see every route in your application is via the <code>router:debug</code> console command. Execute the command by running the following from the root of your project:</p>
+<div><div id="highlighter_333949" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">php app/console router:debug</code></div></div></td></tr></tbody></table></div></div>
+<p>The command will print a helpful list of <em>all</em> the configured routes in your application. You can also get very specific information on a single route by including the route name after the command:</p>
+<div><div id="highlighter_128253" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">php app/console router:debug ens_job_show</code></div></div></td></tr></tbody></table></div></div>
+<h2>Final Thoughts</h2>
+<p>That’s all for today! To learn more about the Symfony2 routing system read the <a href="http://symfony.com/doc/current/book/routing.html" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-article&#39;,&#39;http://symfony.com&#39;]);" target="_blank">Routing</a> chapter form the book.</p>
+<p style="float: right;"><a title="Symfony2 Jobeet Day 6: More with the Model" href="http://www.ens.ro/2012/04/08/symfony2-jobeet-day-6-more-with-the-model/">Symfony2 Jobeet Day 6: More with the Model</a></p>
+<p style="float: left;"><a title="Symfony2 Jobeet Day 4: The Controller and the View" href="http://www.ens.ro/2012/03/31/symfony2-jobeet-day-4-the-controller-and-the-view/">Symfony2 Jobeet Day 4: The Controller and the View</a></p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://www.ens.ro/category/english/" title="View all posts in English" rel="category tag">English</a>, <a href="http://www.ens.ro/category/web-development/php/" title="View all posts in PHP" rel="category tag">PHP</a>, <a href="http://www.ens.ro/category/web-development/" title="View all posts in Web Development" rel="category tag">Web Development</a> and tagged <a href="http://www.ens.ro/tag/symfony2-jobeet/" rel="tag">symfony2 jobeet</a> by <a href="http://www.ens.ro/author/dragos/">Dragos Holban</a>. Bookmark the <a href="./Symfony2 Jobeet Day 5  The Routing   ENS_files/Symfony2 Jobeet Day 5  The Routing   ENS.htm" title="Permalink to Symfony2 Jobeet Day 5: The Routing" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-680 -->
+
+						<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			15 thoughts on “<span>Symfony2 Jobeet Day 5: The Routing</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-110">
+		<article id="comment-110" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/c5ed0301bbf58e062f28f3300255a86f" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Rober Sánchez</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-110"><time datetime="2012-04-13T18:04:50+00:00">April 13, 2012 at 6:04 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Do you know how to include  special characters into the parameres, In your previus example:</p>
+<p># src/Ens/JobeetBundle/Resources/config/job/routing.yml<br>
+# …</p>
+<p>ens_job_show:<br>
+    pattern:  /:company/:location/:id/:position<br>
+    defaults: { _controller: “EnsJobeetBundle:Job:show” }<br>
+    requirements:<br>
+        id:  \d+</p>
+<p>One  id like “id123/345?$asd”</p>
+<p>Thanks</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=110#respond" onclick="return addComment.moveForm(&quot;comment-110&quot;, &quot;110&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-dragos bypostauthor odd alt depth-2" id="li-comment-111">
+		<article id="comment-111" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-111"><time datetime="2012-04-13T19:43:25+00:00">April 13, 2012 at 7:43 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>This is the id?<br>
+<code>id123/345?$asd</code></p>
+<p>It contains the / ? and $ characters?</p>
+<p>Did you try to url-encode it an use the encoded version:<br>
+<code>id123%2F345%3F%24asd</code></p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=111#respond" onclick="return addComment.moveForm(&quot;comment-111&quot;, &quot;111&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-124">
+		<article id="comment-124" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/a8dfc98e9445b3af5b557b2064235fda" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://www.descanta.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.descanta.com&#39;]);" rel="external nofollow" class="url">David</a></span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-124"><time datetime="2012-04-17T18:43:11+00:00">April 17, 2012 at 6:43 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I found that the routing for ens_job_show in job.yml didn’t work as described above, but when I changed it to:</p>
+<p>ens_job_show:<br>
+    pattern:  /{company}/{location}/{id}/{position}<br>
+    defaults: { _controller: “EnsJobeetBundle:Job:show” }</p>
+<p>it worked!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=124#respond" onclick="return addComment.moveForm(&quot;comment-124&quot;, &quot;124&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-dragos bypostauthor odd alt depth-2" id="li-comment-127">
+		<article id="comment-127" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-127"><time datetime="2012-04-18T08:05:46+00:00">April 18, 2012 at 8:05 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>You are right David, I updated the post with the correct route configuration. Thank you!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=127#respond" onclick="return addComment.moveForm(&quot;comment-127&quot;, &quot;127&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-even depth-1" id="li-comment-370">
+		<article id="comment-370" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/1aedb8d9dc4751e229a335e371db8058" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Lion King</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-370"><time datetime="2012-05-19T12:36:38+00:00">May 19, 2012 at 12:36 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>thanks your post!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=370#respond" onclick="return addComment.moveForm(&quot;comment-370&quot;, &quot;370&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-471">
+		<article id="comment-471" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/c738bfea8db21559d6bc7313dd5c0304" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Rafael Wanjiku</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-471"><time datetime="2012-05-28T14:58:48+00:00">May 28, 2012 at 2:58 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi.<br>
+Am still taking the Jobeet tutorial..though am not able to generate the url without the encodings.<br>
+when I type this<br>
+<a href="http://jobeet.local/app_dev.php/job/sensio-labs/paris-france/1/web-developer" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-comment&#39;,&#39;http://jobeet.local&#39;]);" rel="nofollow">http://jobeet.local/app_dev.php/job/sensio-labs/paris-france/1/web-developer</a><br>
+it gives me  this:<br>
+No route found for “GET /job/sensio-labs/paris-france/1/web-developer”<br>
+404 Not Found – NotFoundHttpException<br>
+1 linked Exception:</p>
+<p>    ResourceNotFoundException »</p>
+<p>Am not sure whether there should be job.yml in src/Ens/JobeetBundle/Resources/config/job/ or it is just src/Ens/JobeetBundle/Resources/config/job/routing.yml..Kindly clarify on this.<br>
+Again thanks</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=471#respond" onclick="return addComment.moveForm(&quot;comment-471&quot;, &quot;471&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-dragos bypostauthor even depth-2" id="li-comment-473">
+		<article id="comment-473" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/5aad75a3a109bfbbb1f7eeac6959918b" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Dragos Holban</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-473"><time datetime="2012-05-28T15:59:55+00:00">May 28, 2012 at 3:59 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi Rafael,<br>
+I made a mistake in the post, the job routing file is <code>src/Ens/JobeetBundle/Resources/routing/job.yml</code>. Sorry for this. I fixed it and I hope it will help you continue with the tutorial.</p>
+<p>Thanks for your feedback!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=473#respond" onclick="return addComment.moveForm(&quot;comment-473&quot;, &quot;473&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment odd alt depth-3" id="li-comment-484">
+		<article id="comment-484" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/c738bfea8db21559d6bc7313dd5c0304(1)" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Rafael Wanjiku</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-484"><time datetime="2012-05-29T15:26:21+00:00">May 29, 2012 at 3:26 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Thanks.It worked perfectly..</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=484#respond" onclick="return addComment.moveForm(&quot;comment-484&quot;, &quot;484&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+</ul>
+</li>
+	<li class="comment even thread-even depth-1" id="li-comment-488">
+		<article id="comment-488" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/421539ef3acb95521f51a5c612ae4938" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">PS91</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-488"><time datetime="2012-05-30T12:26:17+00:00">May 30, 2012 at 12:26 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi, i’m trying to do this tutorial and i did everything you said here but when i click on a job the result link its duplicated:</p>
+<p>jobeet2.localhost/sensio-labsparis-france/job/sensio-labs/paris-france/1/web-developer</p>
+<p>when it should be:</p>
+<p>jobeet2.localhost/job/sensio-labs/paris-france/1/web-developer</p>
+<p>Do you have any ideia what is going on? I already try to find if i’m duplicating somewhere but i didn’t see anything diferent than you show here.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=488#respond" onclick="return addComment.moveForm(&quot;comment-488&quot;, &quot;488&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-489">
+		<article id="comment-489" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/421539ef3acb95521f51a5c612ae4938" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">PS91</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-489"><time datetime="2012-05-30T12:53:46+00:00">May 30, 2012 at 12:53 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>I already find the problem, it was a stupid thing.</p>
+<p>Thanks anyway.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=489#respond" onclick="return addComment.moveForm(&quot;comment-489&quot;, &quot;489&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-3732">
+		<article id="comment-3732" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/a3c1abbcf50cbdcbc9cbe3db70d885cd" class="avatar avatar-68 photo" height="68" width="68"><span class="fn"><a href="http://www.luvelnet.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.luvelnet.com&#39;]);" rel="external nofollow" class="url">Luvelnet</a></span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-3732"><time datetime="2012-10-29T01:10:45+00:00">October 29, 2012 at 1:10 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hello,<br>
+I’m starting to develop with symfony and this guide is helping me a lot.</p>
+<p>I ran into a problem: when in the driver make the call to the object returned by the method slugify () jumps me the following error:</p>
+<p>[Semantical Error] line 0, col 179 near ‘titleslug,<br>
+‘: Error: Class cosmo \ HomeBundle \ Entity \ Notices has no field or association named titleslug</p>
+<p>I use DQL to retrieve data from multiple tables, and this is the problem, because if I use “getRespository (” “) -&gt; findAll () everything is correct.</p>
+<p>I’m going crazy, I created slugify function in the entity getTitleSlug I created the method, but when the driver from the DQL titleslug I get the error jumps me.</p>
+<p>Sorry for my English and I hope I explained.</p>
+<p>Can anybody help? thank you very much</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=3732#respond" onclick="return addComment.moveForm(&quot;comment-3732&quot;, &quot;3732&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-26582">
+		<article id="comment-26582" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/f866e179eef544058156cef72c2cf9c1" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Branco</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-26582"><time datetime="2013-03-05T00:10:14+00:00">March 5, 2013 at 12:10 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>First I need to say great tutorial and kudos to you!</p>
+<p>I want to ask you why does the application recognize “slugified” parameters (‘company’: entity.companyslug) even though we didn’t declare such attributes in the Ens\JobeetBundle\Entity\Job class?</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=26582#respond" onclick="return addComment.moveForm(&quot;comment-26582&quot;, &quot;26582&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-37040">
+		<article id="comment-37040" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/5b4a122565e9b35840c9322c78efb679" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Potargany</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-37040"><time datetime="2013-04-06T17:47:37+00:00">April 6, 2013 at 5:47 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Hi,<br>
+I have some troubles with routing. In “dev” mode everything works fine, but in “prod” mode I have to use “http://jobeet.local/app.php” instead “http://jobeet.local” everywhere except home page. So, “http://jobeet.local”  displays home page right and “http://jobeet.local/app.php” does it well too, but when I go to the job page, I’ve received “Not Found” error page (when address is like “http://jobeet.local/job/Sensio Labs/Paris, France/1/Web Developer”). I’ve just started my adventure with Symfony and don’t know what I’m doing wrong here.<br>
+P.S.<br>
+Sorry for my language but I don’t use english very often.</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=37040#respond" onclick="return addComment.moveForm(&quot;comment-37040&quot;, &quot;37040&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-51448">
+		<article id="comment-51448" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/222881af5cd2e3e48cf6ef31c9c06b59" class="avatar avatar-68 photo" height="68" width="68"><span class="fn">Stratos Nikolaidis</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-51448"><time datetime="2013-06-03T18:17:31+00:00">June 3, 2013 at 6:17 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>At the last command, you forgot the underscores! <img src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/icon_razz.gif" alt=":P" class="wp-smiley"> </p>
+<p>The right command is the following:</p>
+<p>php app/console router:debug ens_job_show</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=51448#respond" onclick="return addComment.moveForm(&quot;comment-51448&quot;, &quot;51448&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment even depth-2" id="li-comment-51562">
+		<article id="comment-51562" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/222881af5cd2e3e48cf6ef31c9c06b59(1)" class="avatar avatar-39 photo" height="39" width="39"><span class="fn">Stratos Nikolaidis</span> on <a href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#comment-51562"><time datetime="2013-06-04T12:32:57+00:00">June 4, 2013 at 12:32 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</footer>
+
+			<div class="comment-content"><p>Oh, no, my mistake. There *are* underscores, they are simply not visible (because of the style perhaps?). If you simple copy&amp;paste the text, you will see them!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/?replytocom=51562#respond" onclick="return addComment.moveForm(&quot;comment-51562&quot;, &quot;51562&quot;, &quot;respond&quot;, &quot;680&quot;)">Reply <span>↓</span></a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+		</ol>
+
+		
+		
+	
+									<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.ens.ro/2012/04/03/symfony2-jobeet-day-5-the-routing/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.ens.ro/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="680" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="42cd4906f1"></p>					</form>
+							</div><!-- #respond -->
+				<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#commentform').submit(function () {
+				_gaq.push(
+					['_setAccount', 'UA-29990339-1'],
+					['_trackEvent', 'comment', 'submit']
+				);
+			});
+		});
+	</script>
+				
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div id="dcssb-slick" class="dc-social-slick vertical right align-top" style="float: none; position: fixed; z-index: 10000; margin-right: -100px; top: 50px;"><div class="tab" style="position: absolute; margin-left: -46px;"><span><img src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/tab_right_vertical.png" alt="Share"></span></div><div id="dc-dcssb" class="dc-social-slick-content" style="height: 210px;">
+		<ul id="nav-dcssb" class=""><li id="dcssb-twitter" class="size-box"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/tweet_button.1386967771.htm" class="twitter-share-button twitter-tweet-button twitter-count-vertical" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 59px; height: 62px;"></iframe></li>
+			
+			<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/xd_arbiter.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/xd_arbiter(1).htm" style="border: none;"></iframe></div></div><script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/all(1).js" async=""></script></div>
+			
+<li id="dcssb-facebook" class="size-box"><fb:like href="http%3A%2F%2Fwww.ens.ro%2F2012%2F04%2F03%2Fsymfony2-jobeet-day-5-the-routing%2F" send="false" layout="box_count" show_faces="false" font="" fb-xfbml-state="rendered" class=" fb_edge_widget_with_comment fb_iframe_widget"><span style="height: 65px; width: 55px;"><iframe id="f31016e2d4" name="fab7f23f8" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/like.htm" style="border: none; overflow: hidden; height: 65px; width: 55px;"></iframe></span></fb:like></li>
+			<li id="dcssb-plusone" class="size-box"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1387031644033" name="I0_1387031644033" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></li>
+			
+				</ul>
+		<div class="clear"></div>
+		<div class="dc-corner"><span></span></div>
+		</div></div>			<script type="text/javascript">_ga.trackFacebook();</script>
+			<script type="text/javascript">
+				jQuery(window).load(function() {
+
+								
+					var config = {
+						idWrapper : 'dcssb-slick',
+						location: 'right',
+						align: 'top',
+						offset: '50px',
+						speed: 600,
+						tabText: '<img src="http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/css/images/tab_right_vertical.png" alt="Share" />',
+						autoClose: true,
+						loadOpen: false,
+						classWrapper: 'dc-social-slick vertical',
+						classOpen: 'dcssb-open',
+						classClose: 'dcssb-close',
+						classToggle: 'dcssb-link'					
+					};
+					if(!jQuery().dcSocialSlick) {
+						jQuery.getScript('http://www.ens.ro/wp-content/plugins/slick-social-share-buttons/js/jquery.social.slick.1.0.js', function(){
+							jQuery('#dc-dcssb').dcSocialSlick(config);
+						}); 
+					} else {
+						jQuery('#dc-dcssb').dcSocialSlick(config);
+					}
+
+								});
+			</script>
+		
+			<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shCore.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shBrushPlain.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shBrushPhp.js"></script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/shBrushXml.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.ens.ro/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.ens.ro/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['tab-size'] = 2;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/jquery.form.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.ens.ro\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/scripts.js"></script>
+
+
+<iframe name="oauth2relay1563602286" id="oauth2relay1563602286" src="./Symfony2 Jobeet Day 5  The Routing   ENS_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>
