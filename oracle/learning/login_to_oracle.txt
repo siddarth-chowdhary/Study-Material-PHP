@@ -1,0 +1,24 @@
+------------------ ONE TIME -----------------------------------
+Set a password for the Oracle account:
+
+sudo passwd oracle
+
+
+Login as the Oracle user:
+
+su - oracle
+
+Copy the default account skeleton files and add the Oracle env script to .profile:
+
+cp /etc/skel/.bash_logout ./ 
+cp /etc/skel/.bashrc ./ 
+cp /etc/skel/.profile ./ 
+echo "" >>./.profile
+echo '. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh' >>./.profile
+Step 7. Configure remote login. By default, the Oracle Database XE graphical user interface is only available at the local server, but not remotely. The following will enable remote logins:
+------------------ ONE TIME -----------------------------------
+
+Login as the Oracle user, then login as SYSDBA and run the following commands:
+
+su - oracle
+sqlplus / as sysdba

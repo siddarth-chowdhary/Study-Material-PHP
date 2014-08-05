@@ -73,7 +73,7 @@ print_r($crm_result);die;
 
 
 //echo '<hr>Count------------------------>'.$count;
-die;
+//die;
     // $get_entry_list_result = $client->call('get_entry_list', 
     //     fncReturnGetEntryListParametersArray($session_id,'Calls',999));
     

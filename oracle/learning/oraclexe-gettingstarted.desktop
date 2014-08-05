@@ -1,0 +1,12 @@
+[Desktop Entry]
+Exec=/u01/app/oracle/product/11.2.0/xe/config/scripts/gettingstarted.sh
+Terminal=false
+MultipleArgs=true
+Type=Application
+Categories=Applications;
+Icon=oraclexe-getstarteddesktop.png
+Encoding=UTF-8
+Name=Get Started With Oracle Database 11g Express Edition
+Name[pt_BR]=Conceitos Básicos do Oracle Database 11g Express Edition
+Name[ja]=Oracle Database 11g Express Editionのスタート・ガイド
+Name[zh_CN]=Oracle Database 11g Express Edition 入门
