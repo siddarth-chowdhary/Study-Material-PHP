@@ -67,7 +67,7 @@ if($type == 'json'){
 if($type == 'post'){
 	$json_encoded = utf8_encode(json_encode($_POST));
 	//print out the posted vars
-	echo $json_encoded;
+	echo json_encode($_POST);
 		
 }
 

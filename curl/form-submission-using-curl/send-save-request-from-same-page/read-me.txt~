@@ -1,0 +1,5 @@
+Here a Form is opened in form.php
+The curl request initiates from this page only and handler.php saves data to database.
+
+
+FOr form twitter bootstrap is used
