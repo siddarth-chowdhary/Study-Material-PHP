@@ -473,7 +473,11 @@ class SymfonyRequirements extends RequirementCollection
             'simplexml_import_dom() must be available',
             'Install and enable the <strong>SimpleXML</strong> extension.'
         );
-
+        /* 
+        added by siddarth on 8 aug 2014
+        
+        DISABLED FOR ZEND SERVER, USING ZEND OPTIMIZER+ INSTEAD
+        
         if (function_exists('apc_store') && ini_get('apc.enabled')) {
             if (version_compare($installedPhpVersion, '5.4.0', '>=')) {
                 $this->addRequirement(
@@ -489,6 +493,7 @@ class SymfonyRequirements extends RequirementCollection
                 );
             }
         }
+        */
 
         $this->addPhpIniRequirement('detect_unicode', false);
 
