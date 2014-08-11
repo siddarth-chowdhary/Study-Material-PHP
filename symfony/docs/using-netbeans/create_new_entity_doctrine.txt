@@ -1,0 +1,35 @@
+/*************************** create a new entity - doctrine ***********************************/
+
+imp : configure the database , give parameters in parameters.yml
+      ----------------------
+
+STEP 1 : import the schema
+--------------------------
+
+run the command   	--		doctrine:mapping:import  
+parameters     		--      TestHelloBundle
+
+a new file will be created in the bundle/resources/config/doctrine folder.
+it will be an xml file which will be the database structure.
+
+STEP 2: create an entity
+------------------------
+run the command   	--		doctrine:generate:entities
+parameters     		--      TestHelloBundle
+
+a new file will be bundle\entity folder
+it will be the entity class for the new table
+
+
+STEP 3: testing
+---------------
+run the command   	--		doctrine:query:sql
+parameters     		--      "select * from users"
+
+see the output as the listing of users in console
+
+IMP : Updating
+--------------
+add/update a field in db and run the step1 and step2 commands again
+
+/*************************** create a new entity - doctrine ***********************************/

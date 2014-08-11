@@ -1,0 +1,15 @@
+/*************************** create a new bundle ***********************************/
+
+project > rightclick > symfony2 > run command > generate bundle
+
+(name - namespace\nameBundle)
+ex: test\HelloBundle
+
+(config - yml)
+
+imp: make sure the bundle is included in the appkernel.php
+
+/*************************** create a new bundle ***********************************/
+
+
+

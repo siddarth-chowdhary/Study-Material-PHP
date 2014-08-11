@@ -1,0 +1,18 @@
+/*************************** settings to do ***************************************/
+
+go to tools > options > php
+
+general > browse to php interpreter path
+wamp : S:\wamp\bin\php\php5.5.12\php.exe
+
+symfony2 > browse to symfony 2 zip file (Symfony_Standard_Vendors_2.5.3.zip file)
+
+/*************************** settings to do ***************************************/
+
+
+/*************************** create new project ***********************************/
+
+file > new project > php > 	(give project name) , check the directory is "www" > next > select symfony 2 > check options (above 2) > finish
+
+/*************************** create new project ***********************************/
+
