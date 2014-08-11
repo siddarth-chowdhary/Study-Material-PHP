@@ -1,0 +1,5 @@
+# src/Blogger/BlogBundle/Resources/config/config.yml
+
+parameters:
+    # Blogger contact email address - Mail will be recieved on this id for the contact page
+    blogger_blog.emails.contact_email: siddarth.testing@gmail.com

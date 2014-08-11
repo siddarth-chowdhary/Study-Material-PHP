@@ -1,0 +1,21 @@
+Blogger\BlogBundle\Entity\Enquiry:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        subject:
+            type: string
+            length: 255
+        body:
+            type: text
+    lifecycleCallbacks: {  }

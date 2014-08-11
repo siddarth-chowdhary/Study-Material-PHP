@@ -1,0 +1,3 @@
+1. create a entity
+2. create a form
+3. form validation in the entity class (import the validation classes)
