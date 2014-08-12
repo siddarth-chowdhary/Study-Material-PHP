@@ -1,0 +1,15 @@
+1. create a new entity
+
+2. run this command to create the getter an setter (if missing)
+php app/console doctrine:generate:entities Blogger\BlogBundle
+
+3.php app/console doctrine:schema:create
+
+
+
+
+
+
+adding dummy data
+
+1. create a fixture file , load the fixtures
