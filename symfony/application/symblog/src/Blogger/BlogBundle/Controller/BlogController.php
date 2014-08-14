@@ -9,10 +9,10 @@ class BlogController extends Controller
     /**
      * Show a blog entry
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
 
@@ -22,7 +22,7 @@ class BlogController extends Controller
 
         $comments = $em->getRepository('BloggerBlogBundle:Comment')
                    ->getCommentsForBlog($blog->getId());
-
+        
         return $this->render('BloggerBlogBundle:Blog:show.html.twig', array(
             'blog'      => $blog,
             'comments'  => $comments

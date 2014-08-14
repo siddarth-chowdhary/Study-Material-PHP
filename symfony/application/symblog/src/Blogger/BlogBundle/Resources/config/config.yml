@@ -3,3 +3,6 @@
 parameters:
     # Blogger contact email address - Mail will be recieved on this id for the contact page
     blogger_blog.emails.contact_email: siddarth.testing@gmail.com
+    
+    # Blogger max latest comments
+    blogger_blog.comments.latest_comment_limit: 10

@@ -11,5 +11,19 @@ php app/console doctrine:generate:entities Blogger\BlogBundle
 
 
 adding dummy data
-
+------------------
 1. create a fixture file , load the fixtures (php app/console doctrine:fixtures:load)
+
+
+
+adding a join 
+-------------
+
+mapping in the entity files and then 
+
+$ php app/console doctrine:migrations:diff
+$ php app/console doctrine:migrations:migrate
+
+will create the required structure
+
+imp : mapping info  like OneToOne , ManyToOne

@@ -4,6 +4,10 @@ namespace Blogger\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
 /**
  * Comment
  *
@@ -13,6 +17,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Comment
 {
+    /*
+    * @Description here the comments created and updated date time are set and also by default the comment is approved
+    **/
     public function __construct()
     {
         $this->setCreated(new \DateTime());
@@ -226,5 +233,18 @@ class Comment
     public function getUpdated()
     {
         return $this->updated;
+    }
+    
+    /*
+    @desc function created for form validation
+     *      */
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('user', new NotBlank(array(
+            'message' => 'You must enter your name'
+        )));
+        $metadata->addPropertyConstraint('comment', new NotBlank(array(
+            'message' => 'You must enter a comment'
+        )));
     }
 }

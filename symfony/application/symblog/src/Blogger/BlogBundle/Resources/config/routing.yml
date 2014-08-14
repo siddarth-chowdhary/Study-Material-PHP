@@ -1,25 +1,38 @@
 # src/Blogger/BlogBundle/Resources/config/routing.yml
+
+#homepage route
 BloggerBlogBundle_homepage:
     pattern:  /
     defaults: { _controller: BloggerBlogBundle:Page:index }
     requirements:
         _method:  GET
-        
+
+#route for about page
 BloggerBlogBundle_about:
     pattern:  /about
     defaults: { _controller: BloggerBlogBundle:Page:about }
     requirements:
         _method:  GET        
-        
+
+#route for contact us page where a form is displayed
 BloggerBlogBundle_contact:
     pattern:  /contact
     defaults: { _controller: BloggerBlogBundle:Page:contact }
     requirements:
         _method:  GET|POST      
 
+#route to show an individual blog        
 BloggerBlogBundle_blog_show:
-    pattern:  /{id}
+    pattern:  /{id}/{slug}
     defaults: { _controller: BloggerBlogBundle:Blog:show }
     requirements:
         _method:  GET
         id: \d+        
+
+#route for comment form        
+BloggerBlogBundle_comment_create:
+    pattern:  /comment/{blog_id}
+    defaults: { _controller: BloggerBlogBundle:Comment:create }
+    requirements:
+        _method:  POST|GET
+        blog_id: \d+        

@@ -3,7 +3,7 @@
 namespace Blogger\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Blog
  *
@@ -21,7 +21,10 @@ class Blog
         $this->setUpdated(new \DateTime());
     }
 
-    
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
     
     /**
      * @ORM\PreUpdate
@@ -95,7 +98,11 @@ class Blog
      * @ORM\Column(name="updated", type="datetime")
      */
     private $updated;
-
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $slug;
 
     /**
      * Get id
@@ -294,5 +301,28 @@ class Blog
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comments
+     * @return Blog
+     */
+    public function addComment(\Blogger\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Blogger\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
     }
 }
