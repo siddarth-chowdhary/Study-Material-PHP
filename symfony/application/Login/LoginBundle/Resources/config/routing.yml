@@ -1,0 +1,14 @@
+login_login_homepage:
+    path:     /login
+    defaults: { _controller: LoginLoginBundle:Default:index }
+    
+#for signup page    
+login_login_signup:
+    pattern:  /signup
+    defaults: { _controller: LoginLoginBundle:Default:signup }
+
+#for logout link    
+login_login_logout:
+    pattern:  /logout
+    defaults: { _controller: LoginLoginBundle:Default:logout }    
+    
