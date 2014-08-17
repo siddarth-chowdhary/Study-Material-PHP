@@ -1,0 +1,14 @@
+{# empty Twig template #}
+
+{%extends "LoginLoginBundle:Default:index.html.twig"%}
+{%block stylesheets %}
+
+{%endblock%}
+   {%block container %}
+<div class="container">
+    <h2>Hello {{name}}</h2>
+    <p> from welcome.html.twig , login secured page</p>
+ {#{% include "LoginLoginBundle:Default:table.html.twig#}
+</div> 
+<a href="{{path('login_login_logout')}}" >Logout</a>
+    {%endblock%}
