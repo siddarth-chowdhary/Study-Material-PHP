@@ -1,0 +1,92 @@
+setup
+-----
+alphatax.com
+
+<VirtualHost *:80>
+        ServerName alphatax.com
+        DocumentRoot /var/www/html/Code_Library/study_material/symfony/application/alphatax/web
+        SetEnv APPLICATION_ENV "development"
+        <Directory /var/www/html/Code_Library/study_material/symfony/application/alphatax/web>
+                DirectoryIndex app.php
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+</VirtualHost>
+
+
+commands
+--------
+1. create the bundle 
+/usr/local/zend/bin/php app/console generate:bundle --namespace=Alpha/AlphaBundle --format=yml
+
+
+2. create the controller - user
+/usr/local/zend/bin/php app/console generate:controller
+
+Controller name: AlphaAlphaBundle:User
+Routing format (php, xml, yml, annotation) [annotation]: yml
+Template format (twig, php) [twig]: 
+
+New action name (press <return> to stop adding actions): loginAction
+Action route [/login]: 
+Templatename (optional) [AlphaAlphaBundle:User:login.html.twig]: 
+
+New action name (press <return> to stop adding actions): signupAction
+Action route [/signup]: 
+Templatename (optional) [AlphaAlphaBundle:User:signup.html.twig]: 
+
+New action name (press <return> to stop adding actions): logoutAction
+Action route [/logout]: 
+Templatename (optional) [AlphaAlphaBundle:User:logout.html.twig]: 
+
+3. create the database
+/usr/local/zend/bin/php app/console doctrine:database:create
+
+4. create the entity
+/usr/local/zend/bin/php app/console generate:doctrine:entity
+The Entity shortcut name: AlphaAlphaBundle:User
+Configuration format (yml, xml, php, or annotation) [annotation]: 
+
+New field name (press <return> to stop adding fields): username     
+Field type [string]: 
+Field length [255]: 50
+
+New field name (press <return> to stop adding fields): password
+Field type [string]: 
+Field length [255]: 50
+
+New field name (press <return> to stop adding fields): email
+Field type [string]: 
+Field length [255]: 100
+
+New field name (press <return> to stop adding fields): created
+Field type [string]: datetime
+
+New field name (press <return> to stop adding fields): updated
+Field type [string]: datetime
+
+5. set the created and updated dynamically for an entity
+	/**
+     * @author siddarth
+     * @desc - for setting the created and updated values dynamically
+     */
+    public function __construct()
+    {
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+    }
+        
+    /**
+     * @ORM\PreUpdate
+     * @desc - this function will automatically set the updated time before 
+     * updating the entity
+     */
+    public function setUpdatedValue()
+    {
+       $this->setUpdated(new \DateTime());
+    }
+
+
+6. Join Examples
+onetoone

@@ -1,0 +1,4 @@
+alpha_alpha:
+    resource: "@AlphaAlphaBundle/Resources/config/routing.yml"
+    prefix:   /
+
