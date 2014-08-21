@@ -1,0 +1,32 @@
+Form helper
+-----------
+http://ellislab.com/codeigniter/user-guide/helpers/form_helper.html
+
+Form Validation
+---------------
+http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
+
+1. create/select a controller function where the form will be displayed
+for ex : users controller , login function shows the login form
+
+2. create the form in the views folder according to the controller.
+for ex : views/users/login.php will hold the login form
+
+for creating the form use the form helper , see the code in the view page and for other types of controls refer the links provided above
+
+
+3. validations will be performed in the same controller's action only
+for ex : users controller , register function contains the validation for register form
+
+4. bootstrap for error messages
+
+<!--Display Errors-->
+<?php echo validation_errors('<p class="alert alert-dismissable alert-danger">'); ?>
+ 
+ in the views file for better display of error / validation failed messages.
+
+IMP :
+----
+In controller the above section is for the form validation checking
+it runs when the form is either loaded for the first time or some validation has failed
+the else part is resposible for saving the data in the database.

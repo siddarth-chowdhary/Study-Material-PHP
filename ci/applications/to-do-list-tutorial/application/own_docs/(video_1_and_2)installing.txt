@@ -1,0 +1,34 @@
+1. Download the framework from
+ellislab.com/codeigniter
+
+2. Put this folder in web app directory.
+
+3. Setup the database (included sql file - 3 tables).
+
+4. Include the .htaccess file in the project root for friendly urls.
+(test - http://localhost/application/welcome)
+
+5. Open the app folder modify the following files.
+
+	a. cofig.php 
+
+	change 1
+	$config['base_url']	= 'http://localhost/application/';
+	
+	change 2
+	$config['encryption_key'] = '1234';
+
+
+	b.database.php
+	
+	add db credentials
+
+	c. autoload.php
+	
+	change 1
+	$autoload['libraries'] = array('database', 'session', 'form_validation');
+
+	change 2
+	$autoload['helper'] = array('url','form','html');
+
+	add more of these as per requirements

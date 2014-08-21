@@ -1,0 +1,13 @@
+1. create a file home.php in controller folder.
+
+2. create a action named index.
+
+3. in views folder created a layout folder
+	this folder is common and holds application level layout.
+
+4.create a file called home.php in views folder write html in home.php
+
+5. in the index action mentioned at step 2 call the main layout with the main content which holds the view name.
+this will be shown in the layout.
+
+6. changed this controller to the default controller in config/route.php

@@ -1,0 +1,14 @@
+assumed : form and validations are created
+
+1. in the controller action , if validations fails , pass the error message.
+
+2. if the validations pass ,
+
+call the User_model create_member function
+
+Here the values to be inserted are directly fectched from the post.
+
+Here a query is executed to insert the values in our database and returns back to controller
+
+3. back to controller , 
+ if successfull shows register success through flashdata
