@@ -1,7 +1,23 @@
-{% extends "::base.html.twig" %}
+{% extends 'AlphaAlphaBundle::layout.html.twig' %}
 
 {% block title %}AlphaAlphaBundle:Shop:profile{% endblock %}
 
+{% block nav_links %}
+        {% if app.session.get('login') is defined %}
+        <li>
+            <a href="{{ path('logout') }}">Logout</a>
+        </li>
+        {% endif %}
+{% endblock %}
+
 {% block body %}
+    
 <h1>Welcome to the Shop:profile page</h1>
+
+
+{% if app.session.get('login') is defined %}
+    <p>Our website is in maintenance mode. Please, come back later.</p>
+{% endif %}
+
+
 {% endblock %}

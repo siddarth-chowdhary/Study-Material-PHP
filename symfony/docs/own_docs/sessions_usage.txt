@@ -1,0 +1,47 @@
+Set Session
+-----------
+	controller
+	----------
+		1. use Symfony\Component\HttpFoundation\Request;
+		2. Make sure action has a paremeter of request class  
+		3. Make a session object
+		$session = $this->getRequest()->getSession();
+		$session->set('login', $login);
+
+
+
+Get From Session
+----------------
+		controller
+		----------
+			if ($session->has('login')) {
+				$check = $session->get('login');
+			} else {
+				//redirect to login
+				return $this->redirect($this->generateUrl('login'));
+			}
+
+        view
+        ----
+        {% if app.session.get('login') is defined %}
+		    <p>Our website is in maintenance mode. Please, come back later.</p>
+		{% endif %}
+			
+
+
+
+Use of flash message
+--------------------
+	
+		controller
+		----------
+		$this->get('session')->getFlashBag()->add('login-failed', 'Invalid Username/Password!');
+        return $this->redirect($this->generateUrl('login'));
+
+        view
+        ----
+        {% for flashMessage in app.session.flashbag.get('login-failed') %}
+            <div class="alert-danger fade in">
+            <strong>Invalid Username/Password!!</strong>
+            </div>
+        {% endfor %}

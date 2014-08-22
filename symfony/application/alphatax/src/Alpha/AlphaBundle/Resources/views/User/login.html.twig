@@ -44,22 +44,32 @@
 {%endblock%}
 {%block body %}
     <div class="container">
-
+        
         <form class="form-signin" method ="POST" action="#">
+            {% for flashMessage in app.session.flashbag.get('login-failed') %}
+            <div class="alert-danger fade in">
+            <strong>Invalid Username/Password!!</strong>
+            </div>
+            {% endfor %}
+            {% for flashMessage in app.session.flashbag.get('login-required') %}
+            <div class="alert-danger fade in">
+            <strong>Login Required!!</strong>
+            </div>
+            {% endfor %}
+            {% for flashMessage in app.session.flashbag.get('user-loggged-out') %}
+            <div class="alert-success fade in">
+            <strong>Logged out Successfully!!</strong>
+            </div>
+            {% endfor %}
             <h2 class="form-signin-heading">Please sign in</h2>
-            <input type="text" id="username" class="input-block-level" name="username" placeholder="Email address">
+            <input type="text" id="username" class="input-block-level" name="username" placeholder="Username">
             <input type="password" class="input-block-level" name="password" placeholder="Password">
             <label class="checkbox">
                 <input type="checkbox" name="remember" value="remember-me"> Remember me
             </label>
             <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-            <a href="#" >Sign Up</a>
+            <a href="{{ path('signup') }}" >Sign Up</a>
         </form>
-
+        
     </div> 
-    {% if err is defined%}
-        <div class="alert-danger fade in">
-            <strong>Invalid Credentials !!</strong>
-        </div>
-    {%endif%}
 {%endblock%}

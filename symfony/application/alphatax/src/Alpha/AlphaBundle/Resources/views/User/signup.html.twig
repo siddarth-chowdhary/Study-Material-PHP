@@ -47,13 +47,14 @@
     {% for flashMessage in app.session.flashbag.get('user-saved') %}
     <div class="alert alert-success" role="alert">    
         {{ flashMessage }}
+        <a href="{{ path('login') }}">Login To Proceed</a>
     </div>
     {% endfor %}
     
     <div class="container" >
         <form action="#" method="post" {{ form_enctype(form) }} class="form-signin">
             <h2>Sign Up</h2>
-        {{ form_widget(form) }}
+            {{ form_widget(form) }}
         <p>
         <button class="btn btn-large btn-primary" type="submit">Sign up</button>
         </p>
