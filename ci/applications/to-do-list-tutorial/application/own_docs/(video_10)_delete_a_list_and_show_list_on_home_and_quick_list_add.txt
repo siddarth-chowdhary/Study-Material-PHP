@@ -1,0 +1,10 @@
+here 3 things are done
+
+1. delete a list - delete the associated tasks with that list - done in the list model where the list is deleted and also the tasks associated with that list are deleted.
+
+2. show tasks on login - here like the list are shown on the logged in page the tasks are also shown on the landing page
+
+3. quick add list - in this feature we have added a new list where we just take the list name and then redirect to the list add page where the list name is prefilled and the list body is entered by the user.
+
+
+---------------------------- END OF TUTORIAL----------------------------------------

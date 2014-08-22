@@ -1,0 +1,24 @@
+1. Created a tasks controller, task_model , views - show,add_task,edit_task
+
+2. Now the CRUD For Tasks
+
+3. R - Retrieve (Show)
+Here we have created a controller Tasks and function show is used to perform this sction of CRUD.
+We get details of the task and also the completed status of the task and show it on the view.
+Remember we have deleted last line to solve one error, which we will add in the next session.
+URL - http://localhost/application/tasks/show/<id>
+ex : http://localhost/application/tasks/show/1
+
+3. C - Create
+Here we will create a new task for this we have created a form in add_task view file
+and also created two functions first will fetch the task name that will e displayed on the form and will be fixed and other
+will save the form data to the database,intelligent code here also name of array keys used in the model here also.
+If successfully created a message flash is also used.
+
+4. U - Update 
+Here we will update a task for this we have created a form in edit_task view file
+and also created functions first will fetch the list id and name and then task data.
+this will be displayed on the form as this is in edit view
+values are bind in the edit view
+we then save the form data to the database,intelligent code here also name of array keys used in the model here also.
+If successfully created a message flash is also used.

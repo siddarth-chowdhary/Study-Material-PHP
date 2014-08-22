@@ -1,0 +1,23 @@
+assumed : form and validations are created
+
+1. in the controller action , if validations fails pass the error message.
+
+2. if the validations pass ,
+
+call the User_model login_user fucntion with arguements $username and $password
+
+Here a query is executed to check whether onlu 1 pair of the the username and passord exists in database
+If only 1 pair exists return the user_id otherwise return false as this user doesn't exists in our database.
+
+3. back to controller , 
+if it is a valid user set the session with user_id,username,logged_in(boolean value)
+
+redirect to home/index
+
+4. then if the user is logged in 
+
+	a. show welcome, username in the top corner 
+	b. show username instead of login form 
+	c. also a logout button.
+
+5. If the model returns no user_idor a false the show appropriate err message with the flashdata (see docs on how to create flash data).

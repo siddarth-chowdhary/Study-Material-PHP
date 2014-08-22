@@ -1,0 +1,33 @@
+Active record documentation in codeigniter
+http://ellislab.com/codeigniter/user-guide/database/active_record.html
+
+
+1. create a model file in the model folder like
+ex: user_model.php file
+
+2. pass the values from the controller or get the values disrectly from the post
+
+ex: from post
+
+public function create_member(){
+$new_member_insert = array(
+    'first_name'       => $this->input->post('first_name'),
+    'last_name'        => $this->input->post('last_name'),
+    'email'            => $this->input->post('email'),
+    'username'         => $this->input->post('username'),                    
+    'password'         => md5($this->input->post('password'))
+);
+
+$insert = $this->db->insert('users', $new_member_insert);
+return $insert;
+}
+
+In this function values are fetched directly from the form's input fields.
+
+3. return the result as per the needs
+
+NOTE/IMP  : $autoload['model'] = array('User_model');
+--------
+
+add the model to the autoload.php
+

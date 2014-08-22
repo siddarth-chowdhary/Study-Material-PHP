@@ -1,0 +1,8 @@
+here we have done 2 things
+
+to get the tasks associated withe the list on the list show page get_list_tasks()
+a "join" implementation is shown here
+
+to make the mark complete and mark new functionality for which we have implemented join in the task model mark_complete and mark_new
+
+

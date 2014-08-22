@@ -1,0 +1,19 @@
+It is just like a message that is flashed which signifies an event , ex: Resgistration successfull
+
+1. in the controller add a line where you want to show user the message at what point
+syntax: 
+$this->session->set_flashdata('key_in_controller', 'value_to_be_displayed_in_view');
+
+ex: $this->session->set_flashdata('registered', 'You are now registered, please log in');
+
+
+2. in the view file check whether it is available and if it is then print the value of key.
+syntax:
+<?php if($this->session->flashdata('key_in_controller')) : ?>
+    <?php echo '<p class="text-success">' .$this->session->flashdata('key_in_controller') . '</p>'; ?>
+<?php endif; ?>
+
+ex: 
+<?php if($this->session->flashdata('registered')) : ?>
+    <?php echo '<p class="text-success">' .$this->session->flashdata('registered') . '</p>'; ?>
+<?php endif; ?>

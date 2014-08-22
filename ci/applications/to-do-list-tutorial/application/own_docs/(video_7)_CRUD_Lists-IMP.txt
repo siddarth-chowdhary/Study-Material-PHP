@@ -1,0 +1,63 @@
+/*
+* @date- 29 July 2014
+* This documentation includes "CRUD" for "lists".
+* Here we will use all the basic elemets like 
+* - creating a controller
+* - creating a Model
+* - creating views , with custom css
+* - creating forms , with validations
+*/
+
+1. "my lists" menu available only when the user is logged in
+->for this create an entry in the view file "main.php"
+
+code : 			<?php if($this->session->userdata('logged_in')) : ?>
+                	<li><a href="<?php echo base_url(); ?>lists">My Lists</a></li>  
+               	<?php endif; ?>
+
+
+2. created a lists controller
+
+3. created lists in the views/lists folder also check the css coming from the custom.css file
+
+4. created some dummy data for "lists" table in the database.
+
+5. created List_model and entry done in autoload.php
+
+6. index action of controller
+
+this action will be used to display all the lists created by the current user
+
+7. now the crud starts - R "Retrieve" (Show) the List
+
+for this we have created the show action in the lists controller.
+also the show view for corresponding view
+and a method that is used in the model
+here we get the id from the url of the list and fetch the details of that list id from the database and display these details on the view file
+
+8. C - Create New List
+
+for this we have created add method in the controller
+also a view file - add_list that will hold the form for adding a list
+also a model to save the list
+the validation are performed in the controller
+and if the validations pass the list will be created and will be redirected to the lists/index
+
+9. U - Update List
+
+for this we have created edit method in the controller
+also a view - edit_list that will hold a form with pre filled values from the database
+also 2 model functions first will get data for the form and other will save data / update the list
+the validation are performed in the controller
+and if the validations pass the list will be updated and will be redirected to the lists/index
+
+10. D - Delete a  List
+
+for this we have created delete method in the controller 
+also a model function to delete the list and redirects to the listing of "lists"
+remenber - no need to create a view for the delete
+
+11. one last thing done is shown the users list on the landing page after the login.
+for this in the home controller a check is applied for login and if the user is logged in the lists are shown
+code is written in the home.php view file for this
+also list_model function is used

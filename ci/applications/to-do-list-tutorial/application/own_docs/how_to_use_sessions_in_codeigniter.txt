@@ -1,0 +1,36 @@
+1. seting session in codeigniter - Controller
+
+//Create array of data
+$user_data = array(
+       'key_1'   => $val_1,
+       'key_2'  => $val_2,
+       'key_3' => true
+);
+//Set session userdata
+$this->session->set_userdata($user_data);
+
+2. getting / checking session values - View
+
+<?php if($this->session->userdata('key_1')) : ?>
+
+<?php else : ?>
+
+<?php endif; ?>
+
+
+3. unset the session/destroy - Controller
+
+//Unset user data
+$this->session->unset_userdata('key_1');
+$this->session->unset_userdata('key_2');
+$this->session->unset_userdata('key_3');
+$this->session->sess_destroy();
+
+
+
+NOTE / IMP : To use sessions , in the autoload.php
+----------
+
+$autoload['libraries'] = array('session');
+
+should be there.
