@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Category</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <a class="btn btn-xs btn-success" href="{{ path('category') }}">
+            Back to the list
+        </a>
+        <a class="btn btn-xs btn-info" href="{{ path('category_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    
+        <br><br>
+        {{ form(delete_form) }}
+</ul>
+{% endblock %}

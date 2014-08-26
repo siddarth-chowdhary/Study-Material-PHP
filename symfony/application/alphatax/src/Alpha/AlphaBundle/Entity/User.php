@@ -25,6 +25,12 @@ class User
         $this->setUpdated(new \DateTime());
     }
     
+    
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
+    
     /**
      * @ORM\PreUpdate
      * desc - this function will automatically set the updated time before 

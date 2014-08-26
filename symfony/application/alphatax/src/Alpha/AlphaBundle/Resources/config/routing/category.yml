@@ -1,27 +1,3 @@
-alpha_alpha_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AlphaAlphaBundle:Default:index }
-#for user login
-login:
-    path:     /login
-    defaults: { _controller: AlphaAlphaBundle:User:login }
-#for user registration
-signup:
-    path:     /signup
-    defaults: { _controller: AlphaAlphaBundle:User:signup }
-#for user logout
-logout:
-    path:     /logout
-    defaults: { _controller: AlphaAlphaBundle:User:logout }
-#secured login page
-profile:
-    path:     /profile
-    defaults: { _controller: AlphaAlphaBundle:Shop:profile }
-    
-    
-    
-    
-    
 category:
     path:     /
     defaults: { _controller: "AlphaAlphaBundle:Category:index" }
@@ -52,4 +28,3 @@ category_delete:
     path:     /{id}/delete
     defaults: { _controller: "AlphaAlphaBundle:Category:delete" }
     requirements: { _method: post|delete }
-    
