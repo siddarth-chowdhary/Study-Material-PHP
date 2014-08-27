@@ -14,127 +14,21 @@ use Alpha\AlphaBundle\Form\CategoryType;
  */
 class CategoryController extends Controller
 {
-    public function indexAction(Request $request) {
-        $page = $request->get('page');
-        $count_per_page = 2;
-        $total_count = $this->getTotalCategories();
-        $total_pages = ceil($total_count / $count_per_page);
 
-        /* validations for pagination starts */
-        //numeric check
-        if (!is_numeric($page)) {
-            $page = 1;
-        } else {
-            $page = floor($page);
-        }
-        //if total is less than number to be shown per page
-        if ($total_count <= $count_per_page) {
-            $page = 1;
-        }
-        //page exceeds the total result
-        if (($page * $count_per_page) > $total_count) {
-            $page = $total_pages;
-        }
-        if ($page < 0) {
-            $page = 1;
-        }
-        //setting the offset
-        $offset = 0;
-        if ($page > 1) {
-            $offset = $count_per_page * ($page - 1);
-        }
-        /* validations for pagination ends */
-        
-        /* get the entities based on the start values only count_per_page values */
+    /**
+     * Lists all Category entities.
+     *
+     */
+    public function indexAction()
+    {
         $em = $this->getDoctrine()->getManager();
-        $categoryQuery = $em->createQueryBuilder()
-                ->select('c')
-                ->from('AlphaAlphaBundle:Category', 'c')
-                ->setFirstResult($offset)
-                ->setMaxResults($count_per_page);
-        $categoryFinalQuery = $categoryQuery->getQuery();
 
-        $entities = $categoryFinalQuery->getArrayResult();
+        $entities = $em->getRepository('AlphaAlphaBundle:Category')->findAll();
+
         return $this->render('AlphaAlphaBundle:Category:index.html.twig', array(
-                    'entities' => $entities,
-                    'total_pages' => $total_pages,
-                    'current_page' => $page
-        ));
-
-    }
-
-    public function getTotalCategories() {
-        $em = $this->getDoctrine()->getManager();
-        $countQuery = $em->createQueryBuilder()
-                ->select('Count(c)')
-                ->from('AlphaAlphaBundle:Category', 'c');
-        $finalQuery = $countQuery->getQuery();
-        $total = $finalQuery->getSingleScalarResult();
-        return $total;
-    }
-    
-    public function getTotalSearchedCategories($categoryName) {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQueryBuilder('c');
-        $query->select('Count(c)')
-              ->where($query->expr()->like('c.name', ':name'))
-              ->setParameter('name',$categoryName)  
-              ->from('AlphaAlphaBundle:Category', 'c');
-        $finalQuery = $query->getQuery();
-        $total = $finalQuery->getSingleScalarResult();
-        return $total;
-    }
-    
-    public function searchAction(Request $request) {
-        $categoryName = '%' . $request->get('cat') . '%';
-        $page = $request->get('page');
-        $count_per_page = 2;
-        $total_count = $this->getTotalSearchedCategories($categoryName);
-        $total_pages = ceil($total_count / $count_per_page);
-
-        /* validations for pagination starts */
-        //numeric check
-        if (!is_numeric($page)) {
-            $page = 1;
-        } else {
-            $page = floor($page);
-        }
-        //if total is less than number to be shown per page
-        if ($total_count <= $count_per_page) {
-            $page = 1;
-        }
-        //page exceeds the total result
-        if (($page * $count_per_page) > $total_count) {
-            $page = $total_pages;
-        }
-        if ($page < 0) {
-            $page = 1;
-        }
-        //setting the offset
-        $offset = 0;
-        if ($page > 1) {
-            $offset = $count_per_page * ($page - 1);
-        }
-        /* validations for pagination ends */
-
-        /* get the entities based on the start values only count_per_page values */
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQueryBuilder('c');
-        $query->select('c')
-                ->where($query->expr()->like('c.name', ':name'))
-                ->setParameter('name', $categoryName)
-                ->from('AlphaAlphaBundle:Category', 'c')
-                ->setFirstResult($offset)
-                ->setMaxResults($count_per_page);
-        $finalQuery = $query->getQuery();
-        $entities = $finalQuery->getArrayResult();
-        return $this->render('AlphaAlphaBundle:Category:index.html.twig', array(
-                    'entities' => $entities,
-                    'total_pages' => $total_pages,
-                    'current_page' => $page
+            'entities' => $entities,
         ));
     }
-    
     /**
      * Creates a new Category entity.
      *
