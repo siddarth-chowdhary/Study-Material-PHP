@@ -1,0 +1,4 @@
+demo_user:
+    resource: "@DemoUserBundle/Resources/config/routing.yml"
+    prefix:   /
+

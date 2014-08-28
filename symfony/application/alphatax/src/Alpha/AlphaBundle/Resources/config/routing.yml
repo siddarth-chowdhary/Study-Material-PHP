@@ -30,6 +30,10 @@ category_show:
 category_new:
     path:     /new
     defaults: { _controller: "AlphaAlphaBundle:Category:new" }
+    
+category_new_ajax:
+    path:     /new-ajax
+    defaults: { _controller: "AlphaAlphaBundle:Category:newajax" }
 
 category_create:
     path:     /create

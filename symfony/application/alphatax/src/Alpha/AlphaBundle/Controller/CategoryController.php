@@ -50,6 +50,7 @@ class CategoryController extends Controller
         $categoryQuery = $em->createQueryBuilder()
                 ->select('c')
                 ->from('AlphaAlphaBundle:Category', 'c')
+                ->orderBy('c.updated', 'DESC')
                 ->setFirstResult($offset)
                 ->setMaxResults($count_per_page);
         $categoryFinalQuery = $categoryQuery->getQuery();
@@ -124,6 +125,7 @@ class CategoryController extends Controller
                 ->where($query->expr()->like('c.name', ':name'))
                 ->setParameter('name', $categoryName)
                 ->from('AlphaAlphaBundle:Category', 'c')
+                ->orderBy('c.updated', 'DESC')
                 ->setFirstResult($offset)
                 ->setMaxResults($count_per_page);
         $finalQuery = $query->getQuery();
@@ -354,4 +356,6 @@ class CategoryController extends Controller
                 return false;
         }
     }
+    
+    
 }

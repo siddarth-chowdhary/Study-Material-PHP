@@ -1,0 +1,14 @@
+linux
+-----
+netbeans
+sublime
+vim
+meld
+open in terminal - right click
+
+
+chrome
+------
+black menu
+php ninja
+advanced rest client
