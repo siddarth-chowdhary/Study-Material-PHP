@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Alpha\AlphaBundle\Entity\Category;
 use Alpha\AlphaBundle\Form\CategoryType;
 
+
+use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Category controller.
  *
@@ -16,7 +18,7 @@ class CategoryController extends Controller
 {
     public function indexAction(Request $request) {
         $page = $request->get('page');
-        $count_per_page = 2;
+        $count_per_page = 5;
         $total_count = $this->getTotalCategories();
         $total_pages = ceil($total_count / $count_per_page);
 
@@ -200,6 +202,38 @@ class CategoryController extends Controller
             'form'   => $form->createView(),
         ));
     }
+    
+    
+    public function newajaxAction(Request $request)
+    {
+        if ($request->isXMLHttpRequest()) {         
+            $categoryName = $request->request->get('name');
+            $categoryDesc = $request->request->get('desc');
+            
+            //IMP apply validations for category name and description
+            
+            $entity = new Category();
+            
+            $entity->setName($categoryName);
+            $entity->setDescription($categoryDesc);
+            
+            $em = $this->getDoctrine()->getManager();
+            $userid = 1;
+            $userEntity = $this->getUserEntity($userid);
+            if ($userEntity) {
+                $entity->setUser($userEntity);
+            }
+            
+            $em->persist($entity);
+            $em->flush();
+            
+//            $responseURL = $this->forward('AlphaAlphaBundle:Category:index')->getContent(); 
+            return new JsonResponse(array('data' => 'success'));
+        } 
+        
+        return new Response('This is not ajax!', 400);
+    }
+    
 
     /**
      * Finds and displays a Category entity.

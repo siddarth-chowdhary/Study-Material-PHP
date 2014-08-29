@@ -1,0 +1,21 @@
+1.create new project
+2.create new bundle
+3.create new entity
+4. changes to composer
+$ php composer.phar require "jordillonch/crud-generator"
+provide version
+dev-master
+5.AppKernel.php
+new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
+new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
+6.app/config/config.yml
+framework:
+    translator: { fallback: en }
+...
+twig:
+    form:
+        resources:
+            - LexikFormFilterBundle:Form:form_div_layout.html.twig
+7.php app/console jordillonch:generate:crud --entity=DemoUserBundle:User --route-prefix=user --with-write --format=annotation --no-interaction
+
+

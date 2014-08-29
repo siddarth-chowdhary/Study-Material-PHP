@@ -65,7 +65,7 @@
         New Category
     </a>
     
-    <a class="btn btn-primary" id="add-new-cat">
+    <a class="" id="add-new-cat">
         New Category via AJAX
     </a>
         
@@ -93,6 +93,7 @@
         
         
     <div id="dialog-form" title="Create new user">
+        <div id="message"></div>
         <p class="validateTips">All form fields are required.</p>
 
         <form>
@@ -106,29 +107,12 @@
             </fieldset>
         </form>
     </div>
-        
-        
-    <div id="users-contain" class="ui-widget">
-        <h1>Existing Users:</h1>
-        <table id="users" class="ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header ">
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>john.doe@example.com</td>
-                    <td>johndoe1</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    
+    <!--
     <button id="create-user">Create new user</button>
-            
+    -->
+    
+    <div id="route-to-refresh"></div>
 {% endblock %}
 
 

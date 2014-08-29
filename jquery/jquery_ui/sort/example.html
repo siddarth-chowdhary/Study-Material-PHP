@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SORT DEMO</title>
+	
+	<script type="text/javascript" src="jquery-1.10.2.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(e){
+			//Sort Ascending by title
+			$("#asc_btn").click(function(){
+			    $("#demo-divs").jSort({
+			        sort_by: 'p.title',
+			        item: 'div',
+			        order: 'asc'
+			    });
+			});
+
+			//Sort Descending by title
+			$("#desc_btn").click(function(){
+			    $("#demo-divs").jSort({
+			        sort_by: 'p.title',
+			        item: 'div',
+			        order: 'desc'
+			    });
+			});
+
+			//Sort Ascending by description
+			$("#asc_btn_desc").click(function(){
+			    $("#demo-divs").jSort({
+			        sort_by: 'p.txt span',
+			        item: 'div',
+			        order: 'asc'
+			    });
+			});
+
+			//Sort Descending by description
+			$("#desc_btn_desc").click(function(){
+			    $("#demo-divs").jSort({
+			        sort_by: 'p.txt span',
+			        item: 'div',
+			        order: 'desc'
+			    });
+			});	
+		});
+	</script>
+	<style type="text/css">
+		.txt{
+			color:grey;
+		}
+		.title {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+<div id="demo-divs">
+    <div>
+        <p class="title">jQuery content switcher</p>
+        <p class="txt">
+            
+            <span>You can display images, pictures, news and videos with a featured slideshow. In the last few years image and content sliders become very popular and you can see them in thousand of blogs and websites. With sliding effects your website pages could have a truly unique and creative look. jQuery slideshow it is a great way to attract new visitors to your website.</span></p>
+    </div>  
+    <div>
+        <p class="title">Horizontal slider</p>
+        <p class="txt">
+            
+             <span>With sliding effects your website pages could have a truly unique and creative look. jQuery slideshow it is a great way to attract new visitors to your website. In the last few years image and content sliders become very popular and you can see them in thousand of blogs and websites. You can display images, pictures, news and videos with a featured slideshow.</span></p>
+    </div>
+    <div>
+        <p class="title">Content slider</p>
+        <p class="txt">
+            
+            <span>In the last few years image and content sliders become very popular and you can see them in thousand of blogs and websites. You can display images, pictures, news and videos with a featured slideshow. jQuery slideshow it is a great way to attract new visitors to your website. With sliding effects your website pages could have a truly unique and creative look.</span></p>
+    </div>
+    
+    <div>
+        <p class="title">jQuery slideshow</p>
+        <p class="txt">
+            
+            <span>jQuery slideshow it is a great way to attract new visitors to your website. With sliding effects your website pages could have a truly unique and creative look. You can display images, pictures, news and videos with a featured slideshow. In the last few years image and content sliders become very popular and you can see them in thousand of blogs and websites.</span></p>
+    </div>
+</div>
+<button id="asc_btn">Ascending by title</button>
+<button id="desc_btn">Descending by title</button>
+<button id="desc_btn_desc">Sort Descending by description</button>
+<button id="asc_btn_desc">Sort Ascending by description</button>
+<script type="text/javascript" src="jquery.jsort.0.4.js"></script>
+</body>
+</html>

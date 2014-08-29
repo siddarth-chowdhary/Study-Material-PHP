@@ -60,36 +60,30 @@ $(function() {
       valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Category name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
       valid = valid && checkRegexp( description, /^[a-z]([0-9a-z_\s])+$/i, "Description may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
       
-//      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-//      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
- 
       if ( valid ) {
-        /*  
+          
         $.ajax({
           type : "POST",
-          url  : "destination.php",
+          url  : "/new-ajax",
           data : {
-                                name        : "name",
-                                email       : "email",
-                                company     : "company",
-                                phone       : "+91-9873252330",
-                                country     : "country",
-                                state       : "state",
+                                name        : name.val(),
+                                desc       : description.val()
           },
           dataType : "json",
           beforeSend : function(){
           console.log(" :::: before_send ::::");
+          console.log("name: "+name.val()+"desc : "+description.val());
           },
           timeout: 10000,
           success :function(response){
               console.log(" :::: success ::::");  
               console.log(response);
-              $( "#users tbody" ).append( "<tr>" +
-              "<td>" + name.val() + "</td>" +
-              "<td>" + email.val() + "</td>" +
-              "<td>" + password.val() + "</td>" +
-              "</tr>" );
-              dialog.dialog( "close" );
+                if (response.data === "success") {
+                    $("#message").addClass("alert alert-success").html("Category Saved Successfully ,Close this Popup to continue");
+                    $("#cname").val('');
+                    $("#cdescription").val('');
+                }
+              
           },
           error: function(x, t, m) {
                if(t==="timeout") {
@@ -99,17 +93,7 @@ $(function() {
                }
           } 
           }); //ajax over
-          */
-         //remove me
-//         $( "#users tbody" ).append( "<tr>" +
-//              "<td>" + name.val() + "</td>" +
-//              "<td>" + email.val() + "</td>" +
-//              "<td>" + password.val() + "</td>" +
-//              "</tr>" );
-        console.log("name : "+name.val() +"  desc: "+description.val());
-         
-         dialog.dialog( "close" );
-        
+          
       }
       return valid;
     }
@@ -121,9 +105,10 @@ $(function() {
       modal: true,
       closeOnEscape: false, // disable escape event on dialog
       buttons: {
-        "Create an account": addUser,
+        "Create a Category": addUser,
         Cancel: function() {
           dialog.dialog( "close" );
+          location.reload(true);
         }
       },
       beforeClose: function( event, ui ) {
@@ -133,6 +118,7 @@ $(function() {
         console.log("close");
         form[ 0 ].reset();
         allFields.removeClass( "ui-state-error" );
+        location.reload(true);
       }
     });
  
@@ -141,7 +127,7 @@ $(function() {
       addUser();
     });
  
-    $( "#create-user" ).button().on( "click", function() {
+    $( "#add-new-cat" ).button().on( "click", function() {
         console.log("create-user clicked");
         dialog.dialog( "open" );
     });
