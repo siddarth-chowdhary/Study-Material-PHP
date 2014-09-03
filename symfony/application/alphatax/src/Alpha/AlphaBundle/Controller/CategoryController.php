@@ -10,6 +10,10 @@ use Alpha\AlphaBundle\Form\CategoryType;
 
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+
+use Alpha\AlphaBundle\Entity\Article;
+use Alpha\AlphaBundle\Form\ArticleType;
+
 /**
  * Category controller.
  *
@@ -390,6 +394,89 @@ class CategoryController extends Controller
                 return false;
         }
     }
+
     
     
+    //Article - File Upload starts here
+    /**
+     * Show 1 particular article with $id
+     *
+     */
+    public function showartAction($id) {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('AlphaAlphaBundle:Article')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Article entity.');
+        }
+        return $this->render('AlphaAlphaBundle:Category:showart.html.twig', array(
+                    'entity' => $entity,
+        ));
+    }
+
+    /**
+     * Displays a form to create a new Article entity.
+     *
+     */
+    public function newartAction() {
+        $entity = new Article();
+        $form = $this->createForm(new ArticleType(), $entity);
+        return $this->render('AlphaAlphaBundle:Category:newart.html.twig', array(
+                    'entity' => $entity,
+                    'form' => $form->createView()
+        ));
+    }
+
+    /**
+     * Creates/Saves a new Article entity.
+     *
+     */
+    public function createartAction() {
+        $entity = new Article();
+        $request = $this->getRequest();
+        $form = $this->createForm(new ArticleType(), $entity);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($entity);
+            $em->flush();
+            return $this->redirect($this->generateUrl('article_show', array('id' => $entity->getId())));
+        }
+        return $this->render('AlphaAlphaBundle:Category:newart.html.twig', array(
+                    'entity' => $entity,
+                    'form' => $form->createView()
+        ));
+    }
+
+    /**
+     * Delete the article with $id
+     */
+    public function deleteartAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AlphaAlphaBundle:Article')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Article entity.');
+        }
+        echo '<pre>';
+        print_r($entity);
+        die('UNDIE THIS LINE in class ' . __CLASS__ . ' on line no :' . __LINE__);
+        $em->remove($entity);
+        $em->flush();
+        return $this->redirect($this->generateUrl('article_list'));
+    }
+
+    /**
+     * shows list of articles
+     */
+    public function listartAction() {
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('AlphaAlphaBundle:Article')->findAll();
+        if (count($articles) <= 0) {
+            throw $this->createNotFoundException('Unable to find Article entity.');
+        }
+        return $this->render('AlphaAlphaBundle:Category:listart.html.twig', array(
+                    'articles' => $articles,
+        ));
+    }
+
 }

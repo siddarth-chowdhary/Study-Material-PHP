@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Demo\UserBundle\DemoUserBundle(),
             new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Beta\BetaBundle\BetaBetaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
