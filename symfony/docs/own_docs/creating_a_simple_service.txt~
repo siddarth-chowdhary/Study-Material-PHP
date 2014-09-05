@@ -1,0 +1,37 @@
+services are used to perform some tasks that are common and we would like to use it throughout our app
+
+
+1. create a service (php class)
+	ex : Alpha\AlphaBundle\Service\First.php
+	
+	note: make the required folder(s) if not already present
+
+2. registering the service
+	create the entry in the Alpha\AlphaBundle\Resources\config\services.yml file
+	
+	ex : 
+	parameters:
+		alpha_alpha.first.class: Alpha\AlphaBundle\Service\First
+	services:
+		test_first:
+		    class: %alpha_alpha.first.class%
+
+3. entry of this service in the global file 
+	
+	ex:  
+	imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: "@AlphaAlphaBundle/Resources/config/services.yml" }
+
+
+4. call it inside any controller directly
+	ex : 
+	class CategoryController extends Controller
+	{
+    public function indexAction(Request $request) {
+        $number = $this->get('test_first')->add(12, 37);
+        var_dump($number);die("in class : ".__CLASS__." , line no : ".__LINE__);
+
+
+

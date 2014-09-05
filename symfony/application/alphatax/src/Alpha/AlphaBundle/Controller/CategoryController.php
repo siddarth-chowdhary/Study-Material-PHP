@@ -21,6 +21,10 @@ use Alpha\AlphaBundle\Form\ArticleType;
 class CategoryController extends Controller
 {
     public function indexAction(Request $request) {
+//        @imp - usage of service
+//        $number = $this->get('test_first')->add(12, 37);
+//        var_dump($number);die("in class : ".__CLASS__." , line no : ".__LINE__);
+        
         $page = $request->get('page');
         $count_per_page = 5;
         $total_count = $this->getTotalCategories();
