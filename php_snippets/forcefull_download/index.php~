@@ -1,0 +1,6 @@
+<?php
+include("function.php");
+set_time_limit(0);  
+$file_path="http://www.education.gov.yk.ca/pdf/pdf-test.pdf";
+output_file($file_path);
+?>

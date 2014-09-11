@@ -1,0 +1,12 @@
+#!/bin/bash
+clear
+echo "Good morning, world."
+echo "Date and time is:"
+date
+echo
+echo "Your username is: `whoami` \n"
+echo "Your current directory is: \c"
+pwd
+a=20 b=10
+echo "Sum of a ($a) and b ($b) :`expr $a + $b`"
+
