@@ -1,0 +1,5 @@
+Read Me
+--------
+1) Database dump file - tests/fblog.sql
+2) Include File - FluentPDO/FluentPDO.php , this file is main that contains all the business logic.
+3) In tests/ look out for examples.
