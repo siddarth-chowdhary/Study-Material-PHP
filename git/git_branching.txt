@@ -1,0 +1,49 @@
+Create the branch on your local machine 
+=========================================
+$ git branch <name_of_your_new_branch>
+
+
+Push the branch on github 
+==========================
+$ git push origin <name_of_your_new_branch>
+
+
+Switch to your new branch 
+===========================
+$ git checkout <name_of_your_new_branch>
+
+You can see all branches created by using
+=========================================
+$ git branch
+
+
+To Take Pull (newly created branch)
+===================================
+$ git pull origin <old_branch>
+$ git checkout <new_branch>
+$ git merge <old_branch>
+$ git checkout <old_branch>
+
+Ex :
+====
+Take pull in existing branch
+-----------------------------
+$ git pull origin development
+
+Switch to other branch
+----------------------
+$ git checkout qa
+
+Merge with Other Branch
+-----------------------
+$ git merge development
+
+Return To Existing Branch
+--------------------------
+$ git checkout development
+
+If Branch is not visible
+=========================
+$ git fetch origin
+
+
