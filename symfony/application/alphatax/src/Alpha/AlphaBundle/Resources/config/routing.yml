@@ -59,3 +59,32 @@ category_search:
     defaults: { _controller: "AlphaAlphaBundle:Category:search" }
     
     
+#route to show 1 file
+article_show:
+    path:     /article-show/{id}
+    defaults: { _controller: "AlphaAlphaBundle:Category:showart" }
+    
+#route for displaying the form    
+article_new:    
+    path:     /article-new
+    defaults: { _controller: "AlphaAlphaBundle:Category:newart" }
+    
+#route for processing the file    
+article_create:    
+    path:     /article-create
+    defaults: { _controller: "AlphaAlphaBundle:Category:createart" }    
+    
+#route to delete the file    
+article_delete:
+    path:     /delete-art/{id}
+    defaults: { _controller: "AlphaAlphaBundle:Category:deleteart" }
+
+#route for listing the files
+article_list:
+    path:     /list-articles
+    defaults: { _controller: "AlphaAlphaBundle:Category:listart" }
+
+    
+    
+    
+    

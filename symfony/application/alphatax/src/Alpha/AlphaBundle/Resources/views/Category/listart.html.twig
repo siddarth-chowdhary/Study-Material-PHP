@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {{parent()}}
+    <style type="text/css">
+        tr td {
+            border: 1px solid black;
+        }
+        td {
+            padding-top: 10px;
+        }
+    </style>
+{%endblock%}
+{% block body -%}
+    <h1>Articles Uploaded</h1>
+
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        {% for entity in articles %}
+            <tr>
+                <td>{{entity.image}}</td>
+                <td align="center" valign="top"><img src="{{ asset('upload/' ~ entity.id ~'/' ~ entity.image)}}" alt="" height="100" width="100" /></td>
+                <td>
+                    <a class="btn btn-xs btn-success" href="{{ path('article_show', { 'id': entity.id }) }}">show</a>
+                    <a class="btn btn-xs btn-danger" href="{{ path('article_delete', { 'id': entity.id }) }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+    <br><br><br><br>          
+    <a class="btn btn-primary" href="{{ path('article_new') }}">
+        Upload New File
+    </a>
+
+</ul>
+{% endblock %}

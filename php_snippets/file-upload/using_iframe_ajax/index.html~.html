@@ -1,0 +1,29 @@
+<html>
+    <body>
+		<script src="jquery.js"></script>
+        <script>
+            function ajaxFileUpload(upload_field)
+            {   
+				var fileSize = ($("#file")[0].files[0].size / 1024);
+				fileSize = (Math.round((fileSize / 1024) * 100) / 100);
+				console.log("file size ::::  "+fileSize+" mb"); 
+
+                var filename = upload_field.value;
+                upload_field.form.action = 'upload_file.php';
+                upload_field.form.target = 'upload_iframe';
+                upload_field.form.submit();     
+
+                return true;
+            }
+        </script>
+        <iframe name="upload_iframe" id="upload_iframe" style="display:none;width: 800px;height: 400px;"></iframe>
+
+        <form action="javascript:void(0)" method="post" enctype="multipart/form-data">
+            <label for="file">Filename:</label>
+
+            <div><input type="file" name="file" id="file" onchange="return ajaxFileUpload(this);"></div>
+        </form>
+
+		<div id="container"></div>
+    </body>
+</html>

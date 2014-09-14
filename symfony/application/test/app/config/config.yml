@@ -4,7 +4,8 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallback: en }
+    #translator:      { fallback: en }
+    translator:      ~
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -67,3 +68,9 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+#step5 - https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/index.md
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Beta\BetaBundle\Entity\User

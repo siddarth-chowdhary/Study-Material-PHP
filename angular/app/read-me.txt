@@ -1,0 +1,6 @@
+imp points 
+----------
+
+* add the ng-app directive in order to use angular js
+* ng-model acts as a input to the {{}} value
+	

@@ -1,7 +1,11 @@
 parameters:
 #    alpha_alpha.example.class: Alpha\AlphaBundle\Example
-
+    alpha_alpha.first.class: Alpha\AlphaBundle\Service\First
 services:
 #    alpha_alpha.example:
 #        class: %alpha_alpha.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    test_first:
+        class: %alpha_alpha.first.class%
+        arguments: [@session]
+

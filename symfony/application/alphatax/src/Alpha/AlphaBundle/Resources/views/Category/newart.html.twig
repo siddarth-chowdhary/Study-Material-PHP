@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
+{% block body -%}
+    <h1>Add New Article</h1>
+        
+        
+<div class="container" >
+    <form action="{{ path('article_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn btn-primary" type="submit">Create</button>
+        </p>
+    </form>
+</div>
+{% endblock %}

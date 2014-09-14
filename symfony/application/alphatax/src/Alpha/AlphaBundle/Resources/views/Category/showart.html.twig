@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Articles</h1>
+
+    <table>
+        <tr>
+            <td align="center" valign="top"><img src="{{ asset('upload/' ~ entity.id ~'/' ~ entity.image)}}" alt="" height="525" width="666" /></td>
+        </tr>
+    </table>
+
+
+    <a class="btn btn-xs btn-success" href="{{ path('article_list') }}">
+        Back to the article list
+    </a>
+
+</ul>
+{% endblock %}

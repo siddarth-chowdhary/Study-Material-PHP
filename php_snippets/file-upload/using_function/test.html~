@@ -1,0 +1,4 @@
+<form action="start.php" method="post" enctype="multipart/form-data">
+<input type="file" name="file_data" multiple/>
+<input type="submit" value="Upload" name="action" />
+</form>
