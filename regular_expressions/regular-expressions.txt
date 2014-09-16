@@ -1,0 +1,223 @@
+Special Characters
+------------------
+------------------
+
+'\w' - any character i.e 1 character only
+-----------------------------------------
+
+ex: 
+1.
+\w\w\w\we
+will search any 5 letter word ending with 'e'
+2. 
+\w\w\w\war
+will search any 6 letter word ending with 'ar'
+
+'\W' - any thning but a character
+---------------------------------
+
+
+'\d' - any digit i.e. 1 digit only
+----------------------------------
+
+'\D' - any thing but a number
+-----------------------------
+
+'\s' - 1 space only
+-------------------
+
+'\S' - anything but a  space
+----------------------------
+
+'.' - any character except new line
+-----------------------------------
+
+'\b' - ?????????
+----------------
+
+\e - escape
+-----------
+
+\f - form feed
+--------------
+
+\n - new line
+-------------
+
+\r - carriage return
+--------------------
+
+\t - tab
+--------
+
+[a-z] - every single letter small
+---------------------------------
+
+[A-Z] - every single letter caps
+--------------------------------
+
+[0-9] - every single number
+---------------------------
+
+[A-Fa-t0-4]
+-----------
+from A to F,a to t, 0 to 4
+
+^ - starting
+------------
+
+$ - ending
+----------
+
+Quantifiers
+-----------
+-----------
+
+
+'?' - 0 or 1 repetions of whatever charater preceeds it
+-------------------------------------------------------
+
+ex:
+1.
+testa?
+here ending with 0 or 1 'a'
+will search words like test,testa
+
+'+'  - 1 or more charater
+-------------------------
+
+ex:
+1.
+o+
+will search 1 or more 'o'
+2.
+s+
+will search 1 or more 's'
+3.
+\w+
+will search/match any word
+
+
+'*' - 0 or more
+---------------
+
+'{n}' - a certain number of repetions
+-------------------------------------
+ex:
+1.
+\d{5} 
+5 numbers
+
+
+'{n,m}' - a range of numbers ( n=min ; m=max)
+---------------------------------------------
+
+'{n,}' - a certain number or more
+---------------------------------
+
+ 
+Character Classes
+-----------------
+-----------------
+
+
+[...] - search for only these characters in word
+-----
+
+ex:
+1. 
+[abcde] - will search for only one character i.e either 'a' or 'b' or 'c' or 'd' or 'e'
+
+2.
+asd[fg] - will search for word starting with asd followed by either 'f' or 'g'
+
+3.
+\w+[aei]r - will serach for word of any length ends with 'r' and second last be 'a','e' or 'i'
+
+
+
+[^...] - search for anything but these characters in word
+------			(negation)
+			
+ex:
+1.
+[^aeiou] - will match any character that is not a vowel
+2.			
+asd[fg] - will search for word starting with asd not followed by either 'f' or 'g'
+
+
+
+Groupings (Sequence Classes)
+----------------------------
+----------------------------
+
+
+syntax - (?:option1|option2|option3)
+------------------------------------
+
+ex: 
+
+1.
+(?:a|b|c) - either a or b or c
+
+2.
+\w+(?:a|b|c) - any word ending with a or b or c
+
+3.
+\w{4,}(?:a|b|c) \w{4,}(?:a|b|d)
+will search any 2 words seperated by a space where 
+	1st word - word of length 5 or more but last should be either a or b or c
+	2nd word - word of length 5 or more but last should be either a or b or d
+
+difference with character classes
+---------------------------------
+[abc]
+(?:abc|def|ghi)
+
+we cant do the latter one in character classes
+i.e only for one character in character classes
+
+
+negative lookaheads
+-------------------
+(?!...) negative lookahead
+
+ex:
+abc(?!=[aeiou])\w+
+begins with abc ,next character cant be a e i o u
+different from other classes,expression checks for next character
+
+similar to this
+ex:
+abc[^aeiou]
+
+
+
+characters that need esacaping
+------------------------------
+------------------------------
+(
+)
+*
++
+?
+[
+]
+{
+}
+^
+|
+
+examples
+========
+
+1. $100.00
+\$\d*\.\d{2}
+
+2. jennifer/jen/jenny familyname
+(jennifer|jen|jenny)\b\w+\b
+			or
+je(n|nny|nnifer){1,6}\s\w+\s
+			or
+je(nifery){1,6}\s\w+\s			
+
