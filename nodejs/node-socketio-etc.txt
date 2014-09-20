@@ -1,0 +1,53 @@
+Node.js
+=======
+server side js
+like a server and the server side lang in itself
+not like php;php lang and apache server
+
+NPM
+===
+node package manager
+like composer in php
+create a package.json file;mention required modules
+run command to install modules > npm install
+
+Express
+=======
+contains http utility methods
+midleware bw server and client
+used by socket.io
+
+Socket.io
+=========
+real time app middleware
+transport data to and from -bw client(s) and server
+required at both client and server end
+socket.io built upon/depends on node.js
+
+3 native Events
+---------------
+connection 
+message
+disconnect
+
+* Custom Events arebuilt upon the message event
+
+all event handlers work inside the conn event
+
+Primary Ways To send a message
+------------------------------
+single socket - socket.emit('message',data);
+all socketa - io.sockets.emit('message',data);
+single room socket - io.sockets.in('room-name').emit('message',data);
+
+
+* Volatile message - they dont have a response;use them for unimp messages
+io.sockets.in('room-name').volatile.emit('message',data);
+
+Rooms
+-----
+Organization of sockets in group(s)
+to join a room - socket.join('roomname');
+to leave a room - socket.leave('roomname');
+
+* a scoket leaves a room automatically on disconnection
