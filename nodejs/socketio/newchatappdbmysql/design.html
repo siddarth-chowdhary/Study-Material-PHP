@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Design</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var data = {
+		    "details":[
+		        {"id":"0","name":"ABC"},
+		        {"id":"1","name":"DEF"},
+		        {"id":"2","name":"GHI"},
+		        {"id":"3","name":"JKL"}
+		    ]
+			};
+			$.each(data.details, function(key, value) {
+					$('#users').append('<div>' + '<input type="checkbox" class="chkNames" name="name" value="'+value.name+'">' + value.name + '</div>');
+			});
+
+			$(".chkNames:checkbox").live('change', function(){
+			    var names = '';
+				$('.chkNames:checked').each(function () {
+			       names += $(this).val()+',';
+				});
+				names = names.replace(/,\s*$/, "");
+				$("#toUsers").val(names);
+
+				var res = names.split(",");
+
+				console.log(res);
+			});
+
+		});
+		
+	</script>
+</head>
+<body>
+	<div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+		<b>USERS</b>
+		<div id="users"></div>
+	</div>
+	
+	<p style="border:2px dotted grey;margin-left:150px;width:500px;color:#214DA8">Global Chat</p>
+	<div id="container" style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+	
+	<div id="conversation"></div>
+	<input id="data" style="width:200px;" />
+	<input type="button" id="datasend" value="send" />
+	</div>
+
+	<div id="pvtMsgContainer" style="clear:both;border-top:1px solid black;">
+	<p style="border:2px dotted grey;color:#214DA8">Private Chat , Check User(s) you want to chat with</p>
+		<table>
+			<tr>
+				<td>to</td>
+				<td><input type="text" id="toUsers"></td>
+			</tr>
+			<tr>
+				<td>msg</td>
+				<td><input type="text" id="msg"></td>
+			</tr>
+			<tr>
+				<td><button id="sendMsg">Send</button></td>
+			</tr>
+		</table>
+	</div>	
+</body>
+</html>

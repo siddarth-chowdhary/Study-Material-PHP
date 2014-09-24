@@ -1,0 +1,17 @@
+1.
+This app works with command
+nodejs server.js
+
+2.
+then open the browser at
+http://localhost:5555
+
+3.
+We have used modular configurations for models so that there is no problem accessing the models 
+in your code just create an object of the model 
+ex:
+var Chat = app.models('chat');
+
+4. Treat this variable as a model , problem solved for "cannot redeclare the model"
+
+

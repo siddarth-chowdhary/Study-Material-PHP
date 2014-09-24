@@ -1,0 +1,36 @@
+/**********************************************************************************/
+//create the connection
+//_____________________
+var mysql = require('mysql'),
+  connectionsArray = [],
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'tech',
+    database: 'node',
+    port: 3306
+});
+/**********************************************************************************/
+//Doing the mysql select database query
+//_____________________________________
+var query = connection.query('SELECT * FROM chat');
+query
+.on('error', function(err) {
+Handle error, and 'end' event will be emitted after this as well
+console.log(err);
+})
+.on('result', function(res) {
+console.log(res);
+})
+.on('end', function() {
+	console.log("query ends..")
+});
+/**********************************************************************************/
+//Doing the mysql insert database query
+//_____________________________________
+var chatMessage  = {from_user: 'third_from_code', to_user: 'third_to_code', message: 'message from code..'};
+var query = connection.query('INSERT INTO chat SET ?', chatMessage, function(err, result) {
+Neat!
+});
+console.log(query.sql);
+/**********************************************************************************/

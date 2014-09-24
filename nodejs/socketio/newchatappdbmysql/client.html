@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
+	//request for a new connection to the server
+	var socket = io.connect('ws://192.168.2.204:5555');
+	var curUser = '';
+	var arrToUsers = '';
+	// on connection to server, ask for user's name with an anonymous callback
+	socket.on('connect', function(){
+		$(".loading").hide();
+		$("#container").show();
+		curUser = prompt("Please enter your name ?");
+		$("#myName").html(curUser);
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		socket.emit('adduser', curUser);
+	});
+
+	// listener, whenever the server emits 'updatechat', this updates the chat body
+	socket.on('updatechat', function (username, data) {
+		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+	});
+
+	// listener, whenever the server emits 'updateusers', this updates the username list
+	socket.on('updateusers', function(data) {
+		$('#users').empty();
+		$.each(data, function(key, value) {
+			// $('#users').append('<div>' + key + '</div>');
+			$('#users').append('<div>' + '<input type="checkbox" class="chkNames" name="name" value="'+key+'">' + key + '</div>');
+		});
+	});
+
+	// on load of page
+	$(function(){
+		$("#container").hide();
+		
+		// when the client clicks SEND
+		$('#datasend').click( function() {
+			var message = $('#data').val();
+			$('#data').val('');
+			// tell server to execute 'sendchat' and send along one parameter
+			socket.emit('sendchat', message);
+		});
+
+		// when the client hits ENTER on their keyboard
+		$('#data').keypress(function(e) {
+			if(e.which == 13) {
+				$(this).blur();
+				$('#datasend').focus().click();
+			}
+		});
+
+		$(".chkNames:checkbox").live('change', function(){
+			    var names = '';
+				$('.chkNames:checked').each(function () {
+			       names += $(this).val()+',';
+				});
+				names = names.replace(/,\s*$/, "");
+				$("#toUsers").val(names);
+
+				arrToUsers = names.split(",");
+
+				console.log(arrToUsers);
+		});
+
+
+		// when the client clicks SEND for message,not global chat
+		$('#sendMsg').click( function() {
+			var message = $('#msg').val();
+			$('#msg').val('');
+			// tell server to execute 'sendchat' and send along one parameter
+			socket.emit('sendMessage', message, arrToUsers, curUser);
+			$("#toUsers").val('');
+			$('.chkNames:checked').removeAttr('checked');
+		});
+
+		// when the client hits ENTER on their keyboard
+		$('#msg').keypress(function(e) {
+			if(e.which == 13) {
+				$(this).blur();
+				$('#sendMsg').focus().click();
+			}
+		});
+	});
+
+</script>
+	<h2 id="myName"></h2>
+	<div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+		<b>USERS</b>
+		<div id="users"></div>
+	</div>
+	<div style="margin-left:40px;width:500px;color:#214DA8" class="loading">Loading , Please Wait......</div>
+	<p style="border:2px dotted grey;margin-left:150px;width:500px;color:#214DA8">Global Chat</p>
+	<div id="container" style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+	
+	<div id="conversation"></div>
+	<input id="data" style="width:200px;" />
+	<input type="button" id="datasend" value="send" />
+	</div>
+
+	<div id="pvtMsgContainer" style="clear:both;border-top:1px solid black;">
+	<p style="border:2px dotted grey;color:#214DA8">Private Chat , Check User(s) you want to chat with</p>
+		<table>
+			<tr>
+				<td>to</td>
+				<td><input type="text" id="toUsers"></td>
+			</tr>
+			<tr>
+				<td>msg</td>
+				<td><input type="text" id="msg"></td>
+			</tr>
+			<tr>
+				<td><button id="sendMsg">Send</button></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

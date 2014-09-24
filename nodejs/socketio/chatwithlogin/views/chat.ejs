@@ -1,0 +1,78 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+
+	<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script>
+		//request for a new connection to the server
+		var socket = io.connect('http://localhost:5555');
+
+		var arrToUsers = '';
+
+		// on connection to server, ask for user's name with an anonymous callback
+		socket.on('connect', function(){
+			console.log("connected...");
+		});
+
+		$(function(){
+			$(".chkNames:checkbox").on('change', function(){
+			    var names = '';
+			    var namesId = '';
+				$('.chkNames:checked').each(function () {
+			       namesId += $(this).val()+',';
+			       names += $(this).next().html()+',';
+				});
+				namesId = namesId.replace(/,\s*$/, "");
+				names = names.replace(/,\s*$/, "");				
+				console.log(names);
+				$("#toUsers").val(names);
+				arrToUsers = namesId.split(",");
+				console.log(arrToUsers);
+			});
+		});		
+	</script>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span>Hi ,<%= user.userName %></h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row" style="height:290px;overflow:auto;">
+            <div class="col-xs-4">
+				<h3>My Contacts</h3>                 
+				<table>
+					<% for(var i=0; i < contacts.length; i++) { %>
+					   <tr>
+					    	<td><input type="checkbox" class="chkNames" name="name" value="<%= contacts[i].userId %>"><span><%= contacts[i].userName %></span></td>
+					   </tr>
+					<% } %>
+				</table>
+            </div>
+            <div class="col-xs-8">
+            	<h4>To Users</h4>
+                <input id="toUsers" style="padding: 10px; width: 100%; margin-right: .5%;" autocomplete="off" />
+                <form action="" style="background: #000; padding: 3px; bottom: 0; width: 100%;margin-top:100px;">
+			      <input id="message" style="padding: 10px; width: 90%; margin-right: .5%;" autocomplete="off" /><button style="width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;">Send</button>
+			    </form>
+            </div>
+        </div>
+
+    <div class="row">
+		<h3>Chat Messages</h3>
+		<div style="border : 1px dotted;">Chats Will be here</div>
+	</div>    
+</div>
+</body>
+</html>
