@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Basic Json Usage</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript">
 
 		var myJson = {};
@@ -15,24 +16,95 @@
 			key2 : "value2",
 			key3 : "value3",
 			key4 : "value4",
-		}
+		};
 
-		//append a json object
+		//append a json object with a specified key and the value is a json object
 		myJson.jsonObject["key5"] = {innerKey : "innerKey1",innerVal : "innerVal"};
 
-		//append a specific value
+		//append a specific key and the value is a string value
 		myJson.jsonObject["key6"] = "value6";
 
-		//updation
+		//updation of a specific key with a specific value
 		myJson.jsonObject.key5 = "value 5 modified";
 
-		//deleting 
+		//deleting a specific key
 		delete myJson.jsonObject.key1
 
 		// var index = 1;
 		// myJson.jsonObject.key1.splice(index, 1);
 
 		console.log(myJson);
+
+		//iteration
+		for (var i in myJson) {
+			console.log("Key is ' " + i + " ',value is :"+myJson[i]);
+			
+			//break outer for loop i.e "i"
+			//if (i == 'stringValue') break;
+			
+			if (typeof myJson[i] === 'object') {
+				console.log("inner iteration of : '"+ i +" '");
+
+				var innerObj = myJson[i];
+				for (var j in innerObj) {
+					console.log("Key is " + j + ",value is :"+innerObj[j]);
+					
+					//break inner for loop i.e "j"
+					// if (j == 1) break;
+			
+				}
+			}
+		}
+
+		console.log("---------------Iterate Recursively Function ----------------");
+
+		$.each(myJson, function(key, val) { recursiveFunction(key, val) });
+
+	    function recursiveFunction(key, val) {
+	        actualFunction(key, val);
+	        var value = val;
+	        if (value instanceof Object) {
+	            $.each(value, function(key, val) {
+	                recursiveFunction(key, val)
+	            });
+	        }
+
+	    }
+
+        // do stuff checking etc here		    
+		function actualFunction(key, val) {
+		   if (val instanceof Object) console.log("inner iteration of : "+key);
+		   else console.log("key is :"+key+" value is : "+val);
+		}
+
+		console.log("---------------search in entire json function ----------------");
+
+		//search a specific value in the entire json array
+		searchVal(myJson,"value 5 modified");
+
+		var valueToSearch = '';
+		function searchVal(jsonObjectToSearchIn,valToSearch) {
+			valueToSearch = valToSearch;
+			$.each(jsonObjectToSearchIn, function(key, val) { recursiveFunctionAgain(key, val, valueToSearch) });
+		}
+
+		function recursiveFunctionAgain(key, val) {
+		        actualFunctionAgain(key, val);
+		        var value = val;
+		        if (value instanceof Object) {
+		            $.each(value, function(key, val) {
+		                recursiveFunctionAgain(key, val)
+		            });
+		        }
+
+		}
+
+        // do stuff checking etc here		    
+		function actualFunctionAgain(key, val) {
+		   if (val == valueToSearch) console.log("value -> ' "+valueToSearch+" ' , found at key -> "+key);
+		}
+
+
 	</script>
 </head>
 <body>
