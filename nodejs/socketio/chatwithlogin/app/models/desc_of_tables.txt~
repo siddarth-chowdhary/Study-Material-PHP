@@ -1,0 +1,43 @@
+mysql> desc chat;
++-------------+------------------+------+-----+---------+----------------+
+| Field       | Type             | Null | Key | Default | Extra          |
++-------------+------------------+------+-----+---------+----------------+
+| chatId      | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| createdDate | datetime         | NO   |     | NULL    |                |
++-------------+------------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc chatUser;
++------------+------------------+------+-----+---------+-------+
+| Field      | Type             | Null | Key | Default | Extra |
++------------+------------------+------+-----+---------+-------+
+| chatId     | int(10) unsigned | NO   | PRI | NULL    |       |
+| userId     | int(10) unsigned | NO   | PRI | NULL    |       |
+| visibility | tinyint(4)       | NO   |     | 1       |       |
+| password   | varchar(64)      | YES  |     | NULL    |       |
++------------+------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc message;
++-------------+------------------+------+-----+---------+----------------+
+| Field       | Type             | Null | Key | Default | Extra          |
++-------------+------------------+------+-----+---------+----------------+
+| messageId   | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| chatId      | int(10) unsigned | NO   |     | NULL    |                |
+| message     | text             | YES  |     | NULL    |                |
+| userId      | int(10) unsigned | NO   |     | NULL    |                |
+| createdDate | datetime         | NO   |     | NULL    |                |
++-------------+------------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc messageReceiver;
++--------------+------------------+------+-----+---------+-------+
+| Field        | Type             | Null | Key | Default | Extra |
++--------------+------------------+------+-----+---------+-------+
+| messageId    | int(10) unsigned | NO   |     | NULL    |       |
+| userId       | int(10) unsigned | NO   |     | NULL    |       |
+| receivedDate | datetime         | NO   |     | NULL    |       |
+| statusId     | tinyint(4)       | NO   |     | 1       |       |
++--------------+------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+

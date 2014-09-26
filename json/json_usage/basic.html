@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic Json Usage</title>
+	<script type="text/javascript">
+
+		var myJson = {};
+		myJson.stringValue = "My name is Siddarth Chowdhary";
+		myJson.integerValue = 123456;
+		myJson.booleanValue = true;
+		myJson.nullValue = null;
+		myJson.arrayOne = [12,12,12,12];
+		myJson.jsonObject = {
+			key1 : "value1",
+			key2 : "value2",
+			key3 : "value3",
+			key4 : "value4",
+		}
+
+		//append a json object
+		myJson.jsonObject["key5"] = {innerKey : "innerKey1",innerVal : "innerVal"};
+
+		//append a specific value
+		myJson.jsonObject["key6"] = "value6";
+
+		//updation
+		myJson.jsonObject.key5 = "value 5 modified";
+
+		//deleting 
+		delete myJson.jsonObject.key1
+
+		// var index = 1;
+		// myJson.jsonObject.key1.splice(index, 1);
+
+		console.log(myJson);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

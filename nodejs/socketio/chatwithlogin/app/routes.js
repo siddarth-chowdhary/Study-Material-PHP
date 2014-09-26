@@ -1,4 +1,4 @@
-// load up the user model
+// setup mysql connection
 var mysql = require('mysql');
 var dbconfig = require('./../config/database');
 var connection = mysql.createConnection(dbconfig.connection);

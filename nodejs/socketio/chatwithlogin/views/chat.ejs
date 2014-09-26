@@ -17,28 +17,224 @@
 		var socket = io.connect('http://localhost:5555');
 
 		var arrToUsers = '';
+		var noOfToUsers = '';
+
+		var currentUserId = '';
+
+		//will hold chat information client side i.e. for caching
+		var chatInfo = {
+			chats : [
+				{
+					id : 1,
+					users : [
+						{
+							user_id : 1,
+						},
+						{
+							user_id : 2,
+						},
+					],
+				},
+				{
+					id : 2,
+					users : [
+						{
+							user_id : 3,
+						},
+						{
+							user_id : 4,
+						},
+					],
+				},
+				{
+					id : 3,
+					users : [
+						{
+							user_id : 5,
+						},
+						{
+							user_id : 6,
+						},
+					],
+				},
+				{
+					id : 4,
+					users : [
+						{
+							user_id : 7,
+						},
+						{
+							user_id : 8,
+						},
+					],
+				},
+			]
+		}; 
 
 		// on connection to server, ask for user's name with an anonymous callback
 		socket.on('connect', function(){
 			console.log("connected...");
+			//to send the current user's id to server side
+			socket.emit('currentuser', '<%= user.userId %>');
+			currentUserId = '<%= user.userId %>';
+			console.log(currentUserId);
+		});
+
+		socket.on('updateContactsCache', function (dataContactToCache) {
+			chatInfo.chats.push(dataContactToCache);
+			console.log(":::: updated cache ::::")
+			console.log(chatInfo);
+		});
+
+		socket.on('updateChatsSentMessages', function (messagesSend) {
+			$("#tblMsgSent").html('');
+			$("#tblMsgSent").append('<tr><th>Message</th><th>Receiver Id</th></tr>')
+			for (var k in messagesSend) {
+				if (messagesSend[k] !== undefined && messagesSend[k].message !== undefined) {
+					$("#tblMsgSent").append('<tr><td>'+messagesSend[k].message+'</td><td>'+messagesSend[k].receiverId+'</td></tr>')	
+				}
+			}
+		});		
+
+
+		socket.on('updateChatsReceivedMessages', function (messagesReceived) {
+			$("#tblMsgReceived").html('');
+			$("#tblMsgReceived").append('<tr><th>Message</th><th>Sender Id</th></tr>')
+			for (var l in messagesReceived) {
+				if (messagesReceived[l] !== undefined && messagesReceived[l].message !== undefined) {
+					$("#tblMsgReceived").append('<tr><td>'+messagesReceived[l].message+'</td><td>'+messagesReceived[l].senderId+'</td></tr>')	
+				}
+			}
 		});
 
 		$(function(){
 			$(".chkNames:checkbox").on('change', function(){
 			    var names = '';
 			    var namesId = '';
+
+			    noOfToUsers = 0;
+
 				$('.chkNames:checked').each(function () {
+				   noOfToUsers++;
 			       namesId += $(this).val()+',';
 			       names += $(this).next().html()+',';
 				});
 				namesId = namesId.replace(/,\s*$/, "");
 				names = names.replace(/,\s*$/, "");				
-				console.log(names);
+				console.log("message will be send to :"+names);
 				$("#toUsers").val(names);
 				arrToUsers = namesId.split(",");
-				console.log(arrToUsers);
 			});
-		});		
+
+
+			// when the client clicks SEND
+			$('#btnSendMessage').click( function() {
+				var chatId = '';  //will hold the chat id
+
+				var message = $('#txtMessage').val();
+				$('#txtMessage').val('');
+				$('.chkNames:checked').removeAttr('checked');
+				$("#toUsers").val('');
+
+				var allUsersClientSide = [];
+				allUsersClientSide = arrToUsers.slice(0);
+				allUsersClientSide.push(currentUserId);
+
+				//will be used to keep values and only if blnChatId is true and valChatId contains a value the chat id will be send other wise false will be send as chat id
+				var blnChatId = false;
+				var valChatId = '';
+
+
+				//find the corresponding chat id start "caching"
+				//iterate
+				for(var i in chatInfo.chats)
+				{
+			     	//console.log(chatInfo.chats[i]);
+			     	var chatObj = '';
+			     	chatObj = chatInfo.chats[i];
+			     	if (chatObj !== undefined && chatObj.users !== undefined) {
+				     	//console.log("chatObj.users.length  :  "+chatObj.users.length);
+				     	//console.log("to users length  : "+noOfToUsers);
+				     	if (chatObj.users.length-1 > noOfToUsers) {
+				     		console.log("no operation");
+							//socket.emit('sendchat', message, arrToUsers,false);			     		
+				     	} else {
+				     		console.log("check for users");
+				     		//console.log("allUsersClientSide : "+allUsersClientSide.sort());
+				     		
+				     		var tempCachedUsers = [];
+				     		
+				     		for(var j in chatObj.users) {
+				     			if (chatObj.users[j].user_id !== undefined) {
+				     				tempCachedUsers.push(chatObj.users[j].user_id);
+				     			}
+				     		}
+				     		
+				     		//console.log("allUsersClientSideCached : "+tempCachedUsers.sort());
+
+				     		if (allUsersClientSide.sort().equals(tempCachedUsers.sort())) {
+				     			//console.log("chat has been done before");
+				     			//console.log(chatObj);
+				     			//socket.emit('sendchat', message, arrToUsers,chatObj.id);
+				     			blnChatId = true;
+				     			valChatId = chatObj.id;
+				     			break;
+				     		} else {
+				     			//console.log("chat has not been done before");
+				     		}
+				     		
+				     	}
+			     	}
+				}
+
+
+
+				if (blnChatId === true && valChatId != '')
+					socket.emit('sendchat', message, arrToUsers,valChatId);
+				else	
+					socket.emit('sendchat', message, arrToUsers,false);
+
+				//find the corresponding chat id ends "caching"
+			});
+
+			// when the client hits ENTER on their keyboard ,not needed since a form is created 
+			/*
+			$('#txtMessage').keypress(function(e) {
+				if(e.which == 13) {
+					$(this).blur();
+					$('#btnSendMessage').trigger( "click" );
+				}
+			});
+			*/
+
+		});
+
+
+		// attach the .equals method to Array's prototype to call it on any array
+		Array.prototype.equals = function (array) {
+		    // if the other array is a falsy value, return
+		    if (!array)
+		        return false;
+
+		    // compare lengths - can save a lot of time 
+		    if (this.length != array.length)
+		        return false;
+
+		    for (var i = 0, l=this.length; i < l; i++) {
+		        // Check if we have nested arrays
+		        if (this[i] instanceof Array && array[i] instanceof Array) {
+		            // recurse into the nested arrays
+		            if (!this[i].equals(array[i]))
+		                return false;       
+		        }           
+		        else if (this[i] != array[i]) { 
+		            // Warning - two different object instances will never be equal: {x:20} != {x:20}
+		            return false;   
+		        }           
+		    }       
+		    return true;
+		}
+			
 	</script>
 </head>
 <body>
@@ -63,15 +259,36 @@
             <div class="col-xs-8">
             	<h4>To Users</h4>
                 <input id="toUsers" style="padding: 10px; width: 100%; margin-right: .5%;" autocomplete="off" />
-                <form action="" style="background: #000; padding: 3px; bottom: 0; width: 100%;margin-top:100px;">
-			      <input id="message" style="padding: 10px; width: 90%; margin-right: .5%;" autocomplete="off" /><button style="width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;">Send</button>
+                <form action="javascript:void(0)" style="background: #000; padding: 3px; bottom: 0; width: 100%;margin-top:100px;">
+			      <input id="txtMessage" style="padding: 10px; width: 90%; margin-right: .5%;" autocomplete="off" /><button id="btnSendMessage" style="width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;">Send</button>
 			    </form>
             </div>
         </div>
 
     <div class="row">
 		<h3>Chat Messages</h3>
-		<div style="border : 1px dotted;">Chats Will be here</div>
+		
+
+		<div class="col-xs-6">
+			<h3>Messages Sent</h3>                 
+			<table id="tblMsgSent">
+				   <tr>
+				    	<td>message</td>
+				    	<td>sent to</td>
+				   </tr>
+			</table>
+        </div>
+
+        <div class="col-xs-6">
+			<h3>Messages Received</h3>                 
+			<table id="tblMsgReceived">
+				   <tr>
+				    	<td>message</td>
+				    	<td>received from</td>
+				   </tr>
+			</table>
+        </div>
+
 	</div>    
 </div>
 </body>

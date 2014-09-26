@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON</title>
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	var ListData = {
+	  "main": {
+	    "label":"Main",
+	    "url":"#main"
+	  },
+	  "project": {
+	    "label":"Project",
+	    "url":"#project"
+	  },
+	  "settings": {
+	    "label":"Settings",
+	    "url":"#settings",
+	    "subnav":[
+	      {
+	        "label":"Privacy",
+	        "url":"#privacy"
+	      },
+	      {
+	        "label":"Security",
+	        "url":"#security"
+	      },
+	      {
+	        "label":"Advanced",
+	        "url":"#advanced"
+	      }
+	    ]
+	 }
+	};
+	console.log(ListData);
+	
+	//add onbject
+	ListData.settings.subnav.push({label : "added_later", url:'#added_later'});
+	
+	console.log(ListData.settings.subnav);
+
+	var data = ListData.settings.subnav;
+
+	//iterate
+	for(var i in ListData.settings.subnav)
+	{
+     	console.log(ListData.settings.subnav[i]);
+	}
+
+	//remove
+	var index = 1;
+	ListData.settings.subnav.splice(index, 1);
+	console.log("after removing item");
+	//iterate
+	for(var i in ListData.settings.subnav)
+	{
+     	console.log(ListData.settings.subnav[i]);
+	}
+
+</script>
+<body>
+
+</body>
+</html>

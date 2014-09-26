@@ -1,0 +1,107 @@
+mysql> insert into chat(createdDate) values(now());
+
+mysql> select * from chat order by createdDate desc limit 1;
++--------+---------------------+
+| chatId | createdDate         |
++--------+---------------------+
+|      8 | 2014-09-25 10:47:40 |
++--------+---------------------+
+1 row in set (0.00 sec)
+
+
+mysql> insert into chatUser(chatId,userId) values (8,130),(8,136);
+Query OK, 2 rows affected (0.06 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from chatUser where chatId=8;
++--------+--------+------------+----------+
+| chatId | userId | visibility | password |
++--------+--------+------------+----------+
+|      8 |    130 |          1 | NULL     |
+|      8 |    136 |          1 | NULL     |
++--------+--------+------------+----------+
+2 rows in set (0.00 sec)
+
+
+mysql> insert into message(chatId,message,userId,createdDate) values(8,'hii..message inserted into db directly for testing',130,now());
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into message(chatId,message,userId,createdDate) values(8,'hii..message inserted into db directly for testing again...',130,now());
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into message(chatId,message,userId,createdDate) values(8,'hii..message inserted into db directly for testing another...',136,now());
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into message(chatId,message,userId,createdDate) values(8,'hii..message inserted into db directly for testing yet another...',136,now());
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from message where chatId=8;
++-----------+--------+-------------------------------------------------------------------+--------+---------------------+
+| messageId | chatId | message                                                           | userId | createdDate         |
++-----------+--------+-------------------------------------------------------------------+--------+---------------------+
+|         8 |      8 | hii..message inserted into db directly for testing                |    130 | 2014-09-25 10:53:57 |
+|         9 |      8 | hii..message inserted into db directly for testing again...       |    130 | 2014-09-25 10:54:07 |
+|        10 |      8 | hii..message inserted into db directly for testing another...     |    136 | 2014-09-25 10:54:21 |
+|        11 |      8 | hii..message inserted into db directly for testing yet another... |    136 | 2014-09-25 10:54:26 |
++-----------+--------+-------------------------------------------------------------------+--------+---------------------+
+4 rows in set (0.01 sec)
+
+mysql> INSERT INTO `messageReceiver` VALUES (8,136,now(),5),(9,136,now(),5),(10,130,now(),5),(11,130,now(),5);
+Query OK, 4 rows affected (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from messageReceiver where messageId IN (8,9,10,11);
++-----------+--------+---------------------+----------+
+| messageId | userId | receivedDate        | statusId |
++-----------+--------+---------------------+----------+
+|         8 |    136 | 2014-09-25 10:59:13 |        5 |
+|         9 |    136 | 2014-09-25 10:59:13 |        5 |
+|        10 |    130 | 2014-09-25 10:59:13 |        5 |
+|        11 |    130 | 2014-09-25 10:59:13 |        5 |
++-----------+--------+---------------------+----------+
+4 rows in set (0.00 sec)
+
+
+@message send by 1 user
+
+mysql> select message.chatId,message.messageId,message.message,message.userId as senderId,messageReceiver.userId as receiverId from message join messageReceiver on message.messageId = messageReceiver.messageId where message.userId=130;
++--------+-----------+-------------------------------------------------------------+----------+------------+
+| chatId | messageId | message                                                     | senderId | receiverId |
++--------+-----------+-------------------------------------------------------------+----------+------------+
+|      8 |         8 | hii..message inserted into db directly for testing          |      130 |        136 |
+|      8 |         9 | hii..message inserted into db directly for testing again... |      130 |        136 |
+|      9 |        12 | hiii sid..                                                  |      130 |        141 |
+|     10 |        13 | hiii sid...                                                 |      130 |        141 |
+|     11 |        14 | hii sidarth...                                              |      130 |        141 |
+|     12 |        15 | hey john...                                                 |      130 |        137 |
+|     13 |        16 | hey sonu..                                                  |      130 |        138 |
+|     14 |        17 | hey mike                                                    |      130 |        136 |
+|     15 |        18 | hiii                                                        |      130 |        137 |
+|     16 |        19 | test                                                        |      130 |        139 |
+|     17 |        20 | hey                                                         |      130 |        139 |
+|     18 |        21 | heyy                                                        |      130 |        139 |
+|     19 |        22 | test                                                        |      130 |        141 |
+|     20 |        23 | heyyy                                                       |      130 |        136 |
+|     21 |        24 | heyy ajay...                                                |      130 |        139 |
+|     22 |        25 | heyyy ajay...                                               |      130 |        139 |
+|     22 |        26 | hiiii ajay...again....                                      |      130 |        139 |
+|     22 |        27 | third time..                                                |      130 |        139 |
+|     23 |        28 | testing for 4...                                            |      130 |        137 |
+|     23 |        28 | testing for 4...                                            |      130 |        136 |
+|     23 |        28 | testing for 4...                                            |      130 |        141 |
+|     23 |        28 | testing for 4...                                            |      130 |        138 |
++--------+-----------+-------------------------------------------------------------+----------+------------+
+
+@message received by 1 user
+
+mysql> select message.chatId,messageReceiver.messageId,messageReceiver.userId as receiverId,message.userId as senderId,message.message from messageReceiver join message on messageReceiver.messageId = message.messageId where messageReceiver.userId =130;
++--------+-----------+------------+----------+-------------------------------------------------------------------+
+| chatId | messageId | receiverId | senderId | message                                                           |
++--------+-----------+------------+----------+-------------------------------------------------------------------+
+|      8 |        10 |        130 |      136 | hii..message inserted into db directly for testing another...     |
+|      8 |        11 |        130 |      136 | hii..message inserted into db directly for testing yet another... |
++--------+-----------+------------+----------+-------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+
+
