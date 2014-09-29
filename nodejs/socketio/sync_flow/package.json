@@ -1,0 +1,8 @@
+{
+  "name": "async-serial-exec",
+  "version": "0.0.1",
+  "description": "how to use the Async library for serial execution of asynchronous functions.",
+  "dependencies": { 
+	"async": "0.2.9"
+   }
+}
