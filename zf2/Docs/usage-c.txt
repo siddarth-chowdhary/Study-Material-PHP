@@ -1,0 +1,53 @@
+Concept of Pcontroller
+----------------------
+
+Each controller exends a PController which has following
+	Authentication Support
+	Session Initialization
+	On Dispatch
+		Executes as soon as a request is made to the application
+			Check For Login Etc Made here
+	Send Mail
+	All the Table Objects for the Models defined
+
+
+Controller
+----------
+Retrieve
+	Call Gateway method fetchall
+		Used Pagination src : https://zf2.readthedocs.org/en/latest/tutorials/tutorial.pagination.html
+		Used Search
+			create a form manually on the view
+				name of all the fields should be like an associative array
+				Get these feilds in the controller and pass them to the model where results are fetched
+
+Create
+	Create form Object
+	If post 
+		set input filter retreived from the model file function getInputFilter
+			If Valid
+				Save To DB
+			Else 	
+				Set Err
+	Return Form,Err to view
+
+Update
+	Get Id from the URL
+	Create Form Object
+	Bind Data to form fetched from the db for the particular ID
+		If Post
+			set input filter retreived from the model file function getInputFilter
+			If Valid
+				Save To DB
+			Else 	
+				Set Err		
+
+Delete
+	Get Id from the URL
+	Delete
+
+Navigation
+----------
+	Created an Array For the navigation	
+	Add it to the module.php
+	Call it in the layout.phtml

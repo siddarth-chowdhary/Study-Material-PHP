@@ -1,0 +1,43 @@
+command
+-------
+php composer.phar require zendframework/zftool:dev-master
+
+description
+-----------
+the above command will install zftool.phar in the location
+php vendor/zendframework/zftool
+
+command
+-------
+php php vendor/zendframework/zftool/zf.php
+
+description
+-----------
+will show the list of things this tool can do
+
+
+command
+-------
+php vendor/zendframework/zftool/zf.php create module Album
+
+description
+-----------
+The above command will create a module named Album
+
+command
+-------
+php vendor/zendframework/zftool/zf.php create controller Index Album
+
+description
+-----------
+The above command will create a controller named Index in the Album Module
+
+command
+-------
+php vendor/zendframework/zftool/zf.php create action add Index Album
+
+description
+-----------
+The above command will create an action named add in the Index Controller of the Album Module
+Also it will create the corresponding action
+

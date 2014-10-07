@@ -1,0 +1,75 @@
+Command
+-------
+php composer.phar create-project --stability="dev" zendframework/skeleton-application Demo
+
+Description
+-----------
+The above command will create a project name Demo in the current directory.
+
+Create a virtual host
+---------------------
+
+step 1
+------
+	command
+	-------
+	sudo vim /etc/apache2/sites-available/000-default.conf
+	
+	description 
+	-----------
+	open the file where entries to virtual hosts are present
+
+step 2
+------
+	append the code to the file opened in step 1
+	--------------------------------------------
+	
+	<VirtualHost *:80>
+        	ServerName demo.local
+	        DocumentRoot /var/www/html/self/zf2-testing/Demo/public
+        	SetEnv APPLICATION_ENV "development"
+	        <Directory /var/www/html/self/zf2-testing/Demo/public>
+        	        DirectoryIndex index.php
+        	        AllowOverride All
+        	        Order allow,deny
+        	        Allow from all
+        	</Directory>
+	</VirtualHost>
+
+	description
+	-----------
+	we have set the index.php as the virtual host entry point to the application
+
+
+step 3
+------
+	command(s)
+	----------
+	sudo a2ensite 000-default.conf
+	sudo a2enmod rewrite
+	sudo service apache2 restart
+
+step 4
+------
+	command
+	-------
+	sudo vim /etc/hosts
+
+	append the code
+	---------------
+	127.0.1.1	demo.local
+step 5
+------
+	command
+	-------
+	sudo service apache2 restart
+
+step 6
+------
+	entry to firefox
+
+step 7
+------
+	Browser -> open the location	
+	----------------------------
+	demo.local

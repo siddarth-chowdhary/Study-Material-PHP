@@ -1,0 +1,131 @@
+Steps
+======
+
+1.
+in the application.config.php comment the Application module.
+
+
+2.
+copy the code of module.cofig.php from the application module and make it relative to 
+your module.
+
+ex : 
+Changes 
+	Line 18
+	Application\Controller\Index
+	to	
+	Album\Controller\Index
+	
+	Line 30		
+	/application
+	to
+	/album
+	
+	Line 32
+	Application\Controller
+	to
+	Album\Controller
+
+	Line 76
+	Application\Controller\Index' => 'Application\Controller\IndexController'
+	to
+	Album\Controller\Index' => 'Album\Controller\IndexController'
+
+3.
+copy the layout/ and error/ folder from the application module's view folder and 
+paste it in your module's view folder.
+
+
+module.config.php of the newly created module
+---------------------------------------------
+@desc - use this as a base
+Name Of Module Is Album
+Name Of Controller Is Index
+<?php
+/**
+ * Zend Framework (http://framework.zend.com/)
+ *
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
+
+return array(
+    'router' => array(
+        'routes' => array(
+            'home' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/',
+                    'defaults' => array(
+                        'controller' => 'Album\Controller\Index',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            // The following is a route accesses all the actions of the Index Controller present inside the Album Module
+            'album' => array(
+                 'type'    => 'segment',
+                 'options' => array(
+                     'route'    => '/album[/][:action][/:id]',
+                     'constraints' => array(
+                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                         'id'     => '[0-9]+',
+                     ),
+                     'defaults' => array(
+                         'controller' => 'Album\Controller\Index',
+                         'action'     => 'index',
+                     ),
+                 ),
+             ),
+        ),
+    ),
+    'service_manager' => array(
+        'abstract_factories' => array(
+            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+            'Zend\Log\LoggerAbstractServiceFactory',
+        ),
+        'aliases' => array(
+            'translator' => 'MvcTranslator',
+        ),
+    ),
+    'translator' => array(
+        'locale' => 'en_US',
+        'translation_file_patterns' => array(
+            array(
+                'type'     => 'gettext',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern'  => '%s.mo',
+            ),
+        ),
+    ),
+    'controllers' => array(
+        'invokables' => array(
+            'Album\Controller\Index' => 'Album\Controller\IndexController'
+        ),
+    ),
+    'view_manager' => array(
+        'display_not_found_reason' => true,
+        'display_exceptions'       => true,
+        'doctype'                  => 'HTML5',
+        'not_found_template'       => 'error/404',
+        'exception_template'       => 'error/index',
+        'template_map' => array(
+            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'album/index/index' => __DIR__ . '/../view/album/index/index.phtml',
+            'error/404'               => __DIR__ . '/../view/error/404.phtml',
+            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+        ),
+        'template_path_stack' => array(
+            __DIR__ . '/../view',
+        ),
+    ),
+    // Placeholder for console routes
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+            ),
+        ),
+    ),
+);
+

@@ -1,0 +1,9 @@
+installing imagemagick
+----------------------
+$ sudo apt-get install gcc
+
+$ sudo apt-get install imagemagick
+
+$ sudo apt-get install php5-imagick
+
+$ sudo service apache2 reload
