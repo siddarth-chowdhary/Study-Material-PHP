@@ -1,0 +1,13 @@
+Installation
+------------
+In your home Directory
+----------------------
+$ mkdir .dropbox-alt
+$ HOME=$HOME/.dropbox-alt /usr/bin/dropbox start -i
+(Will go thru the installation process of another dropobox)
+Note: Requires 1 dropbox installed already.
+
+
+Run Again
+--------------
+HOME=$HOME/.dropbox-alt /usr/bin/dropbox start -i
