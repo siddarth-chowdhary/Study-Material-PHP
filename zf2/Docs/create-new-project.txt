@@ -1,0 +1,41 @@
+to get composer
+---------------
+curl -sS https://getcomposer.org/installer | php
+
+step 1.
+
+create a new project at location
+
+/var/www/html/self/zf2-testing/first
+
+make sure composer.phar is present
+ 
+php composer.phar create-project --stability="dev" zendframework/<name-of-application>
+
+ 
+step 2. create the virtual host
+
+make sure to run 2 commands if settings dont work
+	i.  mod rewrite
+	ii. a2ensite
+
+step 3. get zftool
+
+php composer.phar require zendframework/zftool:dev-master
+
+step 4. create new module
+
+php zftool.phar create module Test
+
+step 5. create new controller
+  
+php zftool.phar create controller User Test
+
+Here User is the name of the controller and Test is the name of the module
+
+
+step 6. copy the module.config.php from comm-app
+and pasted to the module.config.php
+
+step 7. copy the 2 folders layout/ and error/
+and paste them to the views folder
