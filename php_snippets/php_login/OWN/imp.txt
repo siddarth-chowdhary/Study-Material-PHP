@@ -1,0 +1,3 @@
+correct the path in htaccess
+
+also see ipm.png to make changes in 000-default file
