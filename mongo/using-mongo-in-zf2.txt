@@ -1,0 +1,36 @@
+namespace Test\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+use MongoClient;
+
+class UserController extends AbstractActionController
+{
+
+    public function indexAction()
+    {
+        //$mongo = new MongoWrapper();
+        $m = new MongoClient();
+        echo '<pre>';
+        echo "Connection to database successfully";
+        // select a database
+        $db = $m->chats;
+        echo "Database mydb selected";
+        $collection = $db->chats;
+        echo "Collection selected succsessfully";
+
+        $cursor = $collection->find();
+        // iterate cursor to display title of documents
+        foreach ($cursor as $document) {
+            print_r($document) . "\n";
+        }
+        die(__CLASS__);
+
+        
+    }
+
+
+}
+
+
