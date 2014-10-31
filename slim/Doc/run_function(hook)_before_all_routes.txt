@@ -1,0 +1,16 @@
+src: http://stackoverflow.com/questions/23791155/slim-php-run-routine-before-all-routes
+
+
+A easy solution would be to keep the non protected pages in a array, and in that hook check if the request is protected or not.
+
+$app->hook('slim.before.dispatch', function() use ($app) { 
+   $publicRoutes = array('login', 'welcome');
+
+   if(!in_array($app->router()->getCurrentRoute(), $publicRoutes) 
+       // Get the token 
+       $result = API::validate($token);
+       if(!$result) {
+       $app->redirect('/login');
+    }
+});
+If you want to handle a more complex process with permissions levels, oauths, etc you'll rather use a Middleware. I like them because it's the right way to do this kind of tasks with Slim, and you can reuse them.
