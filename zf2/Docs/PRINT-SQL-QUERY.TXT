@@ -1,0 +1,3 @@
+echo $sql->getSqlstringForSqlObject($select); die ; // ( die/exit to debugging purpose )
+//it will print sql string :
+// SELECT `album`.* FROM `album` WHERE `title` = 'abracadabra' AND (`id` = '1' OR `artist` = 'Tony') LIMIT 1
