@@ -1,0 +1,153 @@
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+use Zend\Db\Sql\Select;
+use Zend\Db\Sql\Expression;
+
+
+//echo $sql->getSqlstringForSqlObject($select); die ;
+
+//********************** Select All*******************************
+$select = new Select();             
+$select->from(array('pvr'=>'projectViewRequest'))
+    ->columns(array(select::SQL_STAR))
+    ->join('lookup_status','lookup_status.statusId=pvr.statusId',array('statusCode'), Select::JOIN_INNER)
+    ->join('project', 'project.projectId=pvr.projectId', array('projectName'), Select::JOIN_INNER)
+    ->join('user', 'user.userId=pvr.userId', array('requestedBy'=>new Expression('case when user.lastName is NOT NUll then concat(user.firstName," ", user.lastName) else user.firstName END')), Select::JOIN_INNER);
+
+if(!empty($searchParam['projectId'])) {
+$select->where->equalto('project.projectId', $searchParam['projectId']);
+}
+$resultSet = $this->tableGateway->select();
+return $resultSet;
+//********************** Select All*******************************
+
+//********************** Select One*******************************
+$userAccountId  = (int) $userAccountId;
+ $rowset = $this->tableGateway->select(array('userAccountId' => $userAccountId));
+ $row = $rowset->current();
+ if (!$row) {
+     return false;
+ } else {
+    return $row;
+ }
+//********************** Select One*******************************
+
+//********************** Update *******************************
+$data = array(
+    'userAccountId' => $userAccountId,
+    'region' => $userData->region,
+    'memberCategory' => $userData->memberCategory,
+    'chapter' => $userData->chapter,
+    'church' => $userData->church,
+    'nameOfPastor' => $userData->nameOfPastor,
+    'question1' => $userData->question1,
+    'question2' => $userData->question2,
+    'question3' => $userData->question3,
+    'question4' => $userData->question4,
+    'question5' => $userData->question5,
+    'signature' => $userData->signature,
+);
+try {
+    $this->tableGateway->update($data, array('userAccountId' => $userAccountId));
+} catch (\Exception $e) {
+   return false;
+}
+//********************** Update *******************************
+
+//********************** Insert *******************************
+$dateObj = new \DateTime('NOW');
+$data = array(
+    'userAccountId' => $userAccountId,
+    'region' => $userData->region,
+    'memberCategory' => $userData->memberCategory,
+    'chapter' => $userData->chapter,
+    'church' => $userData->church,
+    'nameOfPastor' => $userData->nameOfPastor,
+    'question1' => $userData->question1,
+    'question2' => $userData->question2,
+    'question3' => $userData->question3,
+    'question4' => $userData->question4,
+    'question5' => $userData->question5,
+    'signature' => $userData->signature,
+    'created' => $dateObj->format('Y-m-d:H:i:s'),
+);
+try {
+    $this->tableGateway->insert($data);
+} catch (\Exception $e) {
+   return false;
+}
+//********************** Update *******************************
+
+//********************** Delete *******************************
+$this->tableGateway->delete(array('countryId' => (int) $countryId));
+//********************** Delete *******************************
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+namespace Application\Model;
+
+use Zend\Db\TableGateway\AbstractTableGateway;
+use Zend\Db\Adapter\Adapter;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Adapter\AdapterAwareInterface;
+use Zend\Paginator\Adapter\DbSelect;
+use Zend\Paginator\Paginator;
+use Zend\Db\Sql\Sql;
+
+class StateTable extends AbstractTableGateway{
+      
+    protected $table = 'states';
+
+    public function __construct(Adapter $adapter) {
+        $this->adapter = $adapter;
+        $this->resultSetPrototype = new ResultSet(ResultSet::TYPE_ARRAY);
+        $this->initialize();
+    }
+
+    public function getStateList() {
+        $sql = new Sql($this->getAdapter());
+        $select = $sql->select()->from(array('state' => $this->table));
+        
+        // $this->getAdapter()->getDriver()->getConnection()->beginTransaction();
+        // $this->getAdapter()->getDriver()->getConnection()->commit();
+        // $this->getAdapter()->getDriver()->getConnection()->rollback();
+
+        //$select->columns(array('state_name'));
+        //$select->where(array('state.state_id' => '2'));
+
+        //$select->where->NEST->like('state.state_name', 'a%')->OR->like('state.state_name', 'b%');
+        //$select->where->OR->NEST->like('state.state_name', 'c%')->OR->like('state.state_name', 'd%');
+
+        //$select->where->nest()->like('state.state_name', 'a%')->OR->like('state.state_name', 'b%');
+        //$select->where->AND->nest()->like('state.state_name', 'c%')->OR->like('state.state_name', 'd%');
+
+        //$select->where->equalTo('state.state_name', 'Saint George');
+        //$select->where->greaterThan('state.state_id', 5);
+        //$select->where->lessThan('state.state_id', 10);
+        //$select->where->between('state.state_id', 5, 10);
+        //$select->where->greaterThanOrEqualTo('state.state_id', 10);
+        //$select->where->isNull('state.state_name');
+        //$select->where->isNotNull('state.state_name');
+        //$select->where->in('state.state_id', array(1,2,3,4,5));
+        //$select->where->notEqualTo('state.state_id', 10);
+        //$select->where->lessThanOrEqualTo('state.state_id', 10);
+        //$select->limit(5); // always takes an integer/numeric
+        //$select->offset(10); // similarly takes an integer/numeric
+
+        $select->join(array('country' => 'countries'), 'country.country_id = state.country_id', array('country_name'), $select::JOIN_INNER);
+
+        $select->order(array('country.country_name ASC'));
+        
+        //$select->columns(array('stateList' => new \Zend\Db\Sql\Expression("GROUP_CONCAT(state.state_name ORDER BY state.state_name ASC SEPARATOR ', ')")));
+
+        //$select->group(array('state.country_id'));
+        
+        $statement = $sql->prepareStatementForSqlObject($select);
+        
+        //print($statement->getSql());
+
+        $states = $this->resultSetPrototype->initialize($statement->execute())->toArray();
+        return $states;
+    }
+}
