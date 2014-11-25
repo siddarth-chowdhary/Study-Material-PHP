@@ -1,0 +1,4 @@
+parseInt - converts string to integer
+$.parseJSON(malformedJSON); - creates a correctly formed json object
+preventDefault - stop page refresh on form submit
+window.location.replace("http://location.com/path/1"); - to go to a location from jquery (Redirect)

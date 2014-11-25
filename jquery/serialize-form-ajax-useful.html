@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Serialize</title>
+	<script  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$('#btn').click( function(e) {
+			e.preventDefault();
+			var data = $("#frm").serialize();
+			console.log(data);
+		});	
+	});
+	</script>
+</head>
+<body>
+<form id="frm">
+	<input id="one" name="one" type="text"></input>
+	<select name="two" id="two">
+		<option val="1">Male</option>
+		<option val="2">FeMale</option>
+	</select>
+	<button id="btn">Click</button>
+</form>
+</body>
+</html>

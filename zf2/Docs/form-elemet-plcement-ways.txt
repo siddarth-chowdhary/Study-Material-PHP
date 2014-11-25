@@ -1,0 +1,32 @@
+<?php
+ // module/Album/view/album/album/add.phtml:
+
+ $title = 'Add new album';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('album', array('action' => 'add')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ ?>
+ <ul style= "list-style-type:none;">
+ 	<li>
+ 		<?php echo $this->formLabel($form->get('title')); ?>
+ 		<?php echo $this->formElement($form->get('title')); ?>
+ 		<?php echo $this->formElementErrors($form->get('title')); ?>
+ 	</li>
+
+ 	<li>
+ 		<?php echo $this->formRow($form->get('artist')); ?>
+ 	</li>
+
+ 	<li>
+ 		<?php echo $this->formSubmit($form->get('submit')); ?>
+ 	</li>
+ </ul>
+ 
+ <?php
+ echo $this->form()->closeTag();
