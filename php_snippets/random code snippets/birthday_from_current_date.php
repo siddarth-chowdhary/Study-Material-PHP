@@ -13,5 +13,5 @@ function birthday($birthday){
     return $age; 
 } 
 
-echo birthday('1989-12-05'); 
+echo birthday('02/14/1990'); 
 ?>

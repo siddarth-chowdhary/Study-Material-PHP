@@ -16,7 +16,7 @@ $select->where->equalto('efv.eventId', $eventId);
 $select->where->equalto('efv.userAccountId', $userId);
 $statement = $sql->prepareStatementForSqlObject($select);
 $details = $this->resultSetPrototype->initialize($statement->execute())->toArray();
-//print($statement->getSql());die;
+//echo $sql->getSqlstringForSqlObject($select); die ;
 return $details;
 //********************** Select Generic*******************************
 
@@ -46,6 +46,18 @@ $userAccountId  = (int) $userAccountId;
     return $row;
  }
 //********************** Select One*******************************
+
+
+//********************************** Nest Example STARTS************************
+$select->where
+       ->nest
+           ->equalTo('table2.column2', 2)
+           ->or
+           ->equalTo('table2.column3', 3)
+       ->unnest
+       ->and
+       ->equalTo('table1.column1', 1);
+//********************************** Nest Example ENDS************************       
 
 //********************** Update *******************************
 $data = array(
@@ -237,3 +249,4 @@ class StateTable extends AbstractTableGateway{
         return $states;
     }
 }
+
