@@ -179,7 +179,39 @@ class RegionTable {
     }
 
 }
-//********************************** RAW QUERY STARTS************************
+//********************************** RAW QUERY ENDS************************
+
+//********************************** TRANSACTION STARTS************************
+try {
+   $this->getDbAdapter()->getDriver()->getConnection()->beginTransaction();
+            
+   // INSERT
+           
+   $this->getDbAdapter()->getDriver()->getConnection()->commit();
+}
+catch(\Exception $e) {
+   $this->getDbAdapter()->getDriver()->getConnection()->rollback();
+}
+
+try{	
+
+        $this->db->beginTransaction(); 
+
+        // Account 
+        $user_id = $this->accountTable->insert($data_account);	
+        // User 
+        $data_user['id'] = $user_id; 
+        $this->userTable->insert($data_user); 
+                                
+        // User Profile 
+        $data_userProfile['user_id'] = $user_id; 
+        $this->userProfileTable->insert($data_userProfile); 
+                                
+} catch ( \Zend\Db\Exception $e ) { 
+        $this->db->rollback(); 
+        throw $e; 
+} 
+//********************************** TRANSACTION ENDS************************
 
 
 /////////////////////////////////////////////////////////////////////////////////////////

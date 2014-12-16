@@ -1,0 +1,1 @@
+SELECT group_concat(userId) AS `userIds` FROM `user` WHERE `statusId` = '1' AND `userType` = '2' AND `userId` != '257' AND FIND_IN_SET(userId,'276,277')
