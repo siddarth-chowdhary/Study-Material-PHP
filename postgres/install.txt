@@ -1,0 +1,38 @@
+install postgresql
+------------------
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+
+change user
+-----------
+sudo -i -u postgres
+
+create new user
+---------------
+createuser root -P
+
+
+Assign Role
+-----------
+ALTER USER root WITH SUPERUSER;
+ALTER USER root WITH CreateDB;
+
+Php Pg Admin
+------------
+sudo apt-get install phppgadmin
+
+create link
+-----------
+ln -s /usr/share/phppgadmin /var/www/html/phppgadmin
+
+Go to : http://localhost/phppgadmin
+
+for error : 
+----------
+"Login disallowed for security reasons"
+
+edit /usr/share/phppgadmin/conf/config.inc.php
+
+and change :
+
+$conf['extra_login_security'] = true; to $conf['extra_login_security'] = false;
