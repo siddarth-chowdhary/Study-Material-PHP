@@ -1,0 +1,17 @@
+in composer.json (Require)
+----------------
+"zendframework/zend-developer-tools": "dev-master",
+
+config/application.config.php 
+-----------------------------
+'modules' => array(
+    'Application',
+    'ZendDeveloperTools',
+),
+
+
+copy 
+----
+vendor/zendframework/zend-developer-tools/config/zenddevelopertools.local.php.dist 
+to 
+config/autoload/zenddevelopertools.local.php
