@@ -120,7 +120,9 @@ public function editUser($userData) {
     }
 //********************** Update 2 Tables*******************************
 
-
+/************* LAST INSERTED VALUE *****************/
+$user_id = $this->tableGateway->lastInsertValue;
+/************* LAST INSERTED VALUE *****************/
 
 //********************** Insert *******************************
 $dateObj = new \DateTime('NOW');
@@ -181,6 +183,11 @@ class RegionTable {
 }
 //********************************** RAW QUERY ENDS************************
 
+//********************************** GETDETAILS BY ID STARTS************************
+public function getProject($projectId) {
+ return $this->getDetailById('projectId',$projectId);
+}
+//********************************** GETDETAILS BY ID ENDS************************
 //********************************** TRANSACTION STARTS************************
 try {
    $this->getDbAdapter()->getDriver()->getConnection()->beginTransaction();
